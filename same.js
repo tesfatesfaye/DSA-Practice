@@ -27,8 +27,6 @@ function squared(arrayOne, arrayTwo){ //example one
 
 }
 
-console.log(squared([2,4,8],[4,16,64]))
-console.log(squared([1],[1]))
 
 // example one works fine but a cleaner version is presented below.
 
@@ -50,6 +48,38 @@ for(let i=0; i<arrayOne.length;i++){
 
 }
 
-console.log(squaredTwo([2,4,8],[4,16,64]))
-console.log(squaredTwo([2,4,8],[4,16,12]))
-console.log(squaredTwo([2,4,8],[4,16]))
+
+function squaredThree(arrayOne,arrayTwo){ // this third function is much better in terms of performance it's o(n)
+    if(arrayOne.length!==arrayTwo.length){
+        return false
+    }
+let arrayOneHolder={}
+let arrayTwoHolder={}
+    for(let item of arrayOne){
+        arrayOneHolder[item] ? arrayOneHolder[item]=arrayOneHolder[item] +1 : arrayOneHolder[item]=1
+    }
+
+    for(let item of arrayTwo){
+        arrayTwoHolder[item] ? arrayTwoHolder[item]=arrayTwoHolder[item] +1 : arrayTwoHolder[item]=1
+
+    }
+
+
+for(let item in arrayOneHolder){
+
+    if(!(arrayTwoHolder[item**2])){
+        return false
+    }
+
+    if(!(arrayOneHolder[item] ===arrayTwoHolder[item**2])){
+        return false
+    }
+
+}
+    return true
+
+}
+
+
+console.log(squaredThree([1,2,3,2],[1,4,4,9]))
+
