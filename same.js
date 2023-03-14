@@ -40,7 +40,7 @@ for(let i=0; i<arrayOne.length;i++){
     if(holder===-1){
         return false
     }
-    console.log(arrayTwo)
+   
     arrayTwo.splice(holder,1)
 
 }
@@ -49,7 +49,7 @@ for(let i=0; i<arrayOne.length;i++){
 }
 
 
-function squaredThree(arrayOne,arrayTwo){ // this third function is much better in terms of performance it's o(n)
+function squaredThree(arrayOne,arrayTwo){ // 
     if(arrayOne.length!==arrayTwo.length){
         return false
     }
