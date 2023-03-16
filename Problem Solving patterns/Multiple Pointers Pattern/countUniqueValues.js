@@ -42,5 +42,5 @@ function countUniqueValuesColt(arrayInput){ // colts solution
     return i +1
 }
 
-console.log(countUniqueValuesColt([1,1,1,1,2,3,4,5]))
+countUniqueValuesColt([1,1,1,1,2,3,4,5])
 
