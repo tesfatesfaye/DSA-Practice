@@ -1,4 +1,4 @@
-function countUniqueValues(arrayInput){ // this would work but a
+function countUniqueValues(arrayInput){ // my solution 
 if(arrayInput.length<1){
    return 0
 }
@@ -43,3 +43,4 @@ function countUniqueValuesColt(arrayInput){ // colts solution
 }
 
 console.log(countUniqueValuesColt([1,1,1,1,2,3,4,5]))
+
