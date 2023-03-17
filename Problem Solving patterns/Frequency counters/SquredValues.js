@@ -49,37 +49,33 @@ for(let i=0; i<arrayOne.length;i++){
 }
 
 
-function squaredThree(arrayOne,arrayTwo){ // 
+function squaredFour(arrayOne,arrayTwo){
     if(arrayOne.length!==arrayTwo.length){
         return false
     }
 let arrayOneHolder={}
 let arrayTwoHolder={}
-    for(let item of arrayOne){
-        arrayOneHolder[item] ? arrayOneHolder[item]=arrayOneHolder[item] +1 : arrayOneHolder[item]=1
-    }
-
-    for(let item of arrayTwo){
-        arrayTwoHolder[item] ? arrayTwoHolder[item]=arrayTwoHolder[item] +1 : arrayTwoHolder[item]=1
-
-    }
-
-
-for(let item in arrayOneHolder){
-
-    if(!(arrayTwoHolder[item**2])){
-        return false
-    }
-
-    if(!(arrayOneHolder[item] ===arrayTwoHolder[item**2])){
-        return false
-    }
-
+for(let value of arrayOne){
+    arrayOneHolder[value] ? arrayOneHolder[value]++ : arrayOneHolder[value]=1 
 }
+for(let value of arrayTwo){
+    arrayTwoHolder[value] ? arrayTwoHolder[value]++: arrayTwoHolder[value]=1 
+}
+
+for(let value in arrayOneHolder){
+    if(!(arrayTwoHolder[value**2])){
+        return false
+    }
+    if(arrayOneHolder[value]!==arrayTwoHolder[value**2]){
+        return false
+    }
+}
+   
     return true
 
 }
+console.log(squaredFour([1,2,3,2,2],[1,4,4,4,9]))
 
 
-console.log(squaredThree([1,2,3,2],[1,4,4,9]))
+
 
