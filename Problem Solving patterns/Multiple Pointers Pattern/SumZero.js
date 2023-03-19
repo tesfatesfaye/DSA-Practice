@@ -20,31 +20,31 @@ function sumZero(arrayInput){
 
 console.log(sumZero([-4,-3,-2,-1,0,1,2,5]))
 
-function sumZeroMultiplePointer(arrayInput){
- if(arrayInput.length<2){
-    return "not enough inputs"
- }
- 
-let leftValue=0;
-let rightValue=arrayInput.length-1
 
-while(rightValue>leftValue){
-    let sum=arrayInput[leftValue]+arrayInput[rightValue]
-    if(sum===0){
-        return[arrayInput[leftValue],arrayInput[rightValue]]
+
+function sumZeroMultiplePointer(inputArray){
+let leftValue=0
+let rightValue=inputArray.length-1
+while(leftValue<rightValue){
+    if(inputArray[leftValue]+inputArray[rightValue]===0){
+        return[inputArray[leftValue],inputArray[rightValue]]
     }
-    else if(sum>0){
+    else if(inputArray[leftValue]+inputArray[rightValue]>0){
         rightValue--
     }
-
     else{
-        leftValue++
+        leftValue ++
     }
 
 }
- return undefined
-
+        return undefined
 }
+
+
+console.log(sumZeroMultiplePointer([-3,-2,-1,0,1]))
+console.log(sumZeroMultiplePointer([-3,-2,-1,0,7,99]))
+
+
 
 
 console.log(sumZeroMultiplePointer([-4,-3,-2,-1,0,1,2,3,10]))
