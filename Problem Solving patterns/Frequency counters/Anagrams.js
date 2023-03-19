@@ -26,35 +26,28 @@ function validAnagram(stringOne,stringTwo){
     return true
   }
 
-console.log(anagrams("hello","ollhe"))
+console.log(validAnagram("hello","ollhe"))
 
 
 // Rewrote the function and made it cleaner
 
-function anagramsTwo(stringOne,stringTwo){
+function validAnagramTwo(stringOne,stringTwo){
     if(stringOne.length!==stringTwo.length){
         return false
     }
-    
-    let stringOneHolder={}
-  
-    
-    for(let i of stringOne){
-    
-        stringOneHolder[i] ? stringOneHolder[i]+=1 : stringOneHolder[i]=1
+    const stringOneHolder={}
+    for(let value of stringOne){
+        stringOneHolder[value] ? stringOneHolder[value]++ : stringOneHolder[value]=1
     }
-    
-    for(let i of stringTwo){
-        if(!(stringOneHolder[i])){
-            return false;
-        }
-        stringOneHolder[i] -=1
+    for(let value of stringTwo){
+        if(!stringOneHolder[value]){
+            return false
+     }
+
+     stringOneHolder[value]-=1
     }
-    
- 
     return true
-    
 
 }
 
-console.log(anagramsTwo("",""))
+console.log(validAnagramTwo("helloh","ollhey"))
