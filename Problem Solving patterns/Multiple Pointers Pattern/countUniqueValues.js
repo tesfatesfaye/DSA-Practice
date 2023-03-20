@@ -1,24 +1,19 @@
-function countUniqueValues(arrayInput){ // my solution 
-if(arrayInput.length<1){
-   return 0
-}
-let uniqueValue=1
-let leftValue=0
-let rightValue=1
-      while(rightValue<arrayInput.length){
-        if(arrayInput[leftValue] !==arrayInput[rightValue]){
-            uniqueValue++
-            leftValue++
-            rightValue++
+function countUniqueValues(valuesArray){ // my solution 
+    let leftPointer=0
+    let rightPointer=1
+    let uniqueValue=1
+    while(rightPointer<valuesArray.length){
+        if(valuesArray[leftPointer]!==valuesArray[rightPointer]){
+            uniqueValue =uniqueValue+1
+            leftPointer ++
+            rightPointer ++
         }
         else{
-            leftValue+=1
-            rightValue+=1
+            leftPointer ++
+            rightPointer ++
         }
-
-    }
-    return uniqueValue
-
+        }
+        return uniqueValue
 
 }
 
@@ -44,3 +39,19 @@ function countUniqueValuesColt(arrayInput){ // colts solution
 
 countUniqueValuesColt([1,1,1,1,2,3,4,5])
 
+
+function uniqueValuesUpdated(arrayInput){ //colts solution redux
+    let i=0
+    let j=1
+    for(j in arrayInput){
+        if(arrayInput[j] !==arrayInput[i]){
+            i++
+            arrayInput[i]=arrayInput[j]
+            
+        }
+
+    }
+    return i+1
+}
+
+console.log(uniqueValuesUpdated([1,2,3,3,4,5,5,5,6,6,6,7]))
