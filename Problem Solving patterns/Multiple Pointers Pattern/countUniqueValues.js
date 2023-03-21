@@ -20,27 +20,12 @@ function countUniqueValues(valuesArray){ // my solution
 
 console.log(countUniqueValues([1,1,1,1,2,3,4]))
 
-function countUniqueValuesColt(arrayInput){ // colts solution
-    if(arrayInput.length<2){
-        if(arrayInput.length===0){
-            return 0
-        }
-        return 1
-    }
-    let i=0
-    for( let j=1;j<arrayInput.length;j++){
-        if(arrayInput[i]!==arrayInput[j]){
-            i++
-            arrayInput[i]=arrayInput[j]
-        }
-    }
-    return i +1
-}
-
-countUniqueValuesColt([1,1,1,1,2,3,4,5])
 
 
 function uniqueValuesUpdated(arrayInput){ //colts solution redux
+    if(arrayInput.length===0){
+        return 0
+    }
     let i=0
     let j=1
     for(j in arrayInput){
@@ -53,5 +38,6 @@ function uniqueValuesUpdated(arrayInput){ //colts solution redux
     }
     return i+1
 }
+
 
 console.log(uniqueValuesUpdated([1,2,3,3,4,5,5,5,6,6,6,7]))
