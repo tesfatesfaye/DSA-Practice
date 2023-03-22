@@ -1,4 +1,4 @@
-function maxSubarraySum(arrayInput,consecutive){
+function maxSubarraySum(arrayInput,consecutive){ 
     if(arrayInput.length===0){
         return null
     }
@@ -19,5 +19,5 @@ function maxSubarraySum(arrayInput,consecutive){
     return maxValue
 }
 
-console.log(maxSubarraySum([1,2,3,10,91,34],2))
+console.log(maxSubarraySum([-1,-2,-3,-10,-91,-34],2))
 
