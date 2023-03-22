@@ -12,9 +12,8 @@ function maxSubarraySum(arrayInput,consecutive){
   
     let sum=sliced.reduce((k,l)=>k+l,0)
      
-        if(sum>maxValue){
-            maxValue=sum
-        }
+        maxValue=Math.max(sum,maxValue)
+       
    }
     return maxValue
 }
