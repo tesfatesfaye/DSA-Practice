@@ -5,17 +5,23 @@ return null
 }
 let minValue=0
 let maxValue=arr.length-1
-while(minValue<=max){
-    let middle=Math.floor(maxValue/2)
-    let currentValue=arr[middle]
-    if(currentValue<val){
-        minValue=middle
+
+while(minValue<=maxValue){
+let middleValue=Math.floor((maxValue+minValue)/2)
+if(arr[middleValue]>val){
+    maxValue=middleValue-1
+   
     }
-    else if(middle>val){
-        maxValue=middle
+else if(arr[middleValue]<val){
+    minValue=middleValue+1
+   
+}
+else{
+        return middleValue 
     }
 }
-
-
+ return -1
 
 }
+
+console.log(binarySearch([1,2,3,4,5,6,7,8,9,10],9))
