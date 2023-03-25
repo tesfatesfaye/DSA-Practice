@@ -1,4 +1,4 @@
-function validAnagram(stringOne,stringTwo){
+const validAnagram=(stringOne,stringTwo)=>{
     if(stringTwo.length!==stringOne.length){
         return false
     }
@@ -31,7 +31,7 @@ console.log(validAnagram("hello","ollhe"))
 
 // Rewrote the function and made it cleaner
 
-function validAnagramTwo(stringOne,stringTwo){
+const validAnagramTwo=(stringOne,stringTwo)=>{
     if(stringOne.length!==stringTwo.length){
         return false
     }

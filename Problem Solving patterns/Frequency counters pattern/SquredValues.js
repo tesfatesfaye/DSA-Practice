@@ -49,7 +49,7 @@ for(let i=0; i<arrayOne.length;i++){
 }
 
 
-function squaredFour(arrayOne,arrayTwo){
+function squaredThree(arrayOne,arrayTwo){
     if(arrayOne.length!==arrayTwo.length){
         return false
     }
@@ -74,7 +74,7 @@ for(let value in arrayOneHolder){
     return true
 
 }
-console.log(squaredFour([1,2,3,2,2],[1,4,4,4,9]))
+console.log(squaredThree([1,2,3,2,2],[1,4,4,4,9]))
 
 
 

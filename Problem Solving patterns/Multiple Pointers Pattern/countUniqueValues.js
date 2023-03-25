@@ -1,7 +1,7 @@
 function countUniqueValues(valuesArray){ // my solution 
     let leftPointer=0
     let rightPointer=1
-    let uniqueValue=1
+    let uniqueValue=0
     while(rightPointer<valuesArray.length){
         if(valuesArray[leftPointer]!==valuesArray[rightPointer]){
             uniqueValue =uniqueValue+1
@@ -13,7 +13,7 @@ function countUniqueValues(valuesArray){ // my solution
             rightPointer ++
         }
         }
-        return uniqueValue
+        return uniqueValue+1
 
 }
 
