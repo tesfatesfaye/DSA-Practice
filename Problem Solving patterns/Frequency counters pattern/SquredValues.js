@@ -1,5 +1,5 @@
 //function that checks if the values of one array squared in another, they must have the same frequency
-function squared(arrayOne, arrayTwo){ //example one 
+const squared=(arrayOne, arrayTwo)=>{ //example one 
     let similar=[]
     if(arrayOne.length!==arrayTwo.length){
          return false
@@ -31,7 +31,7 @@ function squared(arrayOne, arrayTwo){ //example one
 // example one works fine but a cleaner version is presented below.
 
 
-function squaredTwo(arrayOne,arrayTwo){ //very similar solution albeit cleaner however, it's still o(n^2)
+const squaredTwo=(arrayOne,arrayTwo)=>{ //very similar solution albeit cleaner however, it's still o(n^2)
     if(arrayOne.length!==arrayTwo.length){
             return false
     }
@@ -49,7 +49,7 @@ for(let i=0; i<arrayOne.length;i++){
 }
 
 
-function squaredThree(arrayOne,arrayTwo){
+const squaredThree=(arrayOne,arrayTwo)=>{
     if(arrayOne.length!==arrayTwo.length){
         return false
     }
