@@ -1,4 +1,4 @@
-function countUniqueValues(valuesArray){ // my solution 
+const countUniqueValues=(valuesArray)=>{ // my solution 
     let leftPointer=0
     let rightPointer=1
     let uniqueValue=0
@@ -22,7 +22,7 @@ console.log(countUniqueValues([1,1,1,1,2,3,4]))
 
 
 
-function uniqueValuesUpdated(arrayInput){ //colts solution redux
+const uniqueValuesUpdated=(arrayInput)=>{ //colts solution redux
     if(arrayInput.length===0){
         return 0
     }
