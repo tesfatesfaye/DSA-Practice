@@ -1,6 +1,6 @@
 
 // the multiple pointer pattern is ideal for comparing values in sorted/between arrays
-function sumZero(arrayInput){
+const sumZero=(arrayInput)=>{
     if (arrayInput.length<2){
         return false
     }
@@ -22,7 +22,7 @@ console.log(sumZero([-4,-3,-2,-1,0,1,2,5]))
 
 
 
-function sumZeroMultiplePointer(inputArray){
+const sumZeroMultiplePointer=(inputArray)=>{
 let leftValue=0
 let rightValue=inputArray.length-1
 while(leftValue<rightValue){
