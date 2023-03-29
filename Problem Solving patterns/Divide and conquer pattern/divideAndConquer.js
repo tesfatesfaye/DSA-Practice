@@ -1,5 +1,5 @@
 //highly utilized for sorting algorithm 
-function binarySearch(arr,val){
+const binarySearch=(arr,val)=>{
 if(arr.length===0){
 return null
 }
