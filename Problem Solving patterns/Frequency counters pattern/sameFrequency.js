@@ -1,4 +1,4 @@
-const frequencyCounter=(numOne,numTwo)=>{
+const sameFrequency=(numOne,numTwo)=>{
 const numOneString=numOne.toString()
 const numTwoString=numTwo.toString()
 if(numOneString.length!==numTwoString.length){
@@ -21,4 +21,4 @@ for(let char of numTwoString){
 
 }
 
-console.log(frequencyCounter(123,312))
+console.log(sameFrequency(123,312))
