@@ -7,9 +7,9 @@ if(numOneString.length!==numTwoString.length){
 let numOneStringHolder={}
 
 for(let char of numOneString){
-    numOneStringHolder[numOneString] ? numOneStringHolder[char]+=1 : numOneStringHolder[char]=1
+    numOneStringHolder[char] ? numOneStringHolder[char]++ : numOneStringHolder[char]=1
 }
-console.table(numOneStringHolder)
+
 for(let char of numTwoString){
     if(!numOneStringHolder[char]){
         return false
@@ -21,4 +21,4 @@ for(let char of numTwoString){
 
 }
 
-console.log(sameFrequency(123,312))
+console.log(sameFrequency(3589578, 5879385))
