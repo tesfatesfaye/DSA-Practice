@@ -1,4 +1,4 @@
-function maxSubarraySum(arrayInput,consecutive){ 
+const maxSubarraySum=(arrayInput,consecutive)=>{ 
     if(arrayInput.length===0){
         return null
     }
@@ -20,12 +20,13 @@ function maxSubarraySum(arrayInput,consecutive){
 
 console.log(maxSubarraySum([-1,-2,-3,-10,-91,-34],2))
 
-function maxSubarraySumTwo(arrayInput,value){
+const maxSubarraySumTwo=(arrayInput,value)=>{
     if(arrayInput.length===0){
         return null
     }
     else if(value>=arrayInput.length){
-        return arrayInput.reduce((i,j)=>i+j)
+        // return arrayInput.reduce((i,j)=>i+j)
+        return null
     }
     let maxValue=0
     let tempValue=0
