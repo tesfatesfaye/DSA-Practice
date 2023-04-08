@@ -44,3 +44,23 @@ const maxSubarraySumTwo=(arrayInput,value)=>{
 }
 
 console.log(maxSubarraySumTwo([-1,-2,-3,-10,91,34],2))
+
+
+// const maxSubarraySumThree=(arr,value)=>{
+//     if(arr.length<value || arr.length===0) return null
+//     let tempValue=0
+//     let maxValue=0
+//     for(let i=0; i<value;i++){
+//         maxValue+=arr[i]
+//     }
+//     tempValue=maxValue
+
+//     for(let i=value;i<arr.length;i++){
+//         tempValue=tempValue-arr[i-value]+arr[value]
+//         maxValue=Math.max(tempValue,maxValue)
+//      }
+
+//      return maxValue
+// }
+
+// console.log(maxSubarraySumThree([-1,-2,-3,-10,91,34],2))
