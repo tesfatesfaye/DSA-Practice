@@ -1,5 +1,5 @@
 const countDown=(num)=>{
-if(typeof(num)!=="number") return "please put in number"
+if(typeof(num)!=="number") return "please input a number"
  if(num<=0){
     return "all done"
 }
@@ -9,4 +9,4 @@ if(typeof(num)!=="number") return "please put in number"
 
 }
 
-countDown(7)
+countDown(3)
