@@ -29,7 +29,7 @@ const collectOddValuesPure=(arr)=>{
      oddArrayValues.push(arr[0])
     }
     
-    // oddArrayValues=oddArrayValues.concat(collectOddValuesPure(arr.slice(1)))
+
     oddArrayValues=[...oddArrayValues,...collectOddValuesPure(arr.slice(1))]
 
     return oddArrayValues
@@ -37,3 +37,4 @@ const collectOddValuesPure=(arr)=>{
 
 }
 console.table(collectOddValuesPure([1,2,3,4,5,6,7]))
+
