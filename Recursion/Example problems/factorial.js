@@ -19,3 +19,9 @@ const factorialRecursive=(num)=>{
 }
 
 console.log(factorialRecursive(4))
+
+
+
+
+
+

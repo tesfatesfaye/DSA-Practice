@@ -4,10 +4,11 @@ let oddArrayValues=[]
     const helperFunction=(arrayInput)=>{
         if(arrayInput.length===0) return 
         
-        if(arrayInput[0]%2!==0){
-            oddArrayValues.push(arrayInput[0])
+        if(arrayInput[arrayInput.length-1]%2!==0){
+            oddArrayValues.push(arrayInput[arrayInput.length-1])
         }
-        helperFunction(arrayInput.splice(1))
+        arrayInput.pop()// we can remove this piece of code if we use splice(1)
+        helperFunction(arrayInput)//splice(1) can be used here if we want to have the array in order
     
     }
 
