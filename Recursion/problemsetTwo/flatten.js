@@ -35,7 +35,7 @@ const helper=(arr)=>{
     
     }
 
-    return flatArray
+    
 }
     helper(arr)
     return flatArray
