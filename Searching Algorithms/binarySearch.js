@@ -13,7 +13,6 @@ const binarySearch=(arr,value)=>{
         else if(arr[middle]< value){
             left=middle+1
             
-                       
         }
 
         else if(arr[middle]>value){
