@@ -9,8 +9,6 @@ let flatArray=[]
         else{
             flatArray.push(item)
         }
-
-
     }
 
     return flatArray
