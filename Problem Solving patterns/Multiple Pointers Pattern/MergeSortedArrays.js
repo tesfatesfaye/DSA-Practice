@@ -23,4 +23,4 @@ const merge = (nums1, m, nums2, n) =>{
 
 };
 
-console.log(merge([1,2,3,4,5],5,[1,3,3,8,9],5))
+console.log(merge([1,2,3,4,5,10,11],7,[1,3,3,8,9,11],0))

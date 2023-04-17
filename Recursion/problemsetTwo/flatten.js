@@ -3,7 +3,7 @@ let flatArray=[]
 
     for(let item of arr){
         if(Array.isArray(item)){
-            flatArray=[...flatArray,...flatten(item)]
+            flatArray.push(...flatten(item))
         }
 
         else{
@@ -17,13 +17,15 @@ let flatArray=[]
 
 }
 
-const flattenHelper=(arr)=>{
+const flattenHelper=(arr,n)=>{
 let flatArray=[]
 
-const helper=(arr)=>{
+const helper=(arr,n)=>{
+    
+    if(n>0){
     for(let i of arr){
         if(Array.isArray(i)){
-            helper(i)
+            helper(i,n-1)
         }
 
         else {
@@ -32,9 +34,16 @@ const helper=(arr)=>{
     
     
     }
+    }
 
-    
+    else{
+        flatArray.push(...arr)
+    }
+
+
 }
+
+
     helper(arr)
     return flatArray
 
