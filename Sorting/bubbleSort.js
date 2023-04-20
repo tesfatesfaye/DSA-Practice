@@ -1,3 +1,5 @@
+
+//bubble sort is good for when an array is mostly sorted
 const bubbleSort=(arr)=>{ // Unoptimized bubble sort function
     let counter=0
       for(let i=0;i<arr.length;i++){
@@ -15,7 +17,6 @@ const bubbleSort=(arr)=>{ // Unoptimized bubble sort function
 
 }
     console.log(bubbleSort([1,2,3,5,4]))
-
 
 
 

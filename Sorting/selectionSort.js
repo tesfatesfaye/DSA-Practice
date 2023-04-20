@@ -1,3 +1,5 @@
+//selection sort is o(n^2) so it's not ideal for most situations, but if you don't wan to write to 
+// memory that much it's possibly an option 
 const selectionSort=(arr)=>{
 
 for(let i=0;i<arr.length;i++){
