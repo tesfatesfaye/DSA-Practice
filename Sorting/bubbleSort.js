@@ -1,8 +1,7 @@
 const bubbleSort=(arr)=>{
     let temp=0
     let counter=0
-    let newArray=[]
-    for(let i=0;i<arr.length;i++){
+      for(let i=0;i<arr.length;i++){
        for(let j=0;j<arr.length-i;j++){
         counter++
         console.log(arr)
