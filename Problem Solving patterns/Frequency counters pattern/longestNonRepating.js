@@ -4,9 +4,6 @@ const lengthOfLongestSubstring =(s) =>{
     let obj={}
     let strLength=""
     let str=""
-
-
-
     while(rightValue<s.length){
         
         if(!obj[s[rightValue]]){
@@ -26,15 +23,9 @@ const lengthOfLongestSubstring =(s) =>{
 
 
         }
-        
-
-
-
-
     }
 
   
-
     return strLength.length
 };
 
