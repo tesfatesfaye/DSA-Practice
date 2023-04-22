@@ -1,17 +1,16 @@
-// on square complexity 
-const insertionSort=(arr)=>{
-let jValue=0
+const insertionSort=(arr)=>{ //my solution
+
     for(let i=1;i<arr.length;i++){
 
-    let current=arr[i]
-    for(let j=i-1;j>=0 && arr[j] > current;j--){
-        arr[j+1]=arr[j]
-        jValue=j+1
+        let value=arr[i]
+        for(let j=i-1;j>=0 && arr[j]>value;j--){
+            arr[j+1]=arr[j]
+            arr[j]=value
+        }
+
     }
-    arr[jValue]=current
-}
-return arr
+    return arr
 
 }
 
-console.log(insertionSort([1,2,3,4]))
+console.log(insertionSort([4,5,6,1,2,19]))
