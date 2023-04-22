@@ -83,3 +83,6 @@ const bubbleSortOptimized=(arr)=>{ // this function is optimized to end if the f
 // }
 
 // console.log(bubbleSortColt([1,2,5,4,-3,9,12]))
+
+
+
