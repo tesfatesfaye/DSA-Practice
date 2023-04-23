@@ -5,15 +5,21 @@ let mergedArray=[]
 
         while(leftPointer<arr.length && rightPointer <arrTwo.length){
 
-            if(arr[leftPointer]<=arrTwo[rightPointer]){
+            if(arr[leftPointer]<arrTwo[rightPointer]){
                 mergedArray.push(arr[leftPointer])
                 leftPointer++
             }
 
-            else {
+            else if(arr[leftPointer]>arrTwo[rightPointer]) {
                 mergedArray.push(arrTwo[rightPointer])
                 rightPointer++
 
+            }
+
+            else{
+                mergedArray.push(arrTwo[rightPointer],arr[leftPointer])
+                rightPointer++
+                leftPointer++
             }
 
 
