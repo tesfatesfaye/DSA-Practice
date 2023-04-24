@@ -1,4 +1,4 @@
-const mergeSort=(arr,arrTwo)=>{
+const merge=(arr,arrTwo)=>{
 let leftPointer=0
 let rightPointer=0
 let mergedArray=[]
@@ -37,10 +37,22 @@ let mergedArray=[]
         return mergedArray
 
 
+}
 
+
+console.log(merge([1,2,5,7,9], [3,4,6,8]))
+
+
+const mergeSort=(arr)=>{
+
+    if(arr.length<=1)return arr;
+    let mid=Math.floor(arr.length/2)
+    let left=mergeSort(arr.slice(0,mid))
+    let right=mergeSort(arr.slice(mid))
+    return merge(left, right)
 
 
 }
 
 
-console.log(mergeSort([1,2,5,7,9], [3,4,6,8]))
+console.log(mergeSort([10,24,76,73]))
