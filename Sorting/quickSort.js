@@ -1,6 +1,7 @@
-function pivotHelper(arr,start=0,end=arr.length+1){
+const pivotHelper=(arr,start=0,end=arr.length+1)=>{
 const swap=(arr,i,j)=>{
-        [arr[i],arr[j]]=[arr[j],arr[i]]
+    if(i!==j) [arr[i],arr[j]]=[arr[j],arr[i]]
+       
     }
 let pivot=arr[start]
 let swapIdx=start
@@ -8,11 +9,12 @@ let swapIdx=start
    
    if(pivot>arr[i]){
     swapIdx++;
-     swap(arr,swapIdx,i)
+    swap(arr,swapIdx,i)
+   
    }
  }
  swap(arr,start,swapIdx)
- return arr
+ return swapIdx
 }
 
 console.log(pivotHelper([4,8,2,1,5,7,6,3]))
