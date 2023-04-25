@@ -1,4 +1,4 @@
-const pivotHelper=(arr,start=0,end=arr.length+1)=>{
+const pivotHelper=(arr,start=0,end=arr.length-1)=>{
 const swap=(arr,i,j)=>{
     if(i!==j){ 
         [arr[i],arr[j]]=[arr[j],arr[i]]}
@@ -6,7 +6,7 @@ const swap=(arr,i,j)=>{
     }
 let pivot=arr[start]
 let swapIdx=start
- for(let i=start+1;i<arr.length;i++){
+ for(let i=start+1;i<end;i++){
    
    if(pivot>arr[i]){
     swapIdx++;
@@ -18,4 +18,18 @@ let swapIdx=start
  return swapIdx
 }
 
-console.log(pivotHelper([4,8,2,1,5,7,6,3]))
+// console.log(pivotHelper([4,8,2,1,5,7,6,3]))
+
+function quickSort(arr,left=0,right=arr.length-1){
+  let pivotIndex=pivotHelper(arr,left,right)
+  console.log(`${left} ${right}`)
+  if(left<right){
+    quickSort(arr,left,pivotIndex-1)
+   quickSort(arr,pivotIndex+1,right)
+
+  }
+  console.log(arr)
+  return arr
+}
+
+console.log(quickSort([-1,4,8,2,1,5,7,6,3]))
