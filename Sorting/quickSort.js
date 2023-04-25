@@ -22,14 +22,19 @@ let swapIdx=start
 
 function quickSort(arr,left=0,right=arr.length-1){
   let pivotIndex=pivotHelper(arr,left,right)
-  console.log(`${left} ${right}`)
+ 
   if(left<right){
     quickSort(arr,left,pivotIndex-1)
    quickSort(arr,pivotIndex+1,right)
 
   }
-  console.log(arr)
+  // console.log(arr)
   return arr
 }
 
-console.log(quickSort([-1,4,8,2,1,5,7,6,3]))
+console.log(quickSort([4,8,2,1,5,7,8,9]))
+
+
+
+
+
