@@ -1,107 +1,84 @@
-// const bubbleSort=(arr)=>{
-    
-//     for(let i=0;i<arr.length;i++){
-
-//         let noSwaps=true
-
-//         for(let j=0;j<arr.length-1-i;j++){
-//             if(arr[j]>arr[j+1]){
-//                 [arr[j],arr[j+1]]=[arr[j+1],arr[j]]
-//                 noSwaps=false
 
 
-//             }
-
-
-//         }
-//             if(noSwaps) return arr
-
-//     }
-
-//     return arr
-
-
-
-// }
-
-
-// console.log(bubbleSort([5,1,2,5,6,3]))
-
-
-
-
-// const selection=(arr)=>{
-
-// for(let i=0;i<arr.length-1;i++){
-//     let lowest=i
-//     for(let j=i+1;j<arr.length;j++){
-//         if(arr[j]<arr[lowest]){
-//             lowest=j
-
-
-//         }
+// function pivot(arr, start = 0, end = arr.length - 1) {
+//     const swap = (arr, idx1, idx2) => {
+//       [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
+//     };
   
-
+//     // We are assuming the pivot is always the first element
+//     let pivot = arr[start];
+//     let swapIdx = start;
+  
+//     for (let i = start + 1; i <= end; i++) {
+//       if (pivot > arr[i]) {
+//         swapIdx++;
+//         swap(arr, swapIdx, i);
+//       }
 //     }
+  
+//     // Swap the pivot from the start the swapPoint
+//     swap(arr, start, swapIdx);
+//     return swapIdx;
+//   }
+  
+  
+//   function quickSort(arr, left = 0, right = arr.length -1){
+//       if(left < right){
+//           let pivotIndex = pivot(arr, left, right) //3
+//           //left
+//           quickSort(arr,left,pivotIndex-1);
+//           //right
+//           quickSort(arr,pivotIndex+1,right);
+//         }
+//        return arr;
+//   } 
+             
+//  console.log(quickSort([100,-3,2,4,6,9,1,2,5,3,23]))
+// var search = function(nums, target) {
+//     let index=-1
+//         if(nums.length<=1) return -1
+//     for(let i=1;i<nums.length;i++){
+//         if(nums[i-1]>nums[i]){
+//             index=i-1
+//             break;
+//         }
+//     }
+//    if(target<=index){
+//        return nums[target]
+//    }
+//    return -1
 
-//     [arr[lowest],arr[i]]=[arr[i],arr[lowest]]
 
-// }
+// };
 
-
-// return arr
+// console.log(search([4,5,6,7,0,1,2],4))
 
 
 
-
-// }
-
-// console.log(selection([5,1,2,5,6,3]))
-
-
-
-
-var items = [5,3,7,6,2,9];
-function swap(items, leftIndex, rightIndex){
-    var temp = items[leftIndex];
-    items[leftIndex] = items[rightIndex];
-    items[rightIndex] = temp;
-}
-function partition(items, left, right) {
-    var pivot   = items[Math.floor((right + left) / 2)], //middle element
-        i       = left, //left pointer
-        j       = right; //right pointer
-    while (i <= j) {
-        while (items[i] < pivot) {
-            i++;
+const strStr = (haystack, needle) =>{
+    let k=0
+    for(let i=0;i<haystack.length;i++){
+        if((haystack.length-i)<(needle.length)){
+            return -1
         }
-        while (items[j] > pivot) {
-            j--;
-        }
-        if (i <= j) {
-            swap(items, i, j); //sawpping two elements
-            i++;
-            j--;
-        }
+
+        while(i+k<haystack.length){
+            if(haystack[i+k]===needle[k]){
+                k++
+                if(k===needle.length){
+                    return i
+                }
+            }
+            else{
+                k=0
+                break;
+            }
+           }
     }
-    return i;
-}
 
-function quickSort(items, left, right) {
-        if (items.length > 1) {
-        //index returned from partition
-        if (left < right) { //more elements on the left side of the pivot
-            let index = partition(items, left, right);
-            quickSort(items, left, index - 1);
-            quickSort(items, index+1, right);
-        }
-       
-    return items;
-}
-// first call to quick sort
-}
-var sortedArray = quickSort(items, 0, items.length - 1);
-console.log(sortedArray); //prints [2,3,5,6,7,9]
+    
+            return -1;
 
+};
 
-
+console.log(strStr("mississippi","miss"))
