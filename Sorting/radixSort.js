@@ -14,3 +14,30 @@ const getDigit=(num,i)=>{
 }
 
  console.log(getDigit(12345,3))
+
+
+ const digitCount=(num)=>{
+
+    return Math.floor(Math.log10(Math.abs(num)))+1
+
+
+
+ }
+
+ const mostDigits=(arr)=>{
+
+    let count=0
+
+    for(let i of arr){
+        if(digitCount(i)>count){
+            count=digitCount(i)
+        }
+
+
+    }
+
+    return count
+
+ }
+
+ console.log(mostDigits([12398,56,7]))
