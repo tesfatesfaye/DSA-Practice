@@ -1,16 +1,19 @@
 const pivotHelper=(arr,start=0,end=arr.length-1)=>{
+  let middle=Math.floor((start+end)/2)
 const swap=(arr,i,j)=>{
-    if(i!==j){ 
-        [arr[i],arr[j]]=[arr[j],arr[i]]}
+   
+        [arr[i],arr[j]]=[arr[j],arr[i]];
        
     }
 let pivot=arr[start]
 let swapIdx=start
- for(let i=start+1;i<end;i++){
+ for(let i=start;i<=end;i++){
    
    if(pivot>arr[i]){
-    swapIdx++;
-    swap(arr,swapIdx,i)
+    swapIdx=swapIdx+1
+    console.log(swapIdx)
+    swap(arr,i,swapIdx)
+   
    
    }
  }
@@ -18,12 +21,13 @@ let swapIdx=start
  return swapIdx
 }
 
-// console.log(pivotHelper([4,8,2,1,5,7,6,3]))
+console.log(pivotHelper([4,8,2,1,5,7,6,3]))
 
 function quickSort(arr,left=0,right=arr.length-1){
-  let pivotIndex=pivotHelper(arr,left,right)
- 
+  
+    
   if(left<right){
+    let pivotIndex=pivotHelper(arr,left,right)
     quickSort(arr,left,pivotIndex-1)
    quickSort(arr,pivotIndex+1,right)
 
@@ -32,7 +36,7 @@ function quickSort(arr,left=0,right=arr.length-1){
   return arr
 }
 
-console.log(quickSort([4,8,2,1,5,7,8,9]))
+console.log(quickSort([4,8,2,1]))
 
 
 function partition(items, left, right) {
@@ -51,7 +55,7 @@ function partition(items, left, right) {
           j--;
       }
       if (i <= j) {
-          swap(items, i, j); //sawpping two elements
+          swap(items, i, j); //swapping two elements
           i++;
           j--;
       }
@@ -76,10 +80,10 @@ function quickSortCenter(items, left, right) {
   return items;
 }
 // first call to quick sort
-let items = [5,3,4,6,2,9];
+let items = [5,3,4,6,2,9,2];
 let sortedArray = quickSortCenter(items, 0, items.length - 1);
 
-console.log(quickSortCenter(items));
+// console.log(quickSortCenter(items));
 
 
 

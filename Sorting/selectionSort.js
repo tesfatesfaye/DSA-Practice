@@ -34,3 +34,6 @@ const selectionSortInstructor=(arr)=>{
 }
 
 console.log(selectionSort([4,1,3,6,5]))
+
+
+
