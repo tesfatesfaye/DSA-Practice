@@ -26,18 +26,38 @@ const getDigit=(num,i)=>{
 
  const mostDigits=(arr)=>{
 
-    let count=0
+    let maxDigits=0
 
     for(let i of arr){
-        if(digitCount(i)>count){
-            count=digitCount(i)
-        }
 
-
+       maxDigits= Math.max(maxDigits,digitCount(i))
+        
     }
 
-    return count
+    return maxDigits
 
  }
 
  console.log(mostDigits([12398,56,7]))
+
+
+ const radixSort=(arr)=>{
+
+   let maxSize=mostDigits(arr)
+
+   for(let k=0;k<maxSize;k++){
+      let bucket=Array.from({length:10},()=>[])
+  
+
+      for(let i=0;i<arr.length;i++){
+         let digit=getDigit(arr[i],k)
+         bucket[digit].push(arr[i])
+      }
+      
+      arr=[].concat(...bucket)
+
+   }
+      return arr
+ }
+
+console.log (radixSort([23,345,5467,12,2345,9852]))
