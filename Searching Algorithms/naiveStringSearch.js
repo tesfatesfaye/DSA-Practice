@@ -39,7 +39,6 @@ const optimalStringSearch=(longerString,shorterString)=>{
                 else{
                     placement++
                 }
-
                 }
            
             else{
