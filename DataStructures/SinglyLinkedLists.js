@@ -6,3 +6,9 @@ class Node{
         this.next=null
     }
 }
+
+let first=new Node("Hi")
+first.next=new Node("there")
+first.next.next=new Node("there two")
+first.next.next.next=new Node("there three")
+console.log(first.next)
