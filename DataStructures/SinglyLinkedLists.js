@@ -101,14 +101,11 @@ class SinglyLinkedList{
     }
 
     insert(index,value){
-        if(index===this.length){
-            this.push(value)
-            return true
-        }
-        else if(index===0){
-            this.unshift(value)
-            return true
-        }
+        if(index===this.length) return this.push(value)
+            
+        
+        else if(index===0) return !! this.unshift(value)
+        
         if(this.get(index)){
             let tempNode=this.get(index-1)
             let newNode=new Node(value)
@@ -133,8 +130,8 @@ list.push("You")
 list.push(99)
 list.push("sami")
 list.set(1,"boo")
-list.insert(2,"88")
-console.log(list.get(3))
+console.log(list.insert(0,"88"))
+
 
 
 
