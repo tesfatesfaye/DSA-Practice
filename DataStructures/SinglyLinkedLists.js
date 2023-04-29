@@ -60,6 +60,17 @@ class SinglyLinkedList{
             return current
         }
       
+        unshift(value){
+               
+            let newValue=new Node(value)
+            if(!this.head){
+                this.head=newValue
+            }
+            newValue.next=this.head
+            this.head=newValue
+            this.length++
+            return list
+    }
             
 
 
@@ -71,6 +82,7 @@ list.push("You")
 list.push(99)
 list.push("sami")
 console.log(list.shift())
+console.log(list.unshift('tes'))
 
 
 
