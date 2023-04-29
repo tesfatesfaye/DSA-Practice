@@ -41,13 +41,26 @@ class SinglyLinkedList{
                 }
                    this.tail=newTail;
                    this.tail.next=null
-                   this.length=this.length-1
+                   this.length--
                    if(this.length===0){
                     this.head=null
                     this.tail=null
                    }
                     return current
                 }
+
+        shift(){
+            if(!this.head)return undefined
+            let current=this.head
+            this.head=current.next
+            this.length--
+            if(this.length===0){
+                 this.tail=null
+            }
+            return current
+        }
+      
+            
 
 
 }
@@ -57,10 +70,8 @@ list.push("Hi")
 list.push("You")
 list.push(99)
 list.push("sami")
-console.log(list.pop())
-console.log(list.pop())
-console.log(list.pop())
-console.log(list.pop())
-console.log(list)
-console.log(list.pop())
+console.log(list.shift())
+
+
+
 
