@@ -65,6 +65,7 @@ class SinglyLinkedList{
             let newValue=new Node(value)
             if(!this.head){
                 this.head=newValue
+                this.tail=this.head
             }
             newValue.next=this.head
             this.head=newValue
