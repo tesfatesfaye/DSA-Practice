@@ -78,7 +78,18 @@ class SinglyLinkedList{
             return list
     }
             
+        get(index){
+            if(index<0 || index>this.length-1) return undefined
+            if(!this.head) return undefined
+            let value=this.head
+            while(index>0){
+                value=value.next
+                
+                index--
+            }
+            return value
 
+        }
 
 }
 
@@ -88,7 +99,7 @@ list.push("You")
 list.push(99)
 list.push("sami")
 list.unshift("Tes")
-console.log(list)
+console.log(list.get(12))
 
 
 
