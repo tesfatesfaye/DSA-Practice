@@ -75,7 +75,7 @@ class SinglyLinkedList{
             }
            
             this.length++
-            return list
+            return this
     }
             
         get(index){
@@ -90,16 +90,52 @@ class SinglyLinkedList{
             return value
 
         }
+    set(index,value){
+        let item=this.get(index)
+            if(item){
+                item.val=value
+                return true
+            }
+          
+           return false
+    }
+
+    insert(index,value){
+        if(index===this.length){
+            this.push(value)
+            return true
+        }
+        else if(index===0){
+            this.unshift(value)
+            return true
+        }
+        if(this.get(index)){
+            let tempNode=this.get(index-1)
+            let newNode=new Node(value)
+            newNode.next=tempNode.next
+            tempNode.next=newNode
+            this.length++
+            return true
+        }
+        
+            return false
+        
+        
+    }
 
 }
 
+
 let list=new SinglyLinkedList()
+list.unshift("Tes")
 list.push("Hi")
 list.push("You")
 list.push(99)
 list.push("sami")
-list.unshift("Tes")
-console.log(list.get(12))
+list.set(1,"boo")
+list.insert(2,"88")
+console.log(list.get(3))
+
 
 
 
