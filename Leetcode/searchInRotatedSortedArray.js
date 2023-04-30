@@ -50,16 +50,15 @@ const search = (arrayValue,value) => {
         return 0
     }
 
-    let kValue=findK(arrayValue)
-    if(kValue>0){
-        let index=binarySearch(arrayValue,value,start=0,end=kValue-1)
-        if(index>-1){
-            return index
+        let kValue=findK(arrayValue)
+        if(kValue>0){
+            let index=binarySearch(arrayValue,value,0,kValue-1)
+            if(index>-1){
+                return index
+            }
         }
-    }
 
-    return(binarySearch(arrayValue,value,start=kValue,end=arrayValue.length-1))
+        return(binarySearch(arrayValue,value,kValue))
 
 }
-
 console.log(search([8,9,10,11,12,1,2,3,4,6,7],4))
