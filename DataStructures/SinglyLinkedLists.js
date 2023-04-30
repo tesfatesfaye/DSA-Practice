@@ -145,18 +145,34 @@ class SinglyLinkedList{
         console.log(arr)
     }
 
+    reverse(){
+        let node=this.head;
+        this.head=this.tail;
+        this.tail=this.head;
+        let next;
+        let prev=null
+        for(let i=0;i<this.length;i++){
+            next=node.next;
+            node.next=prev;
+            prev=node
+            node=next
+        }
+
+    }
+
 }
 
 
 let list=new SinglyLinkedList()
 list.push(100)
 list.push(201)
+list.push(245)
 list.push(250)
 list.push(350)
 list.push(999)
-list.push(245)
 
-
+list.print()
+list.reverse()
 list.print()
 
 
