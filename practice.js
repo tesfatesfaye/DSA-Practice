@@ -2,24 +2,24 @@
 //     const swap = (arr, idx1, idx2) => {
 //       [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
 //     };
-  
+
 //     // We are assuming the pivot is always the first element
 //     let pivot = arr[start];
 //     let swapIdx = start;
-  
+
 //     for (let i = start + 1; i <= end; i++) {
 //       if (pivot > arr[i]) {
 //         swapIdx++;
 //         swap(arr, swapIdx, i);
 //       }
 //     }
-  
+
 //     // Swap the pivot from the start the swapPoint
 //     swap(arr, start, swapIdx);
 //     return swapIdx;
 //   }
-  
-  
+
+
 //   function quickSort(arr, left = 0, right = arr.length -1){
 //       if(left < right){
 //           let pivotIndex = pivot(arr, left, right) //3
@@ -30,7 +30,7 @@
 //         }
 //        return arr;
 //   } 
-             
+
 //  console.log(quickSort([100,-3,2,4,6,9,1,2,5,3,23]))
 // var search = function(nums, target) {
 //     let index=-1
@@ -53,32 +53,62 @@
 
 
 
-// const strStr = (haystack, needle) =>{
-//     let k=0
-//     for(let i=0;i<haystack.length;i++){
-//         if((haystack.length-i)<(needle.length)){
-//             return -1
-//         }
 
-//         while(i+k<haystack.length){
-//             if(haystack[i+k]===needle[k]){
-//                 k++
-//                 if(k===needle.length){
-//                     return i
-//                 }
-//             }
-//             else{
-//                 k=0
-//                 break;
-//             }
-//            }
-//     }
 
-    
-//             return -1;
 
-// };
+const binarySearch = (arr, val, start = 0, end = arr.length) => {
+    let left = start
+    let right = end
 
-// console.log(strStr("mississippi","miss"))
+
+    while (left <= right) {
+        let middleValue = Math.floor((left + right) / 2)
+        if (arr[middleValue] === val) {
+            return middleValue
+        }
+        else if (arr[middleValue] < val) {
+            left = middleValue + 1
+        }
+        else {
+            right = middleValue - 1
+        }
+
+
+
+    }
+    return -1
+
+}
+// console.log(binarySearch([1,2,3,4,5,6,7,8,9,10,11,12,13],10))
+
+const findK = (rotateArray) => {
+    if (rotateArray.length <= 1) return 0
+    if (rotateArray[0] < rotateArray[rotateArray.length - 1]) return 0
+
+    let left = 0
+    let right = rotateArray.length - 1
+
+
+    while (left <= right) {
+        let middleValue = Math.floor((left + right) / 2)
+
+        if (rotateArray[left] <= rotateArray[middleValue] && rotateArray[middleValue] > rotateArray[middleValue + 1]) {
+            return middleValue + 1
+        }
+        else if (rotateArray[left] > rotateArray[middleValue]) {
+            right = middleValue - 1
+        }
+        else {
+            left = middleValue + 1
+        }
+
+    }
+
+
+
+
+
+}
+// console.log(findK([7,1,2,3,4,5,6]))
 
 
