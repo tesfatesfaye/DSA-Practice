@@ -120,17 +120,44 @@ class SinglyLinkedList{
         
     }
 
+    remove(index){
+        if(index===0) return this.shift()
+        if(index===index.length-1) return this.pop()
+        if(this.get(index)){
+            let removedNode=this.get(index)
+            let previousNode=this.get(index-1)
+            previousNode.next=removedNode.next
+            this.length --
+            return removedNode           
+
+
+        }
+        return undefined
+    }
+
+    print(){
+        let currentNode=this.head
+        let arr=[]
+        while(currentNode){
+            arr.push(currentNode.val)
+            currentNode=currentNode.next
+        }
+        console.log(arr)
+    }
+
 }
 
 
 let list=new SinglyLinkedList()
-list.unshift("Tes")
-list.push("Hi")
-list.push("You")
-list.push(99)
-list.push("sami")
-list.set(1,"boo")
-console.log(list.insert(0,"88"))
+list.push(100)
+list.push(201)
+list.push(250)
+list.push(350)
+list.push(999)
+list.push(245)
+
+
+list.print()
 
 
 
