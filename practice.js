@@ -1,67 +1,3 @@
-const longestConsecutive=(arr)=>{
-if(arr.length===0) return 0
-    let  holderObj={}
-let longestConsecutiveNum=1
-let tempHolder=1
-
-
-
-const helper=(value,itemCount)=>{
-    console.log(value+itemCount)
-    if(holderObj[value+itemCount]){
-        delete holderObj[value+itemCount]
-         return  helper(value,itemCount+1)
-    }
-    else {
-   
-        return itemCount
-    }
-}
-for( let i of arr){
-    if(!holderObj[i]){
-        holderObj[i]=1
-    }
-
-}
-      
-       for(let i in holderObj){
-           tempHolder=helper(parseInt(i),1)
-               if(tempHolder>longestConsecutiveNum){
-            longestConsecutiveNum=tempHolder
-        }
-       
-        tempHolder=1
-
-    }
-       
-            
-           
-                
-          
-
-        return longestConsecutiveNum
-
-    }
-
-    console.log(longestConsecutive([1,0,-1]))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // function pivot(arr, start = 0, end = arr.length - 1) {
 //     const swap = (arr, idx1, idx2) => {
 //       [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
@@ -144,3 +80,5 @@ for( let i of arr){
 // };
 
 // console.log(strStr("mississippi","miss"))
+
+
