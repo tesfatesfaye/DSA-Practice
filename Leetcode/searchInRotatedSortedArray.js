@@ -22,3 +22,33 @@ const search = (arrayValue,value) => {
         return -1
 
     }
+
+    const findK = (rotateArray) => {
+        if (rotateArray.length <= 1) return 0
+        if (rotateArray[0] < rotateArray[rotateArray.length - 1]) return 0
+
+        let left = 0
+        let right = rotateArray.length - 1
+
+
+        while (left <= right) {
+            let middleValue = Math.floor((left + right) / 2)
+
+            if (rotateArray[left] <= rotateArray[middleValue] && rotateArray[middleValue] > rotateArray[middleValue + 1]) {
+                return middleValue + 1
+            }
+            else if (rotateArray[left] > rotateArray[middleValue]) {
+                right = middleValue - 1
+            }
+            else {
+                left = middleValue + 1
+            }
+
+        }
+
+
+        return 0
+    }
+
+
+}
