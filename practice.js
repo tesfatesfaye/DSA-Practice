@@ -20,38 +20,78 @@
 //   }
 
 
-//   function quickSort(arr, left = 0, right = arr.length -1){
-//       if(left < right){
-//           let pivotIndex = pivot(arr, left, right) //3
-//           //left
-//           quickSort(arr,left,pivotIndex-1);
-//           //right
-//           quickSort(arr,pivotIndex+1,right);
-//         }
-//        return arr;
-//   } 
+/**
+ * Definition for singly-linked list.
+ * 
+ */
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ * 
+ */
 
-//  console.log(quickSort([100,-3,2,4,6,9,1,2,5,3,23]))
-// var search = function(nums, target) {
-//     let index=-1
-//         if(nums.length<=1) return -1
-//     for(let i=1;i<nums.length;i++){
-//         if(nums[i-1]>nums[i]){
-//             index=i-1
-//             break;
+
+// function ListNode(val, next) {
+//     this.val = (val===undefined ? 0 : val)
+//          this.next = (next===undefined ? null : next)
+//      }
+
+//      let k=new ListNode(1)
+//        k.next=new ListNode(2)
+//      k.next.next=new ListNode(3)
+    
+//      console.log(k.val)
+// var isPalindrome = function(head) {
+
+//     let reversed= new ListNode()
+//     let current=head
+//         while(current!==null){
+            
+//             reversed.val=current.val
+//             reversed=reversed.next
+//             current=current.next
 //         }
+//         current=head
+    
+//     let next;
+//     let previous=null
+//     while(current!==null){
+//         next=current.next
+//               current.next=previous
+//         previous=current
+//         current=next
 //     }
-//    if(target<=index){
-//        return nums[target]
-//    }
-//    return -1
-
+//     console.log(head)
+//     return previous
 
 // };
 
-// console.log(search([4,5,6,7,0,1,2],4))
 
+// console.log(isPalindrome(k))
+const rotate = (nums, k) =>{
+    let newArray=[]
+    let end=nums.length-k
+   if(k>nums.length){
+       k=k%(nums.length)
+       
+   }
+   if(k>0){
+       while(end<nums.length){
+           newArray.push(nums[end])
+            end++
+       }
+          for(let i=0;i<nums.length-k;i++){
+              newArray.push(nums[i])
+          }
 
+          for(let i=0;i<newArray.length;i++){
+              nums[i]=newArray[i]
+          }
 
+   }
+     
 
-
+};
+let value=[1,2,3,4,5,6,7]
+rotate(value,3)
+console.log(value)
