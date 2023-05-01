@@ -28,7 +28,7 @@ let mergedArray=[]
         if(leftPointer===arr.length){
             mergedArray.push(...arrTwo.slice(rightPointer))
         }
-        else if(rightPointer===arr.length){
+        else if(rightPointer===arrTwo.length){
             mergedArray.push(...arr.slice(leftPointer))
         }
 

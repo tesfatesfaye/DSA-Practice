@@ -66,6 +66,7 @@ class SinglyLinkedList{
             if(!this.head){
                 this.head=newNode
                 this.tail=this.head
+               
                 
             }
             else{
@@ -103,19 +104,16 @@ class SinglyLinkedList{
     insert(index,value){
         if(index===this.length) return this.push(value)
             
+        if(index>this.length || index<0) return false
+        if(index===0) return !! this.unshift(value)
         
-        else if(index===0) return !! this.unshift(value)
         
-        if(this.get(index)){
             let tempNode=this.get(index-1)
             let newNode=new Node(value)
             newNode.next=tempNode.next
             tempNode.next=newNode
             this.length++
             return true
-        }
-        
-            return false
         
         
     }
@@ -123,16 +121,17 @@ class SinglyLinkedList{
     remove(index){
         if(index===0) return this.shift()
         if(index===index.length-1) return this.pop()
-        if(this.get(index)){
-            let removedNode=this.get(index)
+        if(index<0 || index > this.length-1) return undefined
+       
             let previousNode=this.get(index-1)
+            let removedNode=previousNode.next
             previousNode.next=removedNode.next
             this.length --
             return removedNode           
 
 
-        }
-        return undefined
+        
+       
     }
 
     print(){
