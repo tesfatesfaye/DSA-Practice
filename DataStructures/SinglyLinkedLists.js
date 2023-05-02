@@ -163,6 +163,8 @@ class SinglyLinkedList{
 
 
 let list=new SinglyLinkedList()
+let hello={1:"2",
+            2:"4"}
 list.push(100)
 list.push(201)
 list.push(245)
@@ -173,6 +175,9 @@ list.push(999)
 list.print()
 list.reverse()
 list.print()
+let node=new Node(11)
+// let c=structuredClone({1:"2",// 2:"4"})
+console.log(node.val)
 
 
 
