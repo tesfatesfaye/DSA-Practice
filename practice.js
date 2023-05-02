@@ -1,47 +1,71 @@
-var removeDuplicates = function(nums) {
-    let obj={}
-    let neg={}
-    let removedDuplicatesArray=[]
+const longestPalindrome=(str)=>{
+   
+    if(str.length<=1){
+        if(str.length===0){
+            return undefined
+        }
+        return str
+    }
+    let left=0
+    let right=str.length-1
 
-for(let i=0;i<nums.length;i++){
-    if(nums[i]<0){
-        if(!neg[nums[i]]){
-            neg[nums[i]]=1
+let longest=[0,1,1]
+    const isPalindrome=(str,start=0,end=str.length-1)=>{
+      
+        if(start<end){
+            if(str[start]===str[end]){
+                return isPalindrome(str,start+1,end-1)
+            }
+            else{
+                return false
+            }
+    
+        }
+    
+        
+        return true
+    
+    }
+    for(let i=0;i<str.length;i++){
+        if(str.length-i<longest[2]){
+            return str.slice(longest[0],longest[1])
+        }
+      
+        right=str.length-1
+        while(i<right){
+               
+            if(isPalindrome(str,i,right)){
+                if(right+1-i>longest[2]){
+                    if(right===str.length-1){
+                        return str.slice(i,str.length)
+                    }
+                    longest[0]=i
+                    longest[1]=right+1
+                    longest[2]=longest[1]-longest[0]
+                   
+                }
+                break;
+            }
+            else{
+                right--
+            }
+
         }
     }
-    else{
-    if(!obj[nums[i]]){
-        obj[nums[i]]=1
-        
 
-    }
-    }
-       
+         return str.slice(longest[0],longest[1])
+        
 }
 
- if(Object.keys(neg).length>0){
-            for(let i in neg){
-                removedDuplicatesArray.push(parseInt(i))
-                }
-            
-    }
-
-    if(Object.keys(obj).length>0){
-        for(let i in obj){
-                removedDuplicatesArray.push(parseInt(i))
-                }
-            
-    }
-
-    nums.splice(0,nums.length)
-    for(let i of removedDuplicatesArray){
-        nums.push(i)
-    }
-
-// nums=removedDuplicatesArray
-return nums.length
-
-};
 
 
-console.log(removeDuplicates([-2,-2,-1,0,1,1,1,2,2,3,3,4]))
+
+console.log(longestPalindrome("babbb"))
+
+
+
+
+
+
+
+
