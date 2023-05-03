@@ -63,3 +63,77 @@ const longestPalindrome=(str)=>{
 
 
 console.log(longestPalindrome("babbb"))
+
+
+// with a single while loop
+// const longestPalindromeTwo=(str)=>{
+   
+//     if(str.length<=1){
+//         if(str.length===0){
+//             return undefined
+//         }
+//         return str
+//     }
+//     let longestStart=0
+//     let longestEnd=1
+//     let length=1
+//     let right=str.length-1
+//     let i=0
+
+//     const isPalindrome=(str,start=0,end=str.length-1)=>{
+      
+//         if(start<end){
+//             if(str[start]===str[end]){
+//                 return isPalindrome(str,start+1,end-1)
+//             }
+//             else{
+//                 return false
+//             }
+    
+//         }
+    
+        
+//         return true
+    
+//     }
+   
+      
+        
+//         while(i<right){
+//             if(str.length-i<length){
+//                 return str.slice(longestStart,longestEnd)
+//             }
+            
+//             if(isPalindrome(str,i,right)){
+//                 if(right+1-i>length){
+//                     if(right===str.length-1){
+//                         return str.slice(i,str.length)
+//                     }
+//                     longestStart=i
+//                     longestEnd=right+1
+//                     length=longestEnd-longestStart
+                   
+//                 }
+//                 break;
+//             }
+//             else{
+//                 right--
+//                 if(right===i && i<str.length-1){
+//                     i=i+1
+//                     right=str.length-1
+//                 }
+                
+//             }
+
+//         }
+    
+
+//          return str.slice(longestStart,longestEnd)
+        
+// }
+
+
+
+
+// console.log(longestPalindrome("babbb"))
+
