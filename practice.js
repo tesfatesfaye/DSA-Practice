@@ -6,10 +6,12 @@ const longestPalindrome=(str)=>{
         }
         return str
     }
-    let left=0
+    let longestStart=0
+    let longestEnd=1
+    let length=1
     let right=str.length-1
 
-let longest=[0,1,1]
+
     const isPalindrome=(str,start=0,end=str.length-1)=>{
       
         if(start<end){
@@ -27,21 +29,21 @@ let longest=[0,1,1]
     
     }
     for(let i=0;i<str.length;i++){
-        if(str.length-i<longest[2]){
-            return str.slice(longest[0],longest[1])
+        if(str.length-i<length){
+            return str.slice(longestStart,longestEnd)
         }
       
         right=str.length-1
         while(i<right){
                
             if(isPalindrome(str,i,right)){
-                if(right+1-i>longest[2]){
+                if(right+1-i>length){
                     if(right===str.length-1){
                         return str.slice(i,str.length)
                     }
-                    longest[0]=i
-                    longest[1]=right+1
-                    longest[2]=longest[1]-longest[0]
+                    longestStart=i
+                    longestEnd=right+1
+                    length=longestEnd-longestStart
                    
                 }
                 break;
@@ -53,7 +55,7 @@ let longest=[0,1,1]
         }
     }
 
-         return str.slice(longest[0],longest[1])
+         return str.slice(longestStart,longestEnd)
         
 }
 
