@@ -1,41 +1,23 @@
 
-const findDifference=(nums1,nums2)=>{
-    let answer=[[],[]]
-    let objOne={}
-    let objTwo={}
-    for(let i=0;i<nums1.length;i++){
-            let numsT='0'+nums1[i]
-            
-        if(!objOne[numsT]){
-            objOne[numsT]=1
-        }
-    }
-    for(let i=0;i<nums2.length;i++){
-        let numsT='0'+nums2[i]
-        if(!objTwo[numsT]){
-             objTwo[numsT]=1
 
-        }
-    }
-        for(let i in objOne){
-            
-            if(!objTwo[i]){
-                let value=parseInt(i.slice(1))
-                answer[0].push(value)
-            }
-            else{
-                delete objTwo[i]
-            }
-        }
-        for(let i in objTwo){
-               let value=parseInt(i.slice(1))
-                answer[1].push(value)
-            
-        }    
-    
+function Single(val=null,next=null){
+    this.val= val
+    this.next=next
+}
+const mergeSort=(arr)=>{
 
-        return answer
-    }
+    if(arr.length<=1) return arr
+    let mid=Math.floor(arr.length/2)
+    let left=mergeSort(arr.slice(0,mid))
+    let right=mergeSort(arr.slice(mid))
+    return merge(left,right)
+}
+
+let car=new Single(5,new Single(7, new Single(1, new Single(2, new Single (6, new Single(3,))))))
+let arry=[]
 
 
-    console.log(findDifference([1,1,2,3],[2,4,4,6]))
+while(car){
+    arry.push(car.val)
+    car=car.next
+}
