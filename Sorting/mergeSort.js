@@ -26,10 +26,17 @@ let mergedArray=[]
         }
 
         if(leftPointer===arr.length){
-            mergedArray.push(...arrTwo.slice(rightPointer))
+            for( let i=rightPointer;i<arrTwo.length;i++){
+                mergedArray.push(arrTwo[i])
+            }
+        
         }
         else if(rightPointer===arrTwo.length){
-            mergedArray.push(...arr.slice(leftPointer))
+                for( let i=leftPointer;i<arr.length;i++){
+                    mergedArray.push(arr[i])
+                }
+            
+           
         }
 
 
@@ -40,7 +47,7 @@ let mergedArray=[]
 }
 
 
-console.log(merge([1,2,5,7,9], [3,4,6,8]))
+// console.log(merge([1,2,5,7,9], [3,4,6,8]))
 
 
 const mergeSort=(arr)=>{
