@@ -1,27 +1,27 @@
-class Single{
+class ListNode{
     constructor(val=null,next=null){ 
     this.val= val
     this.next=next
     }
 }
-const head=new Single(1,new Single(3, new Single(4, new Single(4, new Single (7, new Single(8))))))
-const headTwo=new Single(2,new Single(6, new Single(8, new Single(9, new Single (10, new Single(12))))))
+const head=new ListNode(1,new ListNode(3, new ListNode(4, new ListNode(4, new ListNode (7, new ListNode(8))))))
+const headTwo=new ListNode(2,new ListNode(6, new ListNode(8, new ListNode(9, new ListNode (10, new ListNode(12))))))
 
-function mergeList(listOne, listTwo){
- const mergedList=new Single()
+function mergeTwoLists(listOne, listTwo){
+ const mergedList=new ListNode()
  let mergedListHolder=mergedList
  let oneHolder=listOne;
  let twoHolder=listTwo;
             while(oneHolder&&twoHolder){
                 if(oneHolder.val<=twoHolder.val){
                     mergedListHolder.val=oneHolder.val
-                    mergedListHolder.next=new Single()
+                    mergedListHolder.next=new ListNode()
                     mergedListHolder= mergedListHolder.next
                     oneHolder=oneHolder.next
                 }
                 else{
                     mergedListHolder.val=twoHolder.val
-                    mergedListHolder.next=new Single()
+                    mergedListHolder.next=new ListNode()
                     mergedListHolder=mergedListHolder.next
                     twoHolder=twoHolder.next
                 }
@@ -31,7 +31,7 @@ function mergeList(listOne, listTwo){
             if(oneHolder){
                 while(oneHolder){
                     mergedListHolder.val=oneHolder.val
-                    mergedListHolder.next=new Single()
+                    mergedListHolder.next=new ListNode()
                     mergedListHolder=mergedListHolder.next
                     oneHolder=oneHolder.next
                 }
@@ -40,7 +40,7 @@ function mergeList(listOne, listTwo){
             else{
                 while(twoHolder){
                     mergedListHolder.val=twoHolder.val
-                    mergedListHolder.next=new Single()
+                    mergedListHolder.next=new ListNode()
                     mergedListHolder=mergedListHolder.next
                     twoHolder=twoHolder.next
                 }

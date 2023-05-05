@@ -1,6 +1,5 @@
 const pivotHelper=(arr,start=0,end=arr.length-1)=>{
-  let middle=Math.floor((start+end)/2)
-const swap=(arr,i,j)=>{
+ const swap=(arr,i,j)=>{
    
         [arr[i],arr[j]]=[arr[j],arr[i]];
        
