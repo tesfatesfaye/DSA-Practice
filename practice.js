@@ -8,6 +8,9 @@ class Node{
 
 class DoublyLinkedLists{
     constructor(){
-        
+        this.head=null
+        this.tail=null
+        this.length=0
+
     }
 }
