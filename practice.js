@@ -26,7 +26,7 @@ class DoublyLinkedLists{
             this.tail.next=pushedValue
             pushedValue.prev=this.tail
             this.tail=pushedValue
-            
+            this.length=this.length+1
 
         }
         return this
