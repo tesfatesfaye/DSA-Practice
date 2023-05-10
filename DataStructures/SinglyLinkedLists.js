@@ -19,12 +19,12 @@ class SinglyLinkedList{
         if(this.head===null){
             this.head=newNode
             this.tail=newNode
-            this.length=1
+           
         }
         else {
             this.tail.next=newNode
             this.tail=newNode
-            this.length=this.length+1
+          
         }
         this.length=this.length++
             return this;
