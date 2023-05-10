@@ -18,17 +18,18 @@ class DoublyLinkedLists{
             let pushedValue=new Node(value)
             this.head=pushedValue
             this.tail=pushedValue
-            this.length=1
-            
+                        
         }
         else {
             let pushedValue=new Node(value)
             this.tail.next=pushedValue
             pushedValue.prev=this.tail
             this.tail=pushedValue
-            this.length=this.length+1
+            
 
         }
+        
+
         return this
     }
 }
@@ -40,5 +41,5 @@ class DoublyLinkedLists{
 const doubleList=new DoublyLinkedLists()
 doubleList.push(5)
 doubleList.push(6)
-console.log(doubleList.push(4))
-console.log(doubleList.next.next.prev.val)
+doubleList.push(4)
+console.log(doubleList.head.next.next.prev.prev.val)

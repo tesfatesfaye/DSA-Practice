@@ -26,7 +26,7 @@ class SinglyLinkedList{
             this.tail=newNode
             this.length=this.length+1
         }
-       
+        this.length=this.length++
             return this;
 
     }
