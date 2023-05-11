@@ -29,7 +29,7 @@ class DoublyLinkedLists{
 
         }
         
-
+        this.length=this.length++
         return this
     }
 }
