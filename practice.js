@@ -33,10 +33,7 @@ class DoublyLinkedLists{
     }
 }
 
-// const NodeTester=new Node(13)
-// NodeTester.next=new Node(14)
-// NodeTester.next.prev=NodeTester
-// console.log(NodeTester.next.prev.val)
+
 const doubleList=new DoublyLinkedLists()
 doubleList.push(5)
 doubleList.push(6)
