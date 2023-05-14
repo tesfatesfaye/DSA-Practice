@@ -33,23 +33,30 @@ class DoublyLinkedLists{
     }
     pop(){
         if(!this.head) return undefined
-      
         let currentTail=this.tail
-        let newTail=this.tail.prev
+        if(this.length===1){
+            this.head=null
+            this.tail=null
+        }
+
+       
+        else{
+        let newTail=currentTail.prev
         currentTail.prev=null
         newTail.next=null
         this.tail=newTail
-        this.length--
-        if(this.length===0)this.head=0
-        return  currentTail
+        
     }
+    this.length--
+        
+    return  currentTail
 }
 
-
+}
 const doubleList=new DoublyLinkedLists()
 
 doubleList.push(4)
 // console.log(doubleList.head.next.next.prev.prev.val)
 console.log(doubleList.length)
 console.log(doubleList.pop())
-console.log(doubleList)
+console.log(doubleList.pop())
