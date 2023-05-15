@@ -59,10 +59,10 @@ class DoublyLinkedLists{
             this.tail=null
         }
         else{
-            let newHead=currentHead.next
+            this.head=currentHead.next
             currentHead.next=null
-            newHead.prev=null
-            this.head=newHead
+            this.head.prev=null
+           
         }
         this.length--
         return currentHead
