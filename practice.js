@@ -51,12 +51,35 @@ class DoublyLinkedLists{
         
     return  currentTail
 }
+    shift(){
+        if(!this.head) return undefined
+        let currentHead=this.head
+        if(this.length===1){
+            this.head=null
+            this.tail=null
+        }
+        else{
+            let newHead=currentHead.next
+            currentHead.next=null
+            newHead.prev=null
+            this.head=newHead
+        }
+        this.length--
+        return currentHead
+    }
 
 }
 const doubleList=new DoublyLinkedLists()
 
 doubleList.push(4)
+doubleList.push(5)
+doubleList.push(6)
+doubleList.push(7)
+doubleList.push(8)
+doubleList.push(9)
 // console.log(doubleList.head.next.next.prev.prev.val)
 console.log(doubleList.length)
-console.log(doubleList.pop())
-console.log(doubleList.pop())
+doubleList.pop()
+doubleList.pop()
+doubleList.shift()
+console.log(doubleList.head.val)
