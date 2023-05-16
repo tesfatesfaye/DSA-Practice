@@ -41,10 +41,13 @@ class DoublyLinkedLists{
 
        
         else{
-        let newTail=currentTail.prev
-        currentTail.prev=null
-        newTail.next=null
-        this.tail=newTail
+            this.tail=currentTail.prev
+            currentTail.prev=null
+            this.tail.next=null
+        // let newTail=currentTail.prev
+        // currentTail.prev=null
+        // newTail.next=null
+        // this.tail=newTail
         
     }
     this.length--
@@ -94,7 +97,9 @@ doubleList.push(9)
 // console.log(doubleList.head.next.next.prev.prev.val)
 console.log(doubleList.length)
 doubleList.pop()
+console.log(doubleList)
 doubleList.pop()
+
 doubleList.shift()
 doubleList.unShift(9)
 console.log(doubleList.head.val)
