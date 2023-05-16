@@ -67,7 +67,21 @@ class DoublyLinkedLists{
         this.length--
         return currentHead
     }
-
+    unShift(value){
+        let newNode=new Node(value)
+        if(this.length===0){
+            this.head=newNode
+            this.tail=newNode
+        }
+        else{
+            this.head.prev=newNode
+            newNode.next=this.head
+            this.head=newNode
+            
+        }
+        return newNode
+    }
+    
 }
 const doubleList=new DoublyLinkedLists()
 
@@ -82,4 +96,5 @@ console.log(doubleList.length)
 doubleList.pop()
 doubleList.pop()
 doubleList.shift()
+doubleList.unShift(9)
 console.log(doubleList.head.val)
