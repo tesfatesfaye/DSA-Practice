@@ -82,7 +82,7 @@ class DoublyLinkedLists{
             this.head=newNode
             
         }
-        return newNode
+        return this
     }
     
 }
