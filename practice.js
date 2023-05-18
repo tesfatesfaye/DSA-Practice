@@ -44,12 +44,7 @@ class DoublyLinkedLists{
             this.tail=currentTail.prev
             currentTail.prev=null
             this.tail.next=null
-        // let newTail=currentTail.prev
-        // currentTail.prev=null
-        // newTail.next=null
-        // this.tail=newTail
-        
-    }
+        }
     this.length--
         
     return  currentTail
