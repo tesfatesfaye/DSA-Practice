@@ -80,6 +80,29 @@ class DoublyLinkedLists{
         this.length++
         return this
     }
+    get(index){
+        if(index<0 || index>=this.length)return undefined
+        let counter;
+        let value;
+        let middleValue=Math.floor(this.length/2)
+        if(index>middleValue){
+            let counter=item.length-index
+            let value=this.tail
+            while(counter>0){
+                value=value.prev
+            }
+        }
+        else{
+            counter=0
+            value=this.head
+            
+            while(counter<index){
+                value=value.next
+                counter++  
+                }
+        }   
+    return value
+    }
     
 }
 const doubleList=new DoublyLinkedLists()
@@ -94,8 +117,6 @@ console.log(doubleList.length)
 doubleList.pop()
 console.log(doubleList)
 doubleList.pop()
-
-doubleList.shift()
-doubleList.unShift(9)
 console.log(doubleList.head.val)
 console.log(doubleList.length)
+console.log(doubleList.get(1))
