@@ -82,6 +82,7 @@ class DoublyLinkedLists{
             this.head=newNode
             
         }
+        this.length++
         return this
     }
     
