@@ -123,16 +123,14 @@ else if(index===this.length){
     this.push(value)
 }
 else{
-let currentNode=this.get(index)
+let currentNode=this.get(index-1)
 
 
     if(currentNode){
         let newNode=new Node(value)
-        newNode.next=currentNode
-        newNode.prev=currentNode.prev
-        currentNode.next=currentNode.next.next
-        currentNode.prev=newNode
-        newNode.prev.next=newNode  
+        newNode.next=currentNode.next
+        currentNode.next=newNode
+        newNode.next.prev=newNode
         this.length++
     }
     else{
@@ -161,4 +159,7 @@ doubleList.pop()
 // console.log(doubleList.length)
 // console.log(doubleList.get(1))
 doubleList.set(1,17)
-console.log(doubleList.get(1))
+console.log(doubleList.get(1).val)
+doubleList.insert(1,13)
+doubleList.insert(0,12)
+console.log(doubleList.get(0).val)
