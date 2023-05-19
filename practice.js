@@ -103,7 +103,8 @@ class DoublyLinkedLists{
         }   
     return value
     }
-    set(index,value){
+    set(index,value=null){
+
         let item=this.get(index)
         if(item){
             item.val=value
@@ -114,7 +115,32 @@ class DoublyLinkedLists{
         
     }
 
+insert(index,value){
+if(index===0){ 
+this.unShift(value)
+}
+else if(index===this.length){
+    this.push(value)
+}
+else{
+let currentNode=this.get(index)
 
+
+    if(currentNode){
+        let newNode=new Node(value)
+        newNode.next=currentNode
+        newNode.prev=currentNode.prev
+        currentNode.next=currentNode.next.next
+        currentNode.prev=newNode
+        newNode.prev.next=newNode        
+    }
+    else{
+        return false
+    }
+}
+    return true
+    
+}
     
 }
 const doubleList=new DoublyLinkedLists()
