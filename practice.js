@@ -132,12 +132,14 @@ let currentNode=this.get(index)
         newNode.prev=currentNode.prev
         currentNode.next=currentNode.next.next
         currentNode.prev=newNode
-        newNode.prev.next=newNode        
+        newNode.prev.next=newNode  
+        this.length++
     }
     else{
         return false
     }
 }
+    
     return true
     
 }
