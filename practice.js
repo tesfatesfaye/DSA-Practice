@@ -82,14 +82,14 @@ class DoublyLinkedLists{
     }
     get(index){
         if(index<0 || index>=this.length)return undefined
-        let counter;
-        let value;
+        let counter,value;
         let middleValue=Math.floor(this.length/2)
         if(index>middleValue){
             let counter=item.length-index
             let value=this.tail
             while(counter>0){
                 value=value.prev
+                counter--
             }
         }
         else{
@@ -103,6 +103,18 @@ class DoublyLinkedLists{
         }   
     return value
     }
+    set(index,value){
+        let item=this.get(index)
+        if(item){
+            item.val=value
+            return item
+        }
+         
+        return false
+        
+    }
+
+
     
 }
 const doubleList=new DoublyLinkedLists()
@@ -113,10 +125,12 @@ doubleList.push(6)
 doubleList.push(7)
 doubleList.push(8)
 doubleList.push(9)
-console.log(doubleList.length)
+// console.log(doubleList.length)
 doubleList.pop()
-console.log(doubleList)
+// console.log(doubleList)
 doubleList.pop()
-console.log(doubleList.head.val)
-console.log(doubleList.length)
+// console.log(doubleList.head.val)
+// console.log(doubleList.length)
+// console.log(doubleList.get(1))
+doubleList.set(1,17)
 console.log(doubleList.get(1))
