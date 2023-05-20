@@ -82,7 +82,7 @@ class DoublyLinkedLists{
     }
     get(index){
         if(index<0 || index>=this.length)return undefined
-        let counter,value;
+        let counter,value
         let middleValue=Math.floor(this.length/2)
         if(index>middleValue){
             let counter=item.length-index
@@ -141,10 +141,29 @@ let currentNode=this.get(index-1)
     return true
     
 }
+remove(index){
+    if(this.length===0) return null
+    if(index===0) return this.shift()
+    if(index===this.length-1) return this.pop()
+    let removedNode=this.get(index)
+        if(removedNode){
+            removedNode.prev.next=removedNode.next
+            removedNode.next.prev=removedNode.prev
+            removedNode.prev=removedNode.next=null
+            
+        }
+        return removedNode
+}
     
 }
 const doubleList=new DoublyLinkedLists()
 
+doubleList.push(4)
+doubleList.push(5)
+doubleList.push(6)
+doubleList.push(7)
+doubleList.push(8)
+doubleList.push(9)
 doubleList.push(4)
 doubleList.push(5)
 doubleList.push(6)
@@ -159,7 +178,14 @@ doubleList.pop()
 // console.log(doubleList.length)
 // console.log(doubleList.get(1))
 doubleList.set(1,17)
-console.log(doubleList.get(1).val)
+
 doubleList.insert(1,13)
 doubleList.insert(0,12)
 console.log(doubleList.get(0).val)
+console.log(doubleList.get(1).val)
+doubleList.remove(0)
+console.log(doubleList.get(0).val)
+console.log(doubleList.get(2).val)
+console.log(doubleList.get(3).val)
+doubleList.remove(2)
+console.log(doubleList.get(2).val)
