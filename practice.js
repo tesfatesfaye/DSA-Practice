@@ -129,8 +129,7 @@ let currentNode=this.get(index-1)
     if(currentNode){
         let newNode=new Node(value)
         newNode.next=currentNode.next
-        currentNode.next=newNode
-        newNode.next.prev=newNode
+        currentNode.next=newNode.next.prev=newNode
         this.length++
     }
     else{
