@@ -150,6 +150,7 @@ remove(index){
             removedNode.prev.next=removedNode.next
             removedNode.next.prev=removedNode.prev
             removedNode.prev=removedNode.next=null
+            this.length--
             
         }
         return removedNode
