@@ -142,7 +142,6 @@ let currentNode=this.get(index-1)
     
 }
 remove(index){
-    if(this.length===0) return null
     if(index===0) return this.shift()
     if(index===this.length-1) return this.pop()
     let removedNode=this.get(index)
