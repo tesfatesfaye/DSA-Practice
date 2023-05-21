@@ -92,7 +92,7 @@ class DoublyLinkedLists {
                 
                 counter=counter-1
             }
-            console.log(value)
+           
         }
         else {
             counter = 0
@@ -126,8 +126,6 @@ class DoublyLinkedLists {
         }
         else {
             let currentNode = this.get(index - 1)
-
-
             if (currentNode) {
                 let newNode = new Node(value)
                 newNode.next = currentNode.next
@@ -163,7 +161,7 @@ class DoublyLinkedLists {
         let counter=0
         let left=this.head
         let right=this.tail
-        while(counter<halfOfLength){
+        while(counter<=halfOfLength){
             [left.val,right.val]=[right.val,left.val]
             left=left.next
             right=right.prev
@@ -173,7 +171,7 @@ class DoublyLinkedLists {
         return this
     }        
     printValue(){
-        if(this.length=0) return []
+        if(this.length===0) return []
         let node=this.head
         const listOfValues=[]
         while(node){
@@ -199,10 +197,10 @@ doubleList.push(7)
 doubleList.push(8)
 doubleList.push(9)
 // console.log(doubleList.length)
-doubleList.pop()
+// doubleList.pop()
 // console.log(doubleList)
-doubleList.pop()
-doubleList.pop()
+// doubleList.pop()
+// doubleList.pop()
 // console.log(doubleList.head.val)
 // console.log(doubleList.length)
 // console.log(doubleList.get(1))
@@ -212,5 +210,15 @@ doubleList.insert(0, 12)
 // console.log(doubleList.get(0).val)
 // console.log(doubleList.length)
 // console.log(doubleList.get(7))
+// console.log(doubleList.printValue())
+console.log(doubleList.get(0).val)
+console.log(doubleList.get(doubleList.length-1).val)
+doubleList.reverse()
+console.log(doubleList.get(0).val)
+console.log(doubleList.get(doubleList.length-1).val)
+
 console.log(doubleList.printValue())
 doubleList.reverse()
+console.log(doubleList.printValue())
+doubleList.reverse()
+console.log(doubleList.printValue())
