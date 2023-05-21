@@ -44,8 +44,8 @@ class Queue{ //since push and pop have to be O(1) time we will use shift and uns
 
             }
            
-            this.length++
-            return this
+            return ++this.length
+            
     }
     }
 
