@@ -11,41 +11,33 @@ class Queue{ //since push and pop have to be O(1) time we will use shift and uns
         this.last=null;
         this.size=0;
     }
-    dequeue(){
-        if(!this.first) return undefined
+ 
+    dequeue(){ // unshift
+        if(!this.first)return undefined
         let current=this.first
-        let newLast=this.first
-        while(current.next){
-            newLast=current
-            current=current.next
+        this.first=current.next
+        this.size--
+        if(this.size===0){
+             this.last=null
         }
-           this.last=newLast;
-           this.last.next=null
-           this.length--
-           if(this.length===0){
-            this.first=null
-            this.last=null
-           }
-            return current
-        }
-
-        enqueue(value){
-               
-            let newNode=new Node(value)
-            if(!this.first){
-                this.first=newNode
-                this.last=this.first
-               
-                
-            }
-            else{
-                newNode.next=this.first
-                this.first=newNode
-
-            }
+        return current
+    }
+    //enqueue
+    enqueue(val){
+        let newNode=new Node(val)
+        if(this.first===null){
+            this.first=newNode
+            this.last=newNode
            
-            return ++this.length
-            
+        }
+        else {
+            this.last.next=newNode
+            this.last=newNode
+          
+        }
+        this.size=this.size++
+            return this;
+
     }
     }
 
