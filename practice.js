@@ -43,7 +43,7 @@ class DoublyLinkedLists {
             currentTail.prev = null
             this.tail.next = null
         }
-        this.length--
+        this.length=this.length-1
 
         return currentTail
     }
@@ -83,12 +83,16 @@ class DoublyLinkedLists {
         let counter, value
         let middleValue = Math.floor(this.length / 2)
         if (index > middleValue) {
-            let counter = this.length - index
-            let value = this.tail
+            let counter = this.length-1-index
+          
+            value = this.tail
             while (counter > 0) {
+               
                 value = value.prev
-                counter--
+                
+                counter=counter-1
             }
+            console.log(value)
         }
         else {
             counter = 0
@@ -189,12 +193,16 @@ doubleList.push(9)
 doubleList.pop()
 // console.log(doubleList)
 doubleList.pop()
+doubleList.pop()
 // console.log(doubleList.head.val)
 // console.log(doubleList.length)
 // console.log(doubleList.get(1))
 doubleList.set(1, 17)
 doubleList.insert(1, 13)
 doubleList.insert(0, 12)
-console.log(doubleList.get(0).val)
-console.log(doubleList.length)
+// console.log(doubleList.get(0).val)
+// console.log(doubleList.length)
+// console.log(doubleList.get(7))
+console.log(doubleList.get(10))
+
 doubleList.reverse()
