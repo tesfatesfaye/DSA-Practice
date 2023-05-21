@@ -83,7 +83,7 @@ class DoublyLinkedLists {
         let counter, value
         let middleValue = Math.floor(this.length / 2)
         if (index > middleValue) {
-            let counter = item.length - index
+            let counter = this.length - index
             let value = this.tail
             while (counter > 0) {
                 value = value.prev
@@ -196,10 +196,5 @@ doubleList.set(1, 17)
 doubleList.insert(1, 13)
 doubleList.insert(0, 12)
 console.log(doubleList.get(0).val)
-console.log(doubleList.get(1).val)
-doubleList.remove(0)
-console.log(doubleList.get(0).val)
-console.log(doubleList.get(2).val)
-console.log(doubleList.get(3).val)
-doubleList.remove(2)
-console.log(doubleList.get(2).val)
+console.log(doubleList.length)
+doubleList.reverse()
