@@ -172,8 +172,17 @@ class DoublyLinkedLists {
         }
         return this
     }        
-
-
+    printValue(){
+        if(this.length=0) return []
+        let node=this.head
+        const listOfValues=[]
+        while(node){
+            listOfValues.push(node.val)
+            node=node.next
+        }
+    
+    return listOfValues
+    }
 }
 const doubleList = new DoublyLinkedLists()
 
@@ -203,6 +212,5 @@ doubleList.insert(0, 12)
 // console.log(doubleList.get(0).val)
 // console.log(doubleList.length)
 // console.log(doubleList.get(7))
-console.log(doubleList.get(10))
-
+console.log(doubleList.printValue())
 doubleList.reverse()
