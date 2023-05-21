@@ -42,5 +42,18 @@ class stack{ //since push and pop have to be O(1) time we will use shift and uns
             return oldNode
 
         }
+        unshift(val){
+            let newNode=new Node(val)
+            if(this.size===0){
+               this.first=newNode
+                this.last=newNode
+                }
+                else{
+                    newNode.next=this.first
+                    this.first=newNode
+                }
+                return this
+
+        }
         
 }
