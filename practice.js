@@ -52,6 +52,7 @@ class stack{ //since push and pop have to be O(1) time we will use shift and uns
                     newNode.next=this.first
                     this.first=newNode
                 }
+                this.size ++
                 return this
 
         }
