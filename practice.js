@@ -24,10 +24,23 @@ class Node {
         this.next=null
     }
 }
-class stack{
+class stack{ //since push and pop have to be O(1) time we will use shift and unshift albeit with their names changed appropriately 
     constructor(){
         this.first=null;
         this.last=null;
         this.size=0;
     }
+
+        shift(){
+            if(this.size===0) return undefined
+            let oldNode=this.first
+            this.first=oldNode.next
+           this.size --
+                if(this.size===0){
+                    this.last=null
+                }
+            return oldNode
+
+        }
+        
 }
