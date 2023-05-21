@@ -24,7 +24,7 @@ class Node {
         this.next=null
     }
 }
-class stack{ //since push and pop have to be O(1) time we will use shift and unshift albeit with their names changed appropriately 
+class Stack{ //since push and pop have to be O(1) time we will use shift and unshift albeit with their names changed appropriately 
     constructor(){
         this.first=null;
         this.last=null;
@@ -58,7 +58,7 @@ class stack{ //since push and pop have to be O(1) time we will use shift and uns
         }
         
 }
-const stackExample=new stack()
+const stackExample=new Stack()
 stackExample.push(12)
 stackExample.push(11)
 stackExample.push(2)
