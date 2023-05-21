@@ -63,7 +63,7 @@ class DoublyLinkedLists {
         this.length--
         return currentHead
     }
-    unShift(value) {
+    unshift(value) {
         let newNode = new Node(value)
         if (this.length === 0) {
             this.head = newNode
@@ -119,7 +119,7 @@ class DoublyLinkedLists {
 
     insert(index, value) {
         if (index === 0) {
-            this.unShift(value)
+            this.unshift(value)
         }
         else if (index === this.length) {
             this.push(value)
@@ -158,7 +158,6 @@ class DoublyLinkedLists {
            return (this.length===0 ? undefined : this)
         }
         let halfOfLength=Math.floor(this.length/2)
-        console.log(this.length)
         let counter=0
         let left=this.head
         let right=this.tail
@@ -167,7 +166,7 @@ class DoublyLinkedLists {
             left=left.next
             right=right.prev
             counter++
-                     
+                 
         }
         return this
     }        
@@ -187,11 +186,8 @@ const doubleList = new DoublyLinkedLists()
 
 let doublyLinkedList = new DoublyLinkedLists();
 doublyLinkedList.push(5).push(10).push(8).push(9)
-console.log(doublyLinkedList.printValue())
-doublyLinkedList.reverse(); // singlyLinkedList;
-doublyLinkedList.length; // 4
-console.log(doublyLinkedList.printValue())
-// doublyLinkedList.head.val; // 20
-// doublyLinkedList.head.next.val; // 15
-// doublyLinkedList.head.next.next.val; // 10
-// doublyLinkedList.head.next.next.next.val;
+// console.log(doublyLinkedList.printValue())
+// doublyLinkedList.reverse(); // singlyLinkedList;
+// doublyLinkedList.length; // 4
+// console.log(doublyLinkedList.printValue())
+
