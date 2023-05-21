@@ -16,3 +16,18 @@ arrayStackTwo.unshift('valueTwo')
 arrayStackTwo.unshift('valueThere')
 arrayStackTwo.unshift('valueFour')
 arrayStackTwo.shift()// removes "value four" and returns it
+
+// linked list stack
+class Node {
+    constructor(val){
+        this.val=val
+        this.next=null
+    }
+}
+class stack{
+    constructor(){
+        this.first=null;
+        this.last=null;
+        this.size=0;
+    }
+}
