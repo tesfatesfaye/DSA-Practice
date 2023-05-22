@@ -17,36 +17,36 @@ class BinarySearchTree {
             this.root = newNode
             return this
         }
-        let node = this.root
-        let duplicate=false
-        const helper = (value, node) => {
+        
+        
+        const helper = (value, node=this.root) => {
             if (node.val > value) {
                 if (node.left === null) {
                     node.left = newNode
                    
                 }
                 else {
-                    helper(value, node.left)
+                   return(helper(value, node.left))
                 }
 
             }
             else if (node.val === value) {
-                duplicate=true
+                return undefined
             }
             else {
                 if (node.right === null) {
                     node.right = newNode
-                   
+                    
                 }
                 else {
-                    helper(value, node.right)
+                    return(helper(value, node.right))
                 }
             }
-          
+            return this
         }
-        helper(value, node)
        
-        return (duplicate ? undefined : this)
+       
+        return  (helper(value, this.root))
 
     }
     find(value,node=this.root) {
@@ -71,10 +71,10 @@ class BinarySearchTree {
 }
 
 let tree = new BinarySearchTree();
-tree.insert(11)
-tree.insert(10)
+console.log(tree.insert(11))
+console.log(tree.insert(10))
 tree.insert(9)
-tree.insert(13)
-tree.insert(12)
-tree.insert(12)
-console.log(tree.find(1))
+console.log(tree.insert(13))
+console.log(tree.insert(12))
+console.log(tree.insert(12))
+console.log(tree.find(13))
