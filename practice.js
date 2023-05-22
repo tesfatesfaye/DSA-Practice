@@ -44,25 +44,27 @@ class BinarySearchTree {
             }
           
         }
-        let helped=helper(value, node)
+        helper(value, node)
        
         return (duplicate ? undefined : this)
 
     }
-    find(value) {
-        let node = this.root
-        while (node) {
+    find(value,node=this.root) {
+        if(node===null){
+             return false
+            }
+            
             if (node.val === value) {
                 return true
             }
             else if (node.val < value) {
-                node = node.right
+               return(this.find(value,node.right))
             }
             else {
-                node = node.left
+                return (this.find(value, node.left))
             }
-        }
-        return false
+        
+        
     }
 
 
@@ -75,5 +77,4 @@ tree.insert(9)
 tree.insert(13)
 tree.insert(12)
 tree.insert(12)
-console.log(tree.insert(19))
-console.log(tree.root.right)
+console.log(tree.find(1))
