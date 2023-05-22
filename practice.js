@@ -17,9 +17,8 @@ class BinarySearchTree {
             this.root = newNode
         }
         else {
-
             let node = this.root
-           
+ 
             while (true) {
                 if (node.val > value) {
                     if (node.left !== null) {
@@ -31,7 +30,7 @@ class BinarySearchTree {
                     }
                 }
 
-                else {
+                else if(node.val<value){
                     if (node.right !== null) {
                         node = node.right
                     }
@@ -39,6 +38,9 @@ class BinarySearchTree {
                         node.right = newNode
                         break;
                     }
+                }
+                else {
+                    return undefined
                 }
             }
         }
@@ -57,4 +59,6 @@ tree.insert(2)
 tree.insert(4)
 tree.insert(14)
 tree.insert(16)
-console.log(tree.root.left)
+tree.insert(7)
+tree.insert(3)
+console.log(tree.root.left.left.right.left)
