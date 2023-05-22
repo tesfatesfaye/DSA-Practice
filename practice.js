@@ -18,7 +18,7 @@ class BinarySearchTree {
         }
         else {
             let node = this.root
- 
+
             while (true) {
                 if (node.val > value) {
                     if (node.left !== null) {
@@ -30,7 +30,7 @@ class BinarySearchTree {
                     }
                 }
 
-                else if(node.val<value){
+                else if (node.val < value) {
                     if (node.right !== null) {
                         node = node.right
                     }
@@ -47,6 +47,21 @@ class BinarySearchTree {
         return this
 
     }
+    find(value) {
+        let node = this.root
+            while(node) {
+                if(node.val===value){
+                    return true
+                }
+                else if(node.val < value){
+                    node=node.right
+                }
+                else {
+                    node=node.left
+                }
+            }
+            return false
+    }
 
 
 }
@@ -61,4 +76,5 @@ tree.insert(14)
 tree.insert(16)
 tree.insert(7)
 tree.insert(3)
-console.log(tree.root.left.left.right.left)
+// console.log(tree.root.left.left.right.left)
+console.log(tree.find(255))
