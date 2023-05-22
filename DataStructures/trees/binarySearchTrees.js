@@ -78,3 +78,48 @@ tree.insert(7)
 tree.insert(3)
 // console.log(tree.root.left.left.right.left)
 console.log(tree.find(255))
+
+
+// recursive insert works but still has some kinks
+   // insert(value, node) {
+    //     if (node === undefined) {
+    //         if (this.root === null) {
+    //             this.root = new Node(value)
+    //             return this
+    //         }
+    //         node = this.root
+    //     }
+
+    //     if (node.val > value) {
+    //         if (node.left === null) {
+    //             node.left = new Node(value)
+               
+               
+    //         }
+    //         else{
+    //             node = node.left
+    //             this.insert(value, node)
+    //         }
+           
+    //     }
+    //     else if (node.val === value) {
+    //         return undefined
+    //     }
+    //     else {
+    //         if (node.val < value) {
+    //             if (node.right === null) {
+    //                 node.right = new Node(value)
+                    
+               
+    //             }
+    //             else{
+    //                 node = node.right
+    //                 this.insert(value, node)
+    //             }
+             
+    //         }
+    //     }
+
+    //         return this
+
+    // }
