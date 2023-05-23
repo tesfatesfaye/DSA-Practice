@@ -112,21 +112,22 @@ class BinarySearchTree {
             const traverse=(current=node)=>{
               
                 if(current.left){
-                    traverse(current.left,current)
+                    traverse(current.left)
                 }
                 if(current.right){
-                    traverse(current.right,current)
+                    traverse(current.right)
                 }
 
                 holder.push(current.val)
 
             }
+            traverse(node)
             return holder
 
 
         }
 
-
+       
 
 }
 
