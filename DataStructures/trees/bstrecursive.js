@@ -46,7 +46,7 @@ class BinarySearchTree {
         }
        
        
-        return  (helper(value, this.root))
+        return (helper(value, this.root))
 
     }
     find(value,node=this.root) {
