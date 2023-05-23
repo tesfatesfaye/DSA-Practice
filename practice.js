@@ -89,12 +89,8 @@ class BinarySearchTree {
 
             const traverse=(current=node)=>{
                 holder.push(current.val)
-                if(current.left){
-                    traverse(current.left)
-                }
-                if(current.right){
-                    traverse(current.right)
-                }
+                if(current.left)traverse(current.left)
+                if(current.right)traverse(current.right)
 
                 return holder
 
@@ -111,14 +107,9 @@ class BinarySearchTree {
 
             const traverse=(current=node)=>{
               
-                if(current.left){
-                    traverse(current.left)
-                }
-                if(current.right){
-                    traverse(current.right)
-                }
-
-                holder.push(current.val)
+                if(current.left)traverse(current.left)
+                if(current.right)traverse(current.right) 
+                    holder.push(current.val)
 
             }
             traverse(node)
