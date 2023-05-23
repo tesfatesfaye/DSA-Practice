@@ -82,12 +82,13 @@ class BinarySearchTree {
 
         }
 
-        DFS(){// depths first preOrder
+        DFS(){// depths first preOrder means all the left elements and there children come before any right ones, 
+            //the first right node comes after all the elements in the first left node
             let node=this.root
             let holder=[]
             if(node===null) return undefined
 
-            const traverse=(current=node)=>{
+            const traverse=(current=node)=>{ 
                 holder.push(current.val)
                 if(current.left)traverse(current.left)
                 if(current.right)traverse(current.right)
@@ -100,7 +101,7 @@ class BinarySearchTree {
 
         }
 
-        DFSPost(){// depths first preOrder
+        DFSPost(){// depths first postOrder children are explored before their parent nodes
             let node=this.root
             let holder=[]
             if(node===null) return undefined
@@ -118,7 +119,23 @@ class BinarySearchTree {
 
         }
 
-       
+        DFSInOrder(){
+            let node=this.root
+            let holder=[]
+            if(node===null) return undefined
+
+            const traverse=(current=node)=>{
+              
+                if(current.left)traverse(current.left)
+                holder.push(current.val)
+                if(current.right)traverse(current.right) 
+                    
+
+            }
+            traverse(node)
+            return holder
+
+        }
 
 }
 
@@ -130,6 +147,7 @@ const tree= new BinarySearchTree()
     tree.insert(3)
     tree.insert(8)
     tree.insert(20)
+    tree.insert(13)
     console.log(tree.BFS())
     console.log(tree.DFS())
     console.log(tree.DFSPost())
