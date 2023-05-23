@@ -90,10 +90,10 @@ class BinarySearchTree {
             const traverse=(current=node)=>{
                 holder.push(current.val)
                 if(current.left){
-                    traverse(current.left,current)
+                    traverse(current.left)
                 }
                 if(current.right){
-                    traverse(current.right,current)
+                    traverse(current.right)
                 }
 
                 return holder
@@ -103,6 +103,31 @@ class BinarySearchTree {
 
 
         }
+
+        DFSPost(){// depths first preOrder
+            let node=this.root
+            let holder=[]
+            if(node===null) return undefined
+
+            const traverse=(current=node)=>{
+              
+                if(current.left){
+                    traverse(current.left,current)
+                }
+                if(current.right){
+                    traverse(current.right,current)
+                }
+
+                holder.push(current.val)
+
+            }
+            return holder
+
+
+        }
+
+
+
 }
 
 
@@ -115,3 +140,4 @@ const tree= new BinarySearchTree()
     tree.insert(20)
     console.log(tree.BFS())
     console.log(tree.DFS())
+    console.log(tree.DFSPost())
