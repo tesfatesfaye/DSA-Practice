@@ -63,7 +63,7 @@ class BinarySearchTree {
             return false
     }
 
-        BFS(){
+        BFS(){ // breadth first search
             let data=[],queue=[], node=this.root
             if(node){
                 queue.push(node)
@@ -82,7 +82,27 @@ class BinarySearchTree {
 
         }
 
+        DFS(){// depths first preOrder
+            let node=this.root
+            let holder=[]
+            if(node===null) return undefined
 
+            const traverse=(current=node)=>{
+                holder.push(current.val)
+                if(current.left){
+                    traverse(current.left,current)
+                }
+                if(current.right){
+                    traverse(current.right,current)
+                }
+
+                return holder
+
+            }
+            return traverse(node)
+
+
+        }
 }
 
 
@@ -94,3 +114,4 @@ const tree= new BinarySearchTree()
     tree.insert(8)
     tree.insert(20)
     console.log(tree.BFS())
+    console.log(tree.DFS())
