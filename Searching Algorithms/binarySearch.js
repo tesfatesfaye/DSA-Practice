@@ -2,12 +2,12 @@ const binarySearch=(arr,value)=>{
 
     let left=0;
     let right=arr.length-1
-    let counter=0
+    
     while(left<=right){
         let middle= Math.floor((right+left)/2)
       
         if(arr[middle]===value){ 
-            console.log(counter=counter+1)
+         
             return middle
         }
         else if(arr[middle]< value){
