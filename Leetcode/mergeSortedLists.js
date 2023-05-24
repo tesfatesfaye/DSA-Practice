@@ -1,51 +1,58 @@
-class ListNode{
-    constructor(val=null,next=null){ 
-    this.val= val
-    this.next=next
+class  ListNode {
+    constructor(val,next) {
+    this.val = (val === undefined ? 0 : val)
+    this.next = (next === undefined ? null : next)
+}
+}
+
+const mergeTwoLists = (list1, list2) => {
+
+    if (list1 && list2) {
+        const mergedList = new ListNode()
+        let mergedListHolder = mergedList
+
+
+        while (list1 && list2) {
+            if (list1.val <= list2.val) {
+                mergedListHolder.val = list1.val
+
+                list1 = list1.next
+                if (list1) {
+                    mergedListHolder.next = new ListNode()
+                    mergedListHolder = mergedListHolder.next
+                }
+
+            }
+            else {
+                mergedListHolder.val = list2.val
+                list2 = list2.next
+                if (list2) {
+                    mergedListHolder.next = new ListNode()
+                    mergedListHolder = mergedListHolder.next
+                }
+
+            }
+        }
+        if (list1) {
+            mergedListHolder.next = list1
+        }
+        else {
+            mergedListHolder.next = list2
+        }
+       return mergedList
+
     }
+    else if (list1) {
+        return list1
+    }
+    return list2
 }
-const head=new ListNode(1,new ListNode(3, new ListNode(4, new ListNode(4, new ListNode (7, new ListNode(8))))))
-const headTwo=new ListNode(2,new ListNode(6, new ListNode(8, new ListNode(9, new ListNode (10, new ListNode(12))))))
+let right = new ListNode(2)
+right.next = new ListNode(2)
+right.next.next = new ListNode(3)
 
-function mergeTwoLists(listOne, listTwo){
- const mergedList=new ListNode()
- let mergedListHolder=mergedList
- let oneHolder=listOne;
- let twoHolder=listTwo;
-            while(oneHolder&&twoHolder){
-                if(oneHolder.val<=twoHolder.val){
-                    mergedListHolder.val=oneHolder.val
-                    mergedListHolder.next=new ListNode()
-                    mergedListHolder= mergedListHolder.next
-                    oneHolder=oneHolder.next
-                }
-                else{
-                    mergedListHolder.val=twoHolder.val
-                    mergedListHolder.next=new ListNode()
-                    mergedListHolder=mergedListHolder.next
-                    twoHolder=twoHolder.next
-                }
-                
+let left = new ListNode(1)
+left.next = new ListNode(3)
+left.next.next = new ListNode(4)
 
-            }
-            if(oneHolder){
-                while(oneHolder){
-                    mergedListHolder.val=oneHolder.val
-                    mergedListHolder.next=new ListNode()
-                    mergedListHolder=mergedListHolder.next
-                    oneHolder=oneHolder.next
-                }
-            }
-
-            else{
-                while(twoHolder){
-                    mergedListHolder.val=twoHolder.val
-                    mergedListHolder.next=new ListNode()
-                    mergedListHolder=mergedListHolder.next
-                    twoHolder=twoHolder.next
-                }
-            }
-
-            return mergedList
-
-}
+console.log(mergeTwoLists(left, right))
