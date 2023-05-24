@@ -29,8 +29,8 @@ const maxSubArray = (nums) => {
 
     }
     sorter()
-    console.log(arrayHolder)
-    console.log(max)
+
+
 
     let left = 0
     if (arrayHolder.length <=2){
@@ -44,27 +44,12 @@ const maxSubArray = (nums) => {
     }
 
 
-    let aggregate = null
-    while (left < arrayHolder.length - 1) {
+    let aggregate = arrayHolder[left]
+    while (left < arrayHolder.length - 2) {
+        aggregate=Math.max((aggregate+arrayHolder[left+1]+arrayHolder[left+2]),arrayHolder[left+2])
+            max=Math.max(max,aggregate)
 
-        if (aggregate === null) {
-            aggregate = arrayHolder[left]
-
-        }
-
-        if ((aggregate + arrayHolder[left + 1] + arrayHolder[left + 2] >= aggregate) && (aggregate + arrayHolder[left + 1] + arrayHolder[left + 2] > arrayHolder[left + 2])) {
-
-            aggregate = aggregate + arrayHolder[left + 1] + arrayHolder[left + 2]
-            
-            if (max < aggregate) {
-                max = aggregate
-            }
-
-        }
-        else {
-            aggregate = null
-        }
-
+    
         left = left + 2
     }
 
@@ -75,6 +60,8 @@ const maxSubArray = (nums) => {
 
 console.log(maxSubArray([-9,-2,1,8,7,-6,4,9,-9,-5,0,5,-2,5,9,7]))
 console.log(maxSubArray([1,2,3,4,6,-1,-2,-3,-4]))
+console.log(maxSubArray([5,4,-1,7,8]))
+console.log(maxSubArray([-1,0,-2]))
 
 
 // const aggregator=(agg)=>{
@@ -84,3 +71,27 @@ console.log(maxSubArray([1,2,3,4,6,-1,-2,-3,-4]))
 
 
 // }
+
+
+
+
+
+
+
+
+// var maxSubArraya = function(nums) {
+        
+//     let maxCurrent = nums[0];
+//     let maxGlobal = nums[0];
+    
+//     for (let i = 1; i < nums.length; i++) {
+//         maxCurrent = Math.max(nums[i], maxCurrent + nums[i]);
+//         if (maxCurrent > maxGlobal) {
+//             maxGlobal = maxCurrent;
+//         }
+//     }
+    
+//     return maxGlobal;
+// };
+
+// console.log(maxSubArraya([-9,-2,1,8,7,-6,4,9,-9,-5,0,5,-2,5,9,7]))
