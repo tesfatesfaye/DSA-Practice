@@ -1,88 +1,58 @@
-function Single(val=null,next=null){
-    this.val= val
-    this.next=next
+class  ListNode {
+    constructor(val,next) {
+    this.val = (val === undefined ? 0 : val)
+    this.next = (next === undefined ? null : next)
 }
-let head=new Single(5,new Single(7, new Single(1, new Single(2, new Single (6, new Single(3,))))))
+}
 
-const sortSinglyLinkedList=(head)=>{
-    const merge=(arr,arrTwo)=>{
-        let leftPointer=0
-        let rightPointer=0
-        let mergedArray=[]
-        
-                while(leftPointer<arr.length && rightPointer <arrTwo.length){
-        
-                    if(arr[leftPointer]<arrTwo[rightPointer]){
-                        mergedArray.push(arr[leftPointer])
-                        leftPointer++
-                    }
-        
-                    else if(arr[leftPointer]>arrTwo[rightPointer]) {
-                        mergedArray.push(arrTwo[rightPointer])
-                        rightPointer++
-        
-                    }
-        
-                    else{
-                        mergedArray.push(arrTwo[rightPointer],arr[leftPointer])
-                        rightPointer++
-                        leftPointer++
-                    }
-        
-        
+const mergeTwoLists = (list1, list2) => {
+
+    if (list1 && list2) {
+        const mergedList = new ListNode()
+        let mergedListHolder = mergedList
+
+
+        while (list1 && list2) {
+            if (list1.val <= list2.val) {
+                mergedListHolder.val = list1.val
+
+                list1 = list1.next
+                if (list1) {
+                    mergedListHolder.next = new ListNode()
+                    mergedListHolder = mergedListHolder.next
                 }
-        
-                if(leftPointer===arr.length){
-                    for( let i=rightPointer;i<arrTwo.length;i++){
-                        mergedArray.push(arrTwo[i])
-                    }
-                
+
+            }
+            else {
+                mergedListHolder.val = list2.val
+                list2 = list2.next
+                if (list2) {
+                    mergedListHolder.next = new ListNode()
+                    mergedListHolder = mergedListHolder.next
                 }
-                else if(rightPointer===arrTwo.length){
-                        for( let i=leftPointer;i<arr.length;i++){
-                            mergedArray.push(arr[i])
-                        }
-                    
-                   
-                }
-        
-        
-        
-                return mergedArray
-        
-        
+
+            }
         }
-        
-    const mergeSort=(arr)=>{
-    
-        if(arr.length<=1) return arr
-        let mid=Math.floor(arr.length/2)
-        let left=mergeSort(arr.slice(0,mid))
-        let right=mergeSort(arr.slice(mid))
-        return merge(left,right)
+        if (list1) {
+            mergedListHolder.next = list1
+        }
+        else {
+            mergedListHolder.next = list2
+        }
+       return mergedList
+
     }
-    
-  
-    let newHead=head
-    let sortedHead=head
-    let arry=[]
-    
-    
-    while(head){
-        arry.push(head.val)
-        head=head.next
+    else if (list1) {
+        return list1
     }
-    
-    
-    arry=mergeSort(arry)
-    for(let i of arry){
-        newHead.val=i
-        newHead=newHead.next
-    }
-    return sortedHead
+    return list2
 }
+let right = new ListNode(2)
+// right.next = new ListNode(2)
+// right.next.next = new ListNode(3)
 
+let left = new ListNode(1)
+// left.next = new ListNode(3)
+// left.next.next = new ListNode(4)
 
-
-let sortedList=sortSinglyLinkedList(head)
-console.log(sortedList)
+console.log(mergeTwoLists(left, right))
