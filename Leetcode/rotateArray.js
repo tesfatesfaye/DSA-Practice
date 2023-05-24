@@ -1,27 +1,20 @@
-const rotate = (nums, k) =>{
-    let newArray=[]
-    let end=nums.length-k
-   if(k>nums.length){
-       k=k%(nums.length)
-       
-   }
-   if(k>0){
-       while(end<nums.length){
-           newArray.push(nums[end])
-            end++
-       }
-          for(let i=0;i<nums.length-k;i++){
-              newArray.push(nums[i])
-          }
+const rotate=(nums,k)=>{
+    k%=nums.length
+    const reverse=(start,end)=>{
+        while(start<end){
+            [nums[start],nums[end]]=[nums[end],nums[start]]
+            start++
+            end --
+        }
+    }
+        if(k>0){
+            reverse(0,nums.length-1)
+            reverse(0,k-1)
+            reverse(k,nums.length)
+        }
 
-          for(let i=0;i<newArray.length;i++){
-              nums[i]=newArray[i]
-          }
+    }
+  
 
-   }
-     
 
-};
-let value=[1,2,3,4,5,6,7]
-rotate(value,3)
-console.log(value)
+

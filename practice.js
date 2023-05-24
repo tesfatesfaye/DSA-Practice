@@ -62,7 +62,7 @@ class BinarySearchTree {
             }
             return false
     }
-
+            // time complexity of breadth first and depth first is the same
         BFS(){ // breadth first search
             let data=[],queue=[], node=this.root
             if(node){
@@ -148,6 +148,8 @@ const tree= new BinarySearchTree()
     tree.insert(8)
     tree.insert(20)
     tree.insert(13)
+    tree.insert(50)
     console.log(tree.BFS())
     console.log(tree.DFS())
     console.log(tree.DFSPost())
+    console.log(tree.DFSInOrder())
