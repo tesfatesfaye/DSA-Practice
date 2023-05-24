@@ -3,8 +3,10 @@ const maxSubArray = (nums) => {
     let arrayHolder = []
     let total = 0
     let sign = true
+
+    const sorter=()=>{
     let holder = null
-    for (let i = 0; i < nums.length; i++) { // sorts the postive and negative consecutive values
+    for (let i = 0; i < nums.length; i++) { // sorts the positive and negative consecutive values
 
         if ((nums[i] < 0 && sign === false) || (nums[i] >= 0 && sign === true)) {
 
@@ -22,13 +24,16 @@ const maxSubArray = (nums) => {
             if (i === nums.length - 1) arrayHolder.push(holder)
         }
 
+    }
+    
 
     }
+    sorter()
     console.log(arrayHolder)
     console.log(max)
 
     let left = 0
-    if (arrayHolder.length === 0){
+    if (arrayHolder.length <=2){
 
         return max
     }
@@ -69,6 +74,7 @@ const maxSubArray = (nums) => {
 }
 
 console.log(maxSubArray([-9,-2,1,8,7,-6,4,9,-9,-5,0,5,-2,5,9,7]))
+console.log(maxSubArray([1,2,3,4,6,-1,-2,-3,-4]))
 
 
 // const aggregator=(agg)=>{
