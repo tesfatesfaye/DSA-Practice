@@ -1,27 +1,16 @@
-
-
-
-
-var maxSubArray = function (nums) {
-    if (nums.length === 0) {
-        return nums
-    }
-    let sum = Number.NEGATIVE_INFINITY
-    let holder;
-    let counter;
-    for (let i = 0; i < nums.length ; i++) {
-        holder=counter = 0
-        
-        while (counter <= nums.length - 1 - i) {
-            holder = holder + nums[i + counter]
-            if (holder > sum) {
-                sum = holder
-            }
-            counter++
+const maxSubArray=(nums)=>{
+    if(nums.length===0) return []
+    let overAllMax=nums[0]
+    let tempMax=nums[0]
+        for(let i=1;i<nums.length;i++){
+            tempMax=Math.max(tempMax+nums[i],nums[i])
+            overAllMax=Math.max(overAllMax,tempMax)
+            
         }
+    return overAllMax        
+}
 
-    }
-    return sum
-};
-
-console.log(maxSubArray([5,-40,100,-20,10]))
+console.log(maxSubArray([-9,-2,1,8,7,-6,4,9,-9,-5,0,5,-2,5,9,7]))
+console.log(maxSubArray([1,2,3,4,6,-1,-2,-3,-4]))
+console.log(maxSubArray([5,4,-1,7,8]))
+console.log(maxSubArray([-1,0,-2]))
