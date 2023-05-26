@@ -34,6 +34,32 @@ class PriorityQueue{
                 }
                 return this.values
         }
+
+        Dequeue(){
+            if(this.values.length<=1){
+                if(this.values.length===1)return this.values.pop()
+                return null
+            }
+               
+            this.swap(0,this.values.length-1)
+            let min=this.values.pop()
+            let index=0
+                while(true){
+                let leftChild=this.values[(2*index)+1] ?? this.values[index]
+                let rightChild=this.values[(2*index)+2] ?? this.values[index]
+                let largerPriority=rightChild.priority<leftChild.priority ? ((2*index)+2) :((2*index)+1)
+                if(this.values[largerPriority].priority<this.values[index].priority){
+                    this.swap(largerPriority,index)
+                    index=largerPriority
+                }
+                else{
+                        break
+                }
+              
+                }
+                return min
+    
+        }
    
     
     }
