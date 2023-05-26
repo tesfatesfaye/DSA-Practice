@@ -1,4 +1,4 @@
-class MaxBinaryHeap{
+class MaxBinaryHeap{ // searching can be o(n/2) they are evenly spread
     constructor(){
         this.values=[]
     }

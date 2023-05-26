@@ -82,8 +82,8 @@ class BinarySearchTree {
 
         }
 
-        DFS(){// depths first preOrder means all the left elements and there children come before any right ones, 
-            //the first right node comes after all the elements in the first left node
+        DFS(){// depths first preOrder means all parents followed by all the left elements and there children come before any right ones, 
+            //then first right node comes after all the elements in the first left node
             let node=this.root
             let holder=[]
             if(node===null) return undefined
@@ -119,7 +119,7 @@ class BinarySearchTree {
 
         }
 
-        DFSInOrder(){
+        DFSInOrder(){// first left then right, 
             let node=this.root
             let holder=[]
             if(node===null) return undefined
