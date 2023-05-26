@@ -1,19 +1,19 @@
 class MaxBinaryHeap{
 constructor(){
-    this.value=[]
+    this.values=[]
 }
     swap(indexOne,indexTwo){
-        [this.value[indexOne], this.value[indexTwo]]=[this.value[indexTwo],this.value[indexOne]]
+        [this.values[indexOne], this.values[indexTwo]]=[this.values[indexTwo],this.values[indexOne]]
     }
     insert(val){
-        this.value.push(val)
-        let index=this.value.length-1
+        this.values.push(val)
+        let index=this.values.length-1
         const parent=(x)=>{
           return (Math.floor((x-1)/2))
         }
             while(index){
                 let parentIn=parent(index)       
-            if(val>this.value[parentIn]){
+            if(val>this.values[parentIn]){
                 this.swap(parentIn,index)
                 index=parentIn
                
@@ -22,18 +22,22 @@ constructor(){
                     break;
                 }
             }
-            return this.value
+            return this.values
     }
     extractMax(){
-        if(this.value.length<=1){return this.value.pop()}
-        this.swap(0,this.value.length-1)
-        let max=this.value.pop()
+        if(this.values.length<=1){
+            if(this.values.length===1)return this.values.pop()
+            return null
+        }
+           
+        this.swap(0,this.values.length-1)
+        let max=this.values.pop()
         let index=0
             while(true){
-            let leftChild=this.value[(2*index)+1]
-            let rightChild=this.value[(2*index)+2]
+            let leftChild=this.values[(2*index)+1] ?? this.values[index]
+            let rightChild=this.values[(2*index)+2] ?? this.values[index]
             let largerChild=rightChild>leftChild ? ((2*index)+2) :((2*index)+1)
-            if(this.value[largerChild]>this.value[index]){
+            if(this.values[largerChild]>this.values[index]){
                 this.swap(largerChild,index)
                 index=largerChild
             }
@@ -59,4 +63,11 @@ let counter=0
     console.log(max)
     console.log(max.insert(55))
     console.log(max.extractMax())
-    console.log(max)
+    console.log(max.extractMax())
+    console.log(max.extractMax())
+    console.log(max.extractMax())
+    console.log(max.extractMax())
+    console.log(max.extractMax())
+    console.log(max.extractMax())
+    console.log(max.extractMax())
+    console.log(max.values)
