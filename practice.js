@@ -16,6 +16,9 @@ constructor(){
                 index=parentIn
                
             }
+                else{
+                    break;
+                }
             }
             return this.value
     }
