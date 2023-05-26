@@ -8,7 +8,7 @@ const lengthOfLongestSubstring=(s)=>{
             if((Object.hasOwn(obj, s[i])===false)|| obj[s[i]]<lastValue){
                  currentLength++
                 maxLength=Math.max(maxLength,currentLength)
-                             obj[s[i]]=i
+                obj[s[i]]=i
                        }
             else {
                        
