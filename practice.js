@@ -24,6 +24,27 @@ constructor(){
             }
             return this.value
     }
+    extractMax(){
+        if(this.value.length<=1){return this.value.pop()}
+        this.swap(0,this.value.length-1)
+        let max=this.value.pop()
+        let index=0
+            while(true){
+            let leftChild=this.value[(2*index)+1]
+            let rightChild=this.value[(2*index)+2]
+            let largerChild=rightChild>leftChild ? ((2*index)+2) :((2*index)+1)
+            if(this.value[largerChild]>this.value[index]){
+                this.swap(largerChild,index)
+                index=largerChild
+            }
+            else{
+                    break
+            }
+          
+            }
+            return max
+
+    }
 
 }
 
@@ -37,3 +58,5 @@ let counter=0
 
     console.log(max)
     console.log(max.insert(55))
+    console.log(max.extractMax())
+    console.log(max)
