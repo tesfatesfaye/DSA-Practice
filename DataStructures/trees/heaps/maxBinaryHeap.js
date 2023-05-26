@@ -34,9 +34,9 @@ class MaxBinaryHeap{
             let max=this.values.pop()
             let index=0
                 while(true){
-                let leftChild=this.values[(2*index)+1] ?? this.values[index]
-                let rightChild=this.values[(2*index)+2] ?? this.values[index]
-                let largerChild=rightChild>leftChild ? ((2*index)+2) :((2*index)+1)
+                    let leftChild=this.values[(2*index)+1]!==undefined ? (2*index)+1 : index
+                    let rightChild=this.values[(2*index)+2]!==undefined ? (2*index)+2 : index
+                    let largerChild=this.values[rightChild]>this.values[leftChild] ? rightChild :leftChild
                 if(this.values[largerChild]>this.values[index]){
                     this.swap(largerChild,index)
                     index=largerChild
