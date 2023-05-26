@@ -45,10 +45,11 @@ class PriorityQueue{
             let min=this.values.pop()
             let index=0
                 while(true){
-                let leftChild=this.values[(2*index)+1] ?? this.values[index]
-                let rightChild=this.values[(2*index)+2] ?? this.values[index]
-                let largerPriority=rightChild.priority<leftChild.priority ? ((2*index)+2) :((2*index)+1)
-                if(this.values[largerPriority].priority<this.values[index].priority){
+                let leftChild=this.values[(2*index)+1] ? (2*index)+1 : index
+                let rightChild=this.values[(2*index)+2] ? (2*index)+2 : index
+                let largerPriority=this.values[rightChild].priority<this.values[leftChild].priority ? rightChild :leftChild
+                console.log(largerPriority)
+                if((this.values[largerPriority]).priority<this.values[index].priority){
                     this.swap(largerPriority,index)
                     index=largerPriority
                 }
@@ -72,4 +73,5 @@ class PriorityQueue{
             counter++
         }
     console.log(min.values[0])
-  
+    console.log(min.Dequeue())
+    console.log(min.values[0])
