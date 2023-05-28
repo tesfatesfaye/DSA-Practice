@@ -1,12 +1,16 @@
 //basic hash function
-let array=[]
+let array=10
 const hash=(key,arrayLen)=>{
-    let total=0;
-    for(let char of key){
+    let total=0
+    let prime=31
+    for(let i=0;i<Math.min(key.length,100);i++){
+        let char=key[i]
         let value=char.charCodeAt(0)-96
-        total=(total+value) %arrayLen
+        total=(total*prime+value)% arrayLen;
+
     }
     return (total)
 
 }
-console.log(hash("tesfa",array.length))
+console.log(hash("he",13))
+console.log(hash("hello",13))
