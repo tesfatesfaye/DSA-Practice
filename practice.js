@@ -50,11 +50,35 @@ class HashTable {
     get(key) {
         let hashedValue = this._hash(key)
         let value = this.keyMap[hashedValue]
+
         if (value) {
             value = value.find(x => x[0] === key)
             if (value) value = value[1]
         }
         return value
+    }
+    delete(key) {
+        let hashedValue = this._hash(key)
+        let deleteParent = this.keyMap[hashedValue]
+        console.log(deleteParent)
+        
+        if (deleteParent) {
+            if (this.keyMap[hashedValue].length === 1) {
+                                           
+                return this.keyMap[hashedValue].pop()
+            }
+
+            else {
+
+                for (let i in deleteParent) {
+                    if (deleteParent[i][0] === key) {
+                       return(deleteParent.splice(i, 1))
+                    }
+                }
+            }
+            }
+            return undefined
+              
     }
     keys() {
         let keysArray = []
@@ -84,7 +108,7 @@ class HashTable {
         for (let i of array) {
             if (i !== undefined) {
                 if (Array.isArray(i[0])) {
-                    this.values(i, valuesArray,false)
+                    this.values(i, valuesArray, false)
                 }
                 else {
                     if (!valuesArray.includes(i[1])) {
@@ -94,10 +118,10 @@ class HashTable {
             }
 
         }
-               
-            return valuesArray
-        
-       
+
+        return valuesArray
+
+
     }
 
 }
@@ -113,5 +137,8 @@ ht.set("plum", "#DDA0DD")
 ht.set("purple", "#DDA0DD")
 ht.set("violet", "#DDA0DD")
 console.log(ht.keys())
-console.log(ht.values())
+console.log(ht.delete("maroon"))
+// console.log(ht.keys())
+// console.log(ht.values())
+
 
