@@ -14,7 +14,7 @@
 // }
 
 class HashTable {
-    constructor(size = 53) {
+    constructor(size = 4) {
         this.keyMap = new Array(size);
     }
     _hash(key) {
@@ -30,30 +30,23 @@ class HashTable {
 
     set(key,value) {
         let hashedValue = this._hash(key)
+        console.log(hashedValue)
         if (!this.keyMap[hashedValue]) {
-            this.keyMap[hashedValue] = value
+            this.keyMap[hashedValue] = [[key,value]]
         }
         else {
-            if (Array.isArray[keyMap[hashedValue]]) {
-                (this.keyMap[hashedValue]).push(value)
-            }
-            else {
-                this.keyMap[hashedValue] = [this.keyMap[hashedValue], value]
-            }
+            this.keyMap[hashedValue].push([key,value])
         }
         return this.keyMap
-    }
+        }
+        
+    
     get(key) {
         let hashedValue = this._hash(key)
         let value = this.keyMap[hashedValue]
-        if (!value) {
-            return undefined
-        }
-        else if (Array.isArray(value)) {
-             
-                let value = value.find(x => x === hashedValue)
-               
-
+            if(value){
+                value=value.find(x=>x[0]===key)
+                if(value) value=value[1]
             }
             return value
         }
@@ -61,7 +54,10 @@ class HashTable {
     }
 
 let hashTable=new HashTable()
-hashTable.set("five",5)
-console.log(hashTable.get("five"))
-console.log(hashTable.get("fiv"))
+hashTable.set("helloword","goodbye")
+hashTable.set("outthere","hellothere")
+hashTable.set("ihatedogs","callof")
+hashTable.set("idontlikepeople","goodMorning")
+console.log(hashTable.get('helloword'))
+console.log(hashTable.keyMap)
 
