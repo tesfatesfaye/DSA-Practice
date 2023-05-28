@@ -30,12 +30,20 @@ class HashTable {
 
     set(key,value) {
         let hashedValue = this._hash(key)
+        let keyMap=this.keyMap
         console.log(hashedValue)
-        if (!this.keyMap[hashedValue]) {
-            this.keyMap[hashedValue] = [[key,value]]
+        console.log(keyMap)
+        if (!keyMap[hashedValue]) {
+            keyMap[hashedValue]= [[key,value]]
         }
         else {
-            this.keyMap[hashedValue].push([key,value])
+            let sameKey=keyMap[hashedValue].find(x=>x[0]===key)
+            if(sameKey){
+                sameKey[1]=value
+            }
+            else{
+           keyMap[hashedValue].push([key,value])
+            }
         }
         return this.keyMap
         }
@@ -57,7 +65,7 @@ let hashTable=new HashTable()
 hashTable.set("helloword","goodbye")
 hashTable.set("outthere","hellothere")
 hashTable.set("ihatedogs","callof")
-hashTable.set("idontlikepeople","goodMorning")
+hashTable.set("idontlikepeople","goodmorning")
 console.log(hashTable.get('helloword'))
 console.log(hashTable.keyMap)
 
