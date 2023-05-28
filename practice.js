@@ -64,8 +64,9 @@ class HashTable {
         
         if (deleteParent) {
             if (this.keyMap[hashedValue].length === 1) {
-                                           
-                return this.keyMap[hashedValue].pop()
+                 let deleted=this.keyMap[hashedValue].pop()
+                 this.keyMap[hashedValue]=undefined                          
+                return  deleted
             }
 
             else {
