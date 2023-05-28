@@ -28,44 +28,67 @@ class HashTable {
         return total;
     }
 
-    set(key,value) {
+    set(key, value) {
         let hashedValue = this._hash(key)
-        let keyMap=this.keyMap
+        let keyMap = this.keyMap
         console.log(hashedValue)
         console.log(keyMap)
         if (!keyMap[hashedValue]) {
-            keyMap[hashedValue]= [[key,value]]
+            keyMap[hashedValue] = [[key, value]]
         }
         else {
-            let sameKey=keyMap[hashedValue].find(x=>x[0]===key)
-            if(sameKey){
-                sameKey[1]=value
+            let sameKey = keyMap[hashedValue].find(x => x[0] === key)
+            if (sameKey) {
+                sameKey[1] = value
             }
-            else{
-           keyMap[hashedValue].push([key,value])
+            else {
+                keyMap[hashedValue].push([key, value])
             }
         }
         return this.keyMap
-        }
-        
-    
+    }
+
+
     get(key) {
         let hashedValue = this._hash(key)
         let value = this.keyMap[hashedValue]
-            if(value){
-                value=value.find(x=>x[0]===key)
-                if(value) value=value[1]
-            }
-            return value
+        if (value) {
+            value = value.find(x => x[0] === key)
+            if (value) value = value[1]
         }
+        return value
+    }
+    keys() {
+        let keysArray = []
+        const helper = (array) => {
+           
+            for (let i of array) {
+                if (i !== undefined) {
+                    if (Array.isArray(i[0])) {
+                        helper(i)
+                    }
+                    else  {
+                        keysArray.push(i[0])
+                    }
+                }
 
+            }
+
+        }
+        helper(this.keyMap)
+        
+        return keysArray
     }
 
-let hashTable=new HashTable()
-hashTable.set("helloword","goodbye")
-hashTable.set("outthere","hellothere")
-hashTable.set("ihatedogs","callof")
-hashTable.set("idontlikepeople","goodmorning")
-console.log(hashTable.get('helloword'))
-console.log(hashTable.keyMap)
+}
+
+let hashTable = new HashTable()
+hashTable.set("helloword", "goodbye")
+hashTable.set("outthere", "hellothere")
+hashTable.set("ihatedogs", "callof")
+hashTable.set("idontlikepeople", "goodmorning")
+// console.log(hashTable.get('helloword'))
+// console.log(hashTable.keyMap)
+console.log(hashTable.keys())
+// console.log(hashTable.keyMap)
 
