@@ -12,5 +12,3 @@ const hash=(key,arrayLen)=>{
     return (total)
 
 }
-console.log(hash("he",13))
-console.log(hash("hello",13))
