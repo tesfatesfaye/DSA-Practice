@@ -28,17 +28,17 @@ class HashTable {
         return total;
     }
 
-    set(key) {
+    set(key,value) {
         let hashedValue = this._hash(key)
         if (!this.keyMap[hashedValue]) {
-            this.keyMap[hashedValue] = key
+            this.keyMap[hashedValue] = value
         }
         else {
             if (Array.isArray[keyMap[hashedValue]]) {
-                (this.keyMap[hashedValue]).push(key)
+                (this.keyMap[hashedValue]).push(value)
             }
             else {
-                this.keyMap[hashedValue] = [this.keyMap[hashedValue], key]
+                this.keyMap[hashedValue] = [this.keyMap[hashedValue], value]
             }
         }
         return this.keyMap
@@ -51,7 +51,7 @@ class HashTable {
         }
         else if (Array.isArray(value)) {
              
-                let value = value.find(x => x === key)
+                let value = value.find(x => x === hashedValue)
                
 
             }
@@ -59,4 +59,9 @@ class HashTable {
         }
 
     }
+
+let hashTable=new HashTable()
+hashTable.set("five",5)
+console.log(hashTable.get("five"))
+console.log(hashTable.get("fiv"))
 
