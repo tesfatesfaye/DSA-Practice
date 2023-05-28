@@ -31,8 +31,6 @@ class HashTable {
     set(key, value) {
         let hashedValue = this._hash(key)
         let keyMap = this.keyMap
-        console.log(hashedValue)
-        console.log(keyMap)
         if (!keyMap[hashedValue]) {
             keyMap[hashedValue] = [[key, value]]
         }
@@ -80,15 +78,43 @@ class HashTable {
         return keysArray
     }
 
+
+    values() {
+        let valuesArray = []
+        const helper = (array) => {
+           
+            for (let i of array) {
+                if (i !== undefined) {
+                    if (Array.isArray(i[0])) {
+                        helper(i)
+                    }
+                    else  {
+                        if(!valuesArray.includes(i[1])){
+                        valuesArray.push(i[1])
+                        }
+                    }
+                }
+
+            }
+
+        }
+        helper(this.keyMap)
+        
+        return valuesArray
+    }
+
 }
 
-let hashTable = new HashTable()
-hashTable.set("helloword", "goodbye")
-hashTable.set("outthere", "hellothere")
-hashTable.set("ihatedogs", "callof")
-hashTable.set("idontlikepeople", "goodmorning")
-// console.log(hashTable.get('helloword'))
-// console.log(hashTable.keyMap)
-console.log(hashTable.keys())
-// console.log(hashTable.keyMap)
+let ht = new HashTable(17);
+ht.set("maroon","#800000")
+ht.set("yellow","#FFFF00")
+ht.set("olive","#808000")
+ht.set("salmon","#FA8072")
+ht.set("lightcoral","#F08080")
+ht.set("mediumvioletred","#C71585")
+ht.set("plum","#DDA0DD")
+ht.set("purple","#DDA0DD")
+ht.set("violet","#DDA0DD")
+console.log(ht.keys())
+console.log(ht.values())
 
