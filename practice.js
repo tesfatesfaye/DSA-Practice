@@ -59,13 +59,13 @@ class HashTable {
     keys() {
         let keysArray = []
         const helper = (array) => {
-           
+
             for (let i of array) {
                 if (i !== undefined) {
                     if (Array.isArray(i[0])) {
                         helper(i)
                     }
-                    else  {
+                    else {
                         keysArray.push(i[0])
                     }
                 }
@@ -74,47 +74,44 @@ class HashTable {
 
         }
         helper(this.keyMap)
-        
+
         return keysArray
     }
 
 
-    values() {
-        let valuesArray = []
-        const helper = (array) => {
-           
-            for (let i of array) {
-                if (i !== undefined) {
-                    if (Array.isArray(i[0])) {
-                        helper(i)
-                    }
-                    else  {
-                        if(!valuesArray.includes(i[1])){
+    values(array = this.keyMap, valuesArray = []) {
+
+        for (let i of array) {
+            if (i !== undefined) {
+                if (Array.isArray(i[0])) {
+                    this.values(i, valuesArray,false)
+                }
+                else {
+                    if (!valuesArray.includes(i[1])) {
                         valuesArray.push(i[1])
-                        }
                     }
                 }
-
             }
 
         }
-        helper(this.keyMap)
+               
+            return valuesArray
         
-        return valuesArray
+       
     }
 
 }
 
 let ht = new HashTable(17);
-ht.set("maroon","#800000")
-ht.set("yellow","#FFFF00")
-ht.set("olive","#808000")
-ht.set("salmon","#FA8072")
-ht.set("lightcoral","#F08080")
-ht.set("mediumvioletred","#C71585")
-ht.set("plum","#DDA0DD")
-ht.set("purple","#DDA0DD")
-ht.set("violet","#DDA0DD")
+ht.set("maroon", "#800000")
+ht.set("yellow", "#FFFF00")
+ht.set("olive", "#808000")
+ht.set("salmon", "#FA8072")
+ht.set("lightcoral", "#F08080")
+ht.set("mediumvioletred", "#C71585")
+ht.set("plum", "#DDA0DD")
+ht.set("purple", "#DDA0DD")
+ht.set("violet", "#DDA0DD")
 console.log(ht.keys())
 console.log(ht.values())
 
