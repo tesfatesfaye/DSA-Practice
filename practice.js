@@ -43,7 +43,20 @@ class HashTable {
         }
         return this.keyMap
     }
+    get(key) {
+        let hashedValue = this._hash(key)
+        let value = this.keyMap[hashedValue]
+        if (!value) {
+            return undefined
+        }
+        else if (Array.isArray(value)) {
+             
+                let value = value.find(x => x === key)
+               
 
+            }
+            return value
+        }
 
     }
 
