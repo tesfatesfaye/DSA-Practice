@@ -3,7 +3,7 @@ class HashTable {
     constructor(size = 4) {
         this.keyMap = new Array(size);
     }
-    _hash(key) {
+    _hash(key) { // figure out the inner workings of this and what the method of storing within an array is called
         let total = 0;
         let WEIRD_PRIME = 31;
         for (let i = 0; i < Math.min(key.length, 100); i++) {
