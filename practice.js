@@ -14,7 +14,6 @@ class Graph {// adjacency list undirected
                 this.adjacencyList[vertexOne].push(vertexTwo)
                 this.adjacencyList[vertexTwo].push(vertexOne)
             }
-
         }
     }
     removeEdge(vertexOne, vertexTwo) {
