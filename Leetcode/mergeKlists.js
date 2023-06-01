@@ -1,3 +1,9 @@
+class  ListNode {
+    constructor(val,next) {
+    this.val = (val === undefined ? 0 : val)
+    this.next = (next === undefined ? null : next)
+}
+}
 const mergeTwoLists = (list1, list2) => {
     if (list1 && list2) {
         const mergedList = new ListNode()
@@ -36,11 +42,10 @@ const mergeTwoLists = (list1, list2) => {
 }
 
 const mergeKLists = (lists)=> {
-    let mergedList=new ListNode(null)
-    if(!lists) return mergeKLists
-        for(i of lists){
-            mergedList=mergeTwoLists(mergedList,i)
-
-        }
-    return mergedList
+    if(lists.length===0) return null
+    if (lists.length===1) return lists[0]
+    let middle=Math.floor(lists.length/2)
+    let start=mergeKLists(lists.slice(0,middle))
+    let end=mergeKLists(lists.slice(middle))
+    return mergeTwoLists(start,end)
 };
