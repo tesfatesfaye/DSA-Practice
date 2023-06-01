@@ -10,7 +10,9 @@ class Graph{// adjacency list undirected
     }
     addEdge(vertexOne,vertexTwo){
         if(this.adjacencyList[vertexOne]&&this.adjacencyList[vertexTwo]){
-            if((this.adjacencyList[vertexOne].some(x=>x!==vertexTwo))&&(this.adjacencyList[vertexTwo].some(x=>x!==vertexOne))){
+            
+            if((this.adjacencyList[vertexOne].every(x=>x!==vertexTwo))&&(this.adjacencyList[vertexTwo].every(x=>x!==vertexOne))){
+             
                 this.adjacencyList[vertexOne].push(vertexTwo)
                 this.adjacencyList[vertexTwo].push(vertexOne)
             }
@@ -19,3 +21,9 @@ class Graph{// adjacency list undirected
     }
 
 }
+
+let g=new Graph()
+g.addVertex("addis")
+g.addVertex("paris")
+g.addEdge("addis","paris")
+console.log(g)
