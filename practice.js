@@ -1,4 +1,4 @@
-class Graph{// adjacency list
+class Graph{// adjacency list undirected
     constructor(){
         this.adjacencyList={}
     }
@@ -8,4 +8,14 @@ class Graph{// adjacency list
             this.adjacencyList[vertex]=[]
             }
     }
+    addEdge(vertexOne,vertexTwo){
+        if(this.adjacencyList[vertexOne]&&this.adjacencyList[vertexOne]){
+            if((this.adjacencyList[vertexOne].some(x=>x!==vertexTwo))&&(this.adjacencyList[vertexTwo].some(x=>x!==vertexOne))){
+                this.adjacencyList[vertexOne].push(vertexTwo)
+                this.adjacencyList[vertexTwo].push(vertexOne)
+            }
+
+        }
+    }
+
 }
