@@ -4,6 +4,8 @@ class Graph{// adjacency list
     }
 
     addVertex(vertex){
+            if(!this.adjacencyList[vertex]){
             this.adjacencyList[vertex]=[]
+            }
     }
 }
