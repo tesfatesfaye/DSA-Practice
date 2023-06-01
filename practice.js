@@ -9,7 +9,7 @@ class Graph{// adjacency list undirected
             }
     }
     addEdge(vertexOne,vertexTwo){
-        if(this.adjacencyList[vertexOne]&&this.adjacencyList[vertexOne]){
+        if(this.adjacencyList[vertexOne]&&this.adjacencyList[vertexTwo]){
             if((this.adjacencyList[vertexOne].some(x=>x!==vertexTwo))&&(this.adjacencyList[vertexTwo].some(x=>x!==vertexOne))){
                 this.adjacencyList[vertexOne].push(vertexTwo)
                 this.adjacencyList[vertexTwo].push(vertexOne)
