@@ -69,6 +69,7 @@ class Queue{ //since push and pop have to be O(1) time we will use shift and uns
 
     }
     }
+   
 
 const queueClass=new Queue()
 queueClass.enqueue(1)
@@ -77,6 +78,48 @@ queueClass.enqueue(3)
 console.log(queueClass)
 queueClass.dequeue()
 console.log(queueClass)
+
+
+// we can set up a queue without need a second node to hold the head and the tail, a bit more cluncky but it shall do
+
+
+class QueueTwo{
+    constructor(val,next){
+        this.val=val
+        this.next=next
+        
+    }
+    unshift(value){
+            let oldNodeValue=new QueueTwo(this.val,this.next)
+            this.val=value
+            this.next=oldNodeValue
+            return this       
+    }
+    shift(){
+            if(this.val===null) return null
+            let OldNode=this.val
+            if(this.next!==null){
+                this.val=this.next.val
+                this.next=this.next.next
+            }
+            else{
+                this.val=null
+            }
+           
+            return OldNode
+    }
+
+        
+
+}
+
+let p=new QueueTwo(2)
+console.log(p)
+p.unshift(3)
+p.unshift(6)
+p.unshift(7)
+p.shift()
+console.log(p)
 
 
 
