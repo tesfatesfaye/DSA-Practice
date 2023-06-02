@@ -1,3 +1,5 @@
+const { list } = require("cowsay")
+
 class Graph {// adjacency list undirected
     constructor() {
         this.adjacencyList = {}
@@ -27,7 +29,7 @@ class Graph {// adjacency list undirected
         delete this.adjacencyList[vertex]
         }
     }
-    dfsR(vertex,list=[],marker={}){
+    depthFirstRecursive(vertex,list=[],marker={}){
        if(this.adjacencyList[vertex]){
             if(!marker[vertex]){
                 marker[vertex]=true
@@ -37,7 +39,7 @@ class Graph {// adjacency list undirected
                 if(!marker[i]){
                     list.push(i)
                     marker[i]=true
-                    this.dfsR(i,list,marker)
+                    this.depthFirstRecursive(i,list,marker)
                 }
             }
        }
@@ -45,6 +47,26 @@ class Graph {// adjacency list undirected
         return null
        }
         return list
+    }
+    depthFirstIterative(vertex){
+        if(this.adjacencyList[vertex]){
+        const stack=[vertex]
+        const list=[]
+        const marker={vertex:true}
+        let currentVertex;
+            while(stack.length){
+                currentVertex=stack.pop()
+                list.push(currentVertex)
+                currentVertex.map(node=>{
+                    if(!list[node]){
+                     marker[node]=true
+                     list.push(node)   
+                    }
+                })
+            }
+            return list
+        }
+            return undefined     
     }
 
 }
@@ -65,4 +87,4 @@ g.addEdge("D","F")
 g.addEdge("E","F")
 
 console.log(g.adjacencyList)
-console.log(g.dfsR("A"))
+console.log(g.depthFirstRecursive("A"))
