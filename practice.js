@@ -71,7 +71,28 @@ class Graph {// adjacency list undirected
             return undefined     
     }
 
-    
+    breathFirst(vertex){
+        if(this.adjacencyList[vertex]){
+        const queue=[vertex]
+        const store=[]
+        const marker={[vertex]:true}
+            while(queue.length){
+                let currentVertex=queue.shift()
+                store.push(currentVertex)
+              
+                this.adjacencyList[currentVertex].map(node=>{
+                        if(!marker[node]){
+                            marker[node]=true
+                            queue.push(node)
+                        }
+                    })
+                
+            }
+                return store
+        }
+
+            return undefined
+    }
 
 
 }
@@ -94,3 +115,4 @@ g.addEdge("E","F")
 // console.log(g.adjacencyList)
 console.log(g.depthFirstRecursive("A"))
 console.log(g.depthFirstIterative("A"))
+console.log(g.breathFirst("A"))
