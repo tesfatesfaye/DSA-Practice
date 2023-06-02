@@ -52,15 +52,17 @@ class Graph {// adjacency list undirected
         if(this.adjacencyList[vertex]){
         const stack=[vertex]
         const list=[]
-        const marker={vertex:true}
+        const marker={[vertex]:true}
+        // marker[vertex]=true
+        
         let currentVertex;
             while(stack.length){
                 currentVertex=stack.pop()
                 list.push(currentVertex)
-                currentVertex.map(node=>{
-                    if(!list[node]){
+               this.adjacencyList[currentVertex].map(node=>{
+                    if(!marker[node]){
                      marker[node]=true
-                     list.push(node)   
+                     stack.push(node)   
                     }
                 })
             }
@@ -86,5 +88,6 @@ g.addEdge("D","E")
 g.addEdge("D","F")
 g.addEdge("E","F")
 
-console.log(g.adjacencyList)
+// console.log(g.adjacencyList)
 console.log(g.depthFirstRecursive("A"))
+console.log(g.depthFirstIterative("A"))
