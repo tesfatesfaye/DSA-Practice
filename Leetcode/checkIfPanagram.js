@@ -12,3 +12,15 @@ const checkIfPangram=(sentence)=>{
 
     return false
 } 
+
+const checkIfPangramTwo = (sentence) => {
+    if (sentence.length < 26) return false;
+    let alphabetSet = new Set();
+    for (let i = 0; i < sentence.length; i++) {
+      alphabetSet.add(sentence[i]);
+      if (alphabetSet.size === 26) {
+        return true;
+      }
+    }
+    return false;
+  }
