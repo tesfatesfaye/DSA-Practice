@@ -1,4 +1,4 @@
-const subsetsTwo=(nums)=>{
+const subsetsWithDup=(nums)=>{
     let holder={}
     let subHolder={}
     let subsetArray=[[]]
@@ -14,7 +14,7 @@ const subsetsTwo=(nums)=>{
             for(let j=0;j<subArraylength;j++){
                 let pushed=[...arraySub[j],nums[i]]
                 let checker=pushed.join('')
-                if(!subHolder[checker]){
+                if(!subHolder[checker] ){
                 arraySub.push(pushed)
                 subHolder[checker]=true
                 }
@@ -35,5 +35,5 @@ const subsetsTwo=(nums)=>{
    return subsetArray
 }
 
-console.log(subsetsTwo([1,2,3,4]))
-console.log(subsetsTwo([0]))
+console.log(subsetsWithDup([1,2,3,4]))
+console.log(subsetsWithDup([4,4,4,1,4]).length)
