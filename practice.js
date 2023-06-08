@@ -16,3 +16,13 @@ class WeightedGraph{
     }
 }
 
+let graph= new WeightedGraph()
+graph.addVertex("A")
+graph.addVertex("B")
+graph.addVertex("C")
+graph.addEdge("A","B",9)
+graph.addEdge("B","C",4)
+graph.addEdge("A","C",13)
+console.log(graph.adjacencyList)
+
+
