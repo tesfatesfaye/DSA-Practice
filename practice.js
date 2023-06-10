@@ -14,10 +14,7 @@ class WeightedGraph{
             }
         }
     }
-    removeEdge(vertexOne, vertexTwo) {
-        this.adjacencyList[vertexOne]=this.adjacencyList[vertexOne].filter(x=>x.node!==vertexTwo)
-        this.adjacencyList[vertexTwo]=this.adjacencyList[vertexTwo].filter(x=>x.node!==vertexOne)
-    }
+ 
     
 
 }
