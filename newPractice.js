@@ -13,3 +13,5 @@ class PriorityQueue {
       this.values.sort((a, b) => a.priority - b.priority);
     };
   }
+
+  
