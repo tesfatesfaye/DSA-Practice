@@ -4,8 +4,10 @@ const findMedianSortedArrays = (nums1, nums2) => {
     }
      let newArray = []
     const median = () => {
-        if (newArray.length % 2 === 0) {
-            console.log(newArray[newArray.length-1])
+
+      
+        if ((nums1.length+nums2.length) % 2 === 0) {
+         
             return (newArray[newArray.length - 1] + newArray[newArray.length - 2]) / 2
         }
         else {
@@ -17,7 +19,8 @@ const findMedianSortedArrays = (nums1, nums2) => {
     let leftPointer = 0
     let rightPointer = 0
     let medianIndex = Math.floor((nums1.length + nums2.length) / 2)
-    console.log(medianIndex)
+   
+   
     while (leftPointer + rightPointer <= medianIndex && (leftPointer < nums1.length && rightPointer < nums2.length)) {
         if (nums1[leftPointer] < nums2[rightPointer]) {
             newArray.push(nums1[leftPointer])
@@ -28,20 +31,25 @@ const findMedianSortedArrays = (nums1, nums2) => {
             rightPointer++
         }
     }
-    console.log(newArray)
-    console.log(leftPointer + rightPointer > medianIndex)
+    
     if (leftPointer + rightPointer > medianIndex) {
+     
         return (median())
     }
     if (leftPointer < nums1.length) {
-        while (medianIndex > newArray.length) {
-            newArray.push(nums1[leftPointer])
+        while (medianIndex >= newArray.length) {
+            if(nums1[leftPointer]!==undefined){
+                newArray.push(nums1[leftPointer])
+            }
+           
             leftPointer++
         }
     }
     else {
-        while (medianIndex > newArray.length) {
+        while (medianIndex >= newArray.length) {
+            if(nums2[rightPointer]!==undefined){
             newArray.push(nums2[rightPointer])
+            }
             rightPointer++
         }
     }
@@ -52,3 +60,5 @@ const findMedianSortedArrays = (nums1, nums2) => {
 
 console.log(findMedianSortedArrays([1,3],[2]))
 console.log(findMedianSortedArrays([1,2],[3,4]))
+console.log(findMedianSortedArrays([],[1]))
+console.log(findMedianSortedArrays([],[2,3]))
