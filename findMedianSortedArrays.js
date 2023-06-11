@@ -38,18 +38,16 @@ const findMedianSortedArrays = (nums1, nums2) => {
     }
     if (leftPointer < nums1.length) {
         while (medianIndex >= newArray.length) {
-            if(nums1[leftPointer]!==undefined){
                 newArray.push(nums1[leftPointer])
-            }
-           
+                       
             leftPointer++
         }
     }
     else {
         while (medianIndex >= newArray.length) {
-            if(nums2[rightPointer]!==undefined){
+           
             newArray.push(nums2[rightPointer])
-            }
+            
             rightPointer++
         }
     }
