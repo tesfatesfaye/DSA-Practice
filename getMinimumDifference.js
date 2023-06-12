@@ -1,4 +1,4 @@
-const getMinimumDifference = function(root) {
+const getMinimumDifference =(root)=> {
 
     let difference=Number.POSITIVE_INFINITY
     if(root.left===null&&root.right===null) return 0
