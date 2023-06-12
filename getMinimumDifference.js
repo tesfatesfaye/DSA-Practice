@@ -6,7 +6,7 @@ const getMinimumDifference =(root)=> {
        
         if(current.left) traverse(current.left,current)
         if(previous){
-            difference=Math.min(current.val-previous.val)
+            difference=Math.min(Math.abs(current.val-previous.val),difference)
         }
        
         if(current.right)traverse (current.right,current)
