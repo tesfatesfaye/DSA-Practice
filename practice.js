@@ -32,19 +32,54 @@ class WeightedGraph {
         }
     }
     dijkstra(start, finish) {
+        if(!this.adjacencyList[start] || !this.adjacencyList[finish]) return null
         const nodes=new PriorityQueue();
         const distances={}
         const previous={}
+        let path=[]
+        let smallest;
         //build up initial state
         for(let vertex in this.adjacencyList){
             if(vertex===start){
-                previous[vertex]=0
+                distances[vertex]=0
+                nodes.enqueue(vertex,0)
             }
             else {
-                previous[vertex]=Infinity
+                distances[vertex]=Infinity
+                nodes.enqueue(vertex,Infinity)
+            }
+            previous[vertex]=null
+        }
+        while(nodes.values.length){
+            smallest=nodes.dequeue().val
+            if(smallest===finish){
+                while(previous[smallest]){
+                    path.push(smallest)
+                    smallest=previous[smallest]
+                }
+                break
+            }
+            if(smallest || distances[smallest]!==Infinity){
+                
+                for(let neighbor of this.adjacencyList[smallest]){
+                    let candidate=distances[smallest]+neighbor.weight
+                    let neighborVal=neighbor.node
+                    if(candidate<distances[neighborVal]){
+                        distances[neighborVal]=candidate
+                        previous[neighborVal]=smallest
+                        nodes.enqueue(neighborVal,candidate);
+                    }
+
+                }
             }
         }
+           
+    
+        path.push(start)
+        path.reverse()
+        return [path,distances[finish]]
     }
+
         
      
 
@@ -67,6 +102,8 @@ graph.addEdge("C", "F", 4)
 graph.addEdge("D", "E", 3)
 graph.addEdge("D", "F", 1)
 graph.addEdge("E", "F", 1)
-console.log(graph.adjacencyList)
+console.log(graph.dijkstra("A","E"))
+console.log(graph.dijkstra("A","F"))
+// console.log(graph.adjacencyList)
 
 
