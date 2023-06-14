@@ -81,14 +81,20 @@ class WeightedGraph {
         const nodes=new PriorityQueue();
         const distances={}
         const previous={}
-        let path=[]
+        let path=[] // returns the path
         let smallest;
-        //build up initial state
+      
         for(let vertex in this.adjacencyList){
+            // for loop sets the distance object with the start being set as zero 
+            //and everything else infinite
+            // also sets the previous objects, as null
+          
             if(vertex===start){
                 distances[vertex]=0
                 nodes.enqueue(vertex,0)
             }
+        
+            
             else {
                 distances[vertex]=Infinity
                 nodes.enqueue(vertex,Infinity)
@@ -107,6 +113,7 @@ class WeightedGraph {
             if(smallest || distances[smallest]!==Infinity){
                 
                 for(let neighbor of this.adjacencyList[smallest]){
+                    //find neighboring node
                     let candidate=distances[smallest]+neighbor.weight
                     let neighborVal=neighbor.node
                     if(candidate<distances[neighborVal]){
