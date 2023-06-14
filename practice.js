@@ -32,8 +32,21 @@ class WeightedGraph {
         }
     }
     dijkstra(start, finish) {
-
+        const nodes=new PriorityQueue();
+        const distances={}
+        const previous={}
+        //build up initial state
+        for(let vertex in this.adjacencyList){
+            if(vertex===start){
+                previous[vertex]=0
+            }
+            else {
+                previous[vertex]=Infinity
+            }
+        }
     }
+        
+     
 
 
 }
