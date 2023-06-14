@@ -1,7 +1,8 @@
 const findMedianSortedArrays = (nums1, nums2) => {
-    if (nums1.length === 0 && nums2.length === 0) {
-        return null
-    }
+
+    if (nums1.length === 0 && nums2.length === 0) return null
+     
+    
      let newArray = []
     const median = () => {
 
@@ -18,6 +19,7 @@ const findMedianSortedArrays = (nums1, nums2) => {
    
     let leftPointer = 0
     let rightPointer = 0
+ 
     let medianIndex = Math.floor((nums1.length + nums2.length) / 2)
    
    

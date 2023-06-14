@@ -24,13 +24,13 @@ const getMinimumDifference =(root)=> {
 
     
     const traverse=(currentNode)=>{
-       if(!currentNode) return null
-       traverse(currentNode.left)
+      
+       if(currentNode.left)traverse(currentNode.left)
         if(previousNode){
             minDifference=Math.min(currentNode.val-previousNode.val,minDifference)
         }
             previousNode=currentNode
-        traverse (currentNode.right)
+       if(currentNode.right) traverse (currentNode.right)
     }
     let previousNode=null
     let minDifference=Infinity
