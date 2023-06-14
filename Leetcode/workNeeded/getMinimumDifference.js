@@ -1,4 +1,4 @@
-var getMinimumDifference = function(root) {
+const getMinimumDifference = (root) => {
     let arr=[]
     let node=root
     let difference=Number.POSITIVE_INFINITY
