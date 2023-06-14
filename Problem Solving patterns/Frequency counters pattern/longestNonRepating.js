@@ -24,7 +24,7 @@ const lengthOfLongestSubstring=(s)=>{
     
     }
     
-    console.log(lengthOfLongestSubstring("pwwkew"))
+    console.log(lengthOfLongestSubstring("bbbbb"))
 
 
 
