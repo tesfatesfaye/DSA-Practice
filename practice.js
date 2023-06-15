@@ -1,18 +1,16 @@
 const fib = (value) => {
-    if (value > 1) {
-        const memoObj = { "0": 0, "1": 1 }
-        const helper = (num) => {
-            if (memoObj[num] !== undefined) return memoObj[num]
 
-            // if(num==0 || num==1) return memoObj[num]
-            memoObj[num] = (helper(num - 1) + helper(num - 2))
-            return memoObj[num]
+        const memo = { "0": 0, "1": 1 }
+        const helper = (num) => {
+            if (memo[num] !== undefined) return memo[num]
+                     return  memo[num] ?? (memo[num]=helper(num - 1) + helper(num - 2))
         }
 
-        return helper(value)
-    }
-    return 0
+        return (value > 1 ? helper(value): 0)
+    
+
 
 }
 
 console.log(fib(9))
+
