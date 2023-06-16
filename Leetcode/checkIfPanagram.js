@@ -26,4 +26,22 @@ const checkIfPangramTwo = (sentence) => {
     }
     return false;
   }
+
+
+
+  const checkIfPangramThree = (sentence) => {
+    if (sentence.length < 26) return false;
+    let alphabetSet = new Set();
+    for (let i = 0; i < sentence.length; i++) {
+      if(alphabetSet.size+sentence.length-(i)<26){
+        return false
+      }
+      alphabetSet.add(sentence[i]);
+      if (alphabetSet.size === 26) {
+        return true;
+      }
+   
+    }
+    return false;
+  }
   // comment out what the function above 
