@@ -25,4 +25,4 @@ const subsets=(nums)=>{
    return subsetArray
 }
 
-console.log(subsets([1,2,3,4]).length)
+console.log(subsets([1,2,3,4]))
