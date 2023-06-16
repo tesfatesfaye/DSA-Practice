@@ -1,4 +1,4 @@
-var isAnagram = function(s, t) {
+const isAnagram = (s, t) =>{
     if(s.length!==t.length) return false
     let sObj={}
    
