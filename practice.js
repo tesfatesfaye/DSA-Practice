@@ -1,4 +1,4 @@
-var deleteDuplicates = function (head) {
+const deleteDuplicates =  (head)=> {
 
     let node = head
     if (node) {
