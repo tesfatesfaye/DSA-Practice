@@ -1,3 +1,5 @@
+
+
 const removeDuplicates = (nums) =>{
     if(nums.length===0) return 0
     let start=0
@@ -17,10 +19,14 @@ const removeDuplicates = (nums) =>{
 
 console.log(removeDuplicates([1,2,2,3,3,4,5,12]))
 
+const removeDuplicatesSets=(nums)=>{
+const unique=new Set(nums)
+return unique.size
+}
 
 
 
-
+console.log(removeDuplicatesSets([1,2,2,3,3,4,5,12]))
 
 
 
