@@ -1,34 +1,29 @@
 
-const minSubArrayLength = (target, num) => {
-   
-    let leftPointer = 0
-    let rightPointer = 0
-    let sum = 0
-    let min = Infinity
-    while (rightPointer < arr.length) {
-        sum += arr[rightPointer]
-        while (sum >= target) {
-            min = Math.min(rightPointer - leftPointer + 1, min)
-            if (min === 1) return min
-            sum -= arr[leftPointer]
-            leftPointer++
-
+function minSubArrayLen(target,num) {
+    let sum=0
+    let rightPointer=0
+    let leftPointer=0;
+    let minLength=Infinity
+    while(rightPointer<num.length){
+        sum+=num[rightPointer]
+        while(sum>=target){
+        minLength=Math.min(minLength,(rightPointer-leftPointer+1))
+        sum=sum-num[leftPointer]
+        leftPointer++
         }
         rightPointer++
-
-
     }
-    return min===Infinity ? 0 : min
-
+    if(!leftPointer)minLength
+   
+return minLength===Infinity ? 0 : minLength
 }
-
-console.log(min(7, [2, 3, 1, 2, 4, 3]))
-
+console.log(minSubArrayLen(15, [1,2,3,4,5]))
 
 
 
 
-// function minSubArrayLen(target, num) {
+
+// function minSubArrayLen(target, num) { // this won't work in all edge cases
 //     let sum = 0
 //     let rightPointer = num.length - 1
 //     let leftPointer = 0;
