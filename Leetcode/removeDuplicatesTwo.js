@@ -1,4 +1,4 @@
-var removeDuplicatesTwo = function(nums) {
+const removeDuplicatesTwo = (nums)=> {
     let placement=0
     let repeated=false
     let k=1
