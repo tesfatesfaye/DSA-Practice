@@ -115,6 +115,7 @@ class HashTable {
 
 let ht = new HashTable(17);
 ht.set("maroon", "#800000")
+console.log(ht.keyMap)
 ht.set("yellow", "#FFFF00")
 ht.set("olive", "#808000")
 ht.set("salmon", "#FA8072")

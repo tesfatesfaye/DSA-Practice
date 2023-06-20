@@ -1,5 +1,5 @@
 const maxProfit = (prices)=> {
-    let highPrice=0
+    let highPrice=-Infinity
     let end=prices.length-1
      for(let i=end;i>0;i--){
         let left=prices[i-1]
