@@ -1,4 +1,4 @@
-var fizzBuzz = function(n) {
+const fizzBuzz =(n)=> {
 
     let printValue=""
     let arry=[]
