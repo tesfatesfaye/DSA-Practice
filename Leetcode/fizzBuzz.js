@@ -9,13 +9,7 @@ const fizzBuzz =(n)=> {
         if(i%5===0){
             printValue+="Buzz"
         }
-        
-        if(!printValue.length){
-             arry.push(i.toString())
-        }
-        else{
-            arry.push(printValue)
-        }
+        printValue ? arry.push(printValue) : arry.push(i.toString())
         printValue=""
     }
         return arry
