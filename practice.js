@@ -1,4 +1,4 @@
-var searchRange = function (nums, target) {
+const searchRange =  (nums, target) =>{
 
     let start = 0
     let end = nums.length - 1
