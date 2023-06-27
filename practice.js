@@ -1,4 +1,4 @@
-var getAverages = function(nums, k) {
+const getAverages = (nums, k)=> {
     if(nums[k+k]===undefined){
         let arr=[]
         for(let i=0;i<nums.length;i++){
