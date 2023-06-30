@@ -1,6 +1,7 @@
 
 //bubble sort is good for when an array is mostly sorted
-const bubbleSort=(arr)=>{ // Unoptimized bubble sort function
+const bubbleSort=(arr)=>{ 
+  // Unoptimized bubble sort function
     let counter=0
       for(let i=0;i<arr.length;i++){
                 for(let j=0;j<arr.length-i;j++){
@@ -25,7 +26,8 @@ const bubbleSort=(arr)=>{ // Unoptimized bubble sort function
 
 
 
-const bubbleSortOptimized=(arr)=>{ // this function is optimized to end if the function doesn't swap at some point 
+const bubbleSortOptimized=(arr)=>{ 
+  // this function is optimized to end if the function doesn't swap at some point 
     
     let counter=0
       for(let i=0;i<arr.length;i++){
