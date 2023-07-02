@@ -1,27 +1,28 @@
-const pivot=(nums,left,right)=>{
+const pivot=(arr,left,right)=>{
+
+    //swaps values 
     let p=right
     let j=left
     let i=left-1
     while(j<p){
-        if(nums[j]<nums[p]){
+        if(arr[j]<arr[p]){
             i++;
-            [nums[i],nums[j]]=[nums[j],nums[i]]
-            j++
-        }
-        else{
+            [arr[i],arr[j]]=[arr[j],arr[i]]
+            }
+       
             j++;
-        }
+        
     }
     i++;
-    [nums[i],nums[p]]=[nums[p],nums[i]]
+    [arr[i],arr[p]]=[arr[p],arr[i]]
     return i
 }
 
 const quickSort=(arr,left=0,right=arr.length-1)=>{
     if(left<right){
-        let pivotIndex=pivot(nums,left,right)
-        quickSort(nums,left,pivotIndex-1)
-        quickSort(nums,pivotIndex+1,right)
+        let pivotIndex=pivot(arr,left,right)
+        quickSort(arr,left,pivotIndex-1)
+        quickSort(arr,pivotIndex+1,right)
     }
     return arr
 }
@@ -60,7 +61,7 @@ for(let i=0;i<array.length;i++){
 }
 
 
-console.log(quickSortMultiArray([5,12,8,9,6,2,11,5,3,4]))
+// console.log(quickSortMultiArray([5,12,8,9,6,2,11,5,3,4]))
 
 
 
