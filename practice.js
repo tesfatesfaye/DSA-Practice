@@ -4,14 +4,14 @@ if(array.length<=1){
 }
 let middle=Math.floor(array.length/2)
 let pivot=array[middle]
-let counter=0
 const leftArray=[]
 const rightArray=[]
-while(counter<array.length){
-    if(counter!==middle){
-    array[counter] <pivot ? leftArray.push(array[counter]) : rightArray.push(array[counter])
+for(let i=0;i<array.length;i++){
+ 
+    if(i!=middle){
+    array[i] <pivot ? leftArray.push(array[i]) : rightArray.push(array[i])
     }
-    counter++
+    
 }
 
 
