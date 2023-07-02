@@ -2,20 +2,24 @@ const quickSort=(array)=>{
 if(array.length<=1){
     return array;
 }
-
-const pivot=array[array.length-1];
+let middle=Math.floor(array.length/2)
+let pivot=array[middle]
+let counter=0
 const leftArray=[]
 const rightArray=[]
-for(let i=0;i<array.length-1;i++){
-    array[i] <pivot ? leftArray.push(array[i]) : rightArray.push(array[i])
+while(counter<array.length){
+    if(counter!==middle){
+    array[counter] <pivot ? leftArray.push(array[counter]) : rightArray.push(array[counter])
+    }
+    counter++
 }
 
+
     return[...quickSort(leftArray),pivot,...quickSort(rightArray)]    
-
-
-
-
 }
 
 
 console.log(quickSort([5,12,8,9,6,2,11,5,3,4]))
+
+
+
