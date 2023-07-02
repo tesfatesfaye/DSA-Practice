@@ -1,4 +1,48 @@
-const quickSort=(array)=>{
+const pivot=(nums,left,right)=>{
+    let p=right
+    let j=left
+    let i=left-1
+    while(j<p){
+        if(nums[j]<nums[p]){
+            i++;
+            [nums[i],nums[j]]=[nums[j],nums[i]]
+            j++
+        }
+        else{
+            j++;
+        }
+    }
+    i++;
+    [nums[i],nums[p]]=[nums[p],nums[i]]
+    return i
+}
+
+const quickSort=(arr,left=0,right=arr.length-1)=>{
+    if(left<right){
+        let pivotIndex=pivot(nums,left,right)
+        quickSort(nums,left,pivotIndex-1)
+        quickSort(nums,pivotIndex+1,right)
+    }
+    return arr
+}
+
+console.log(quickSort([5,2,3,8,10,11,4,3,19,2,1,4]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const quickSortMultiArray=(array)=>{
 if(array.length<=1){
     return array;
 }
@@ -12,11 +56,11 @@ for(let i=0;i<array.length;i++){
     }
     
 }
-    return[...quickSort(leftArray),pivot,...quickSort(rightArray)]    
+    return[...quickSortMultiArray(leftArray),pivot,...quickSortMultiArray(rightArray)]    
 }
 
 
-console.log(quickSort([5,12,8,9,6,2,11,5,3,4]))
+console.log(quickSortMultiArray([5,12,8,9,6,2,11,5,3,4]))
 
 
 
