@@ -9,17 +9,11 @@ const rightArray=[]
 for(let i=0;i<array.length-1;i++){
     array[i] <pivot ? leftArray.push(array[i]) : rightArray.push(array[i])
 }
-    if(leftArray.length>0 && rightArray.length>0){
+
     return[...quickSort(leftArray),pivot,...quickSort(rightArray)]    
 
-}
-else if(leftArray.length>0){
-    return[...quickSort(leftArray),pivot]
-}
-else {
-    return[pivot,...quickSort(rightArray)]
 
-}
+
 
 }
 
