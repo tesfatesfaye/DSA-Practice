@@ -7,14 +7,11 @@ let pivot=array[middle]
 const leftArray=[]
 const rightArray=[]
 for(let i=0;i<array.length;i++){
- 
-    if(i!=middle){
+    if(i!==middle){
     array[i] <pivot ? leftArray.push(array[i]) : rightArray.push(array[i])
     }
     
 }
-
-
     return[...quickSort(leftArray),pivot,...quickSort(rightArray)]    
 }
 
