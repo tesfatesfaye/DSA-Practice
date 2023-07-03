@@ -11,7 +11,7 @@ let head=new ListNode(1, new ListNode(2, new ListNode(3,new ListNode(4, new List
       let dummy=new ListNode(0,head)
       let pre=dummy
       let curr=head
-      while(curr&&curr.next){
+      while(curr?.next){
         let nextPair=curr.next.next
         let secondNode=curr.next
         curr.next=nextPair
