@@ -8,23 +8,25 @@ let head=new ListNode(1, new ListNode(2, new ListNode(3,new ListNode(4, new List
 
     const swapPairs=(head)=>{
        
-        let dummy= new ListNode(0,head)
-        let previous=dummy
-        let current=head
-        while(current && current.next){
-            let nextPair=current.next.next
-            let second=current.next
-            second.next=current
-            current.next=nextPair
-            previous.next=second
-            previous=current
-            current=nextPair
+      let dummy=new ListNode(0,head)
+      let pre=dummy
+      let curr=head
+      while(curr&&curr.next){
+        let nextPair=curr.next.next
+        let secondNode=curr.next
+        curr.next=nextPair
+        secondNode.next=curr
+         pre.next=secondNode
+        pre=curr
+        curr=nextPair
+
+
+      }
+      return dummy.next
+
         }
-
-            
-        return dummy.next
-
-    }
+        
+    
 
 
 
