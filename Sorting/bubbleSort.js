@@ -1,56 +1,23 @@
 
 //bubble sort is good for when an array is mostly sorted
-const bubbleSort=(arr)=>{ 
-  // Unoptimized bubble sort function
-    let counter=0
-      for(let i=0;i<arr.length;i++){
-                for(let j=0;j<arr.length-i;j++){
-               counter++
-         if(arr[j]>arr[j+1]){
-           [arr[j],arr[j+1]]=[arr[j+1],arr[j]]
+    const bubbleSort=(arr)=>{
+      const swap=(num,val,valTwo)=>([num[val],num[valTwo]]=[num[valTwo],num[val]])
+      for(let i=1;i<arr.length;i++){
+        let swapped=false
+          for(let j=0;j<arr.length-i;j++){
+              if(arr[j]>arr[j+1]){
+                  swap(arr,j,j+1)
+                  swapped=true
+              }
+          }
+            if(!swapped){
+              return arr
+          }
          
-        }
-          } 
-              
-    }
-    console.log(counter)
-    return arr
-
-}
-    console.log(bubbleSort([1,2,3,5,4]))
-
-
-
-
-
-
-
-
-const bubbleSortOptimized=(arr)=>{ 
-  // this function is optimized to end if the function doesn't swap at some point 
-    
-    let counter=0
-      for(let i=0;i<arr.length;i++){
-            let noSwaps=true
-       for(let j=0;j<arr.length-i;j++){
-                counter++
-         if(arr[j]>arr[j+1]){
-           [arr[j],arr[j+1]]=[arr[j+1],arr[j]]
-           noSwaps=false
-        }
+      }
+      return arr
       
-       } 
-       if(noSwaps===true){
-        console.log(counter)    
-        return arr
-    }
-   
-       
-    }
-    console.log(counter)
-    return arr
-
-}
+      }
     console.log(bubbleSortOptimized([1,2,3,5,4]))
 
 
