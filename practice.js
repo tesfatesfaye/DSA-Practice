@@ -6,39 +6,40 @@ class ListNode {
     }
  
  }
+ const getKth=(curr,k)=>{
+    while(curr && k){
+        curr=curr.next
+        k--
+    }
+    return curr
+}
 
 const reverseKGroup=(head,k)=>{
 if(k===1) return head
+
+
 let dummy=new ListNode(0,head)
-let counter=0
-let current=head
-let prev=dummy
-let next;
-let starter=head
-while(current?.next){
-    let checker=current
-   while(counter<k){
-    if(checker){
-        checker=checker.next
-        counter++
-    }
-    else{
-        return dummy.next
-    }
-   } 
-  
-  
-    while(counter){
-      next=current.next
-      current.next=prev
-      prev=current
-      current=next
-      counter--
+let groupPrevious=dummy
+    while(true){
+        let kth=getKth(groupPrevious,k)
+        if(!kth) break
+       let groupNext=kth.next
+        let prev=kth.next
+        let current= groupPrevious.next
+        let temp;
+        while(current!==groupNext){
+             temp=current.next
+            current.next=prev
+            prev=current
+            current=temp
+
+        }
+        temp=groupPrevious.next
+        groupPrevious.next=kth
+        groupPrevious=temp
+
 
     }
-    
-
-   }
 
    return dummy.next
 }
