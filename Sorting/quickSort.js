@@ -1,88 +1,55 @@
-const pivotHelper=(arr,start=0,end=arr.length-1)=>{
- const swap=(arr,i,j)=>{
-   
-        [arr[i],arr[j]]=[arr[j],arr[i]];
-       
-    }
-let pivot=arr[start]
-let swapIdx=start
- for(let i=start;i<=end;i++){
-   
-   if(pivot>arr[i]){
-    swapIdx=swapIdx+1
-    console.log(swapIdx)
-    swap(arr,i,swapIdx)
-   
-   
-   }
- }
- swap(arr,start,swapIdx)
- return swapIdx
-}
-
-console.log(pivotHelper([4,8,2,1,5,7,6,3]))
-
-function quickSort(arr,left=0,right=arr.length-1){
-  
-    
-  if(left<right){
-    let pivotIndex=pivotHelper(arr,left,right)
-    quickSort(arr,left,pivotIndex-1)
-   quickSort(arr,pivotIndex+1,right)
-
+const sortArray=(arr,left=0,right=arr.length-1)=>{
+  if(left<right){ 
+      let pivotIndex=pivot(arr,left,right)
+      sortArray(arr,left,pivotIndex-1)
+      sortArray(arr,pivotIndex+1,right)
   }
-  // console.log(arr)
   return arr
 }
-
-console.log(quickSort([4,8,2,1]))
-
-
-function partition(items, left, right) {
-  const swap = (arr, idx1, idx2) => {
-    [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
-  };
-
-  var pivot   = items[Math.floor((right + left) / 2)], //middle element
-      i       = left //left pointer
-      j       = right; //right pointer
-  while (i <= j) {
-      while (items[i] < pivot) {
-          i++;
-      }
-      while (items[j] > pivot) {
-          j--;
-      }
-      if (i <= j) {
-          swap(items, i, j); //swapping two elements
-          i++;
-          j--;
-      }
+const pivot=(arr,left,right)=>{
+  const swap=(arr,one,two)=>{
+      [arr[one],arr[two]]=[arr[two],arr[one]]
   }
+  let middle=Math.floor((left+right)/2)
+  swap(arr,middle,right)// swaps the middle and the right for randomization
+ 
+  let p=right // takes the pivot index
+  let j=left // takes the first index value
+  let i=left-1 // the first index that is swapped with 
+  while(j<p){
+      if(arr[j]<arr[p]){ // if the a left most value is lower than the final pivot index, it has its index swapped 
+          i++;
+          swap(arr,i,j)
+          }
+     
+          j++;
+      
+  }
+  i++;
+  // all the lower values are set prior to the i index, so we swap whatever is on tha index with
+  swap(arr,i,p)
+  return i
+}
+console.log(sortArray([5,2,3,8,10,11,4,3,19,2,1,4]))
 
 
 
-  return i;
+const sortArrayMultiArray=(array)=>{ 
+if(array.length<=1){
+  return array;
+}
+let middle=Math.floor(array.length/2)
+let pivot=array[middle]
+const leftArray=[]
+const rightArray=[]
+for(let i=0;i<array.length;i++){
+  if(i!==middle){
+  array[i] <pivot ? leftArray.push(array[i]) : rightArray.push(array[i])
+  }
+  
+}
+  return[...sortArrayMultiArray(leftArray),pivot,...sortArrayMultiArray(rightArray)]    
 }
 
-function quickSortCenter(items, left, right) {
-  let index;
-  if (items.length > 1) {
-      index = partition(items, left, right); //index returned from partition
-      if (left < index - 1) { //more elements on the left side of the pivot
-          quickSortCenter(items, left, index - 1);
-      }
-      if (index < right) { //more elements on the right side of the pivot
-          quickSortCenter(items, index, right);
-      }
-  }
-  return items;
-}
-// first call to quick sort
-let items = [5,3,4,6,2,9,2];
-let sortedArray = quickSortCenter(items, 0, items.length - 1);
 
-// console.log(quickSortCenter(items));
-
-
-
+console.log(sortArrayMultiArray([5,12,8,9,6,2,11,5,3,4]))
