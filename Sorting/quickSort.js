@@ -1,8 +1,8 @@
-const sortArray=(arr,left=0,right=arr.length-1)=>{
+const quickSort=(arr,left=0,right=arr.length-1)=>{
   if(left<right){ 
       let pivotIndex=pivot(arr,left,right)
-      sortArray(arr,left,pivotIndex-1)
-      sortArray(arr,pivotIndex+1,right)
+      quickSort(arr,left,pivotIndex-1)
+      quickSort(arr,pivotIndex+1,right)
   }
   return arr
 }
@@ -30,11 +30,11 @@ const pivot=(arr,left,right)=>{
   swap(arr,i,p)
   return i
 }
-console.log(sortArray([5,2,3,8,10,11,4,3,19,2,1,4]))
+console.log(quickSort([5,2,3,8,10,11,4,3,19,2,1,4]))
 
 
 
-const sortArrayMultiArray=(array)=>{ 
+const quickSortMultiArray=(array)=>{ 
 if(array.length<=1){
   return array;
 }
@@ -48,8 +48,8 @@ for(let i=0;i<array.length;i++){
   }
   
 }
-  return[...sortArrayMultiArray(leftArray),pivot,...sortArrayMultiArray(rightArray)]    
+  return[...quickSortMultiArray(leftArray),pivot,...quickSortMultiArray(rightArray)]    
 }
 
 
-console.log(sortArrayMultiArray([5,12,8,9,6,2,11,5,3,4]))
+console.log(quickSortMultiArray([5,12,8,9,6,2,11,5,3,4]))
