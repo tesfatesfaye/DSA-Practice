@@ -1,5 +1,10 @@
-const pivot=(arr,left,right)=>{
 
+const pivot=(arr,left,right)=>{
+    const swap=(arr,one,two)=>{
+        [arr[one],arr[two]]=[arr[two],arr[one]]
+    }
+    let middle=Math.floor((left+right)/2)
+    swap(arr,left,right)
     //swaps values 
     let p=right
     let j=left
@@ -7,14 +12,14 @@ const pivot=(arr,left,right)=>{
     while(j<p){
         if(arr[j]<arr[p]){
             i++;
-            [arr[i],arr[j]]=[arr[j],arr[i]]
+            swap(arr,i,j)
             }
        
             j++;
         
     }
     i++;
-    [arr[i],arr[p]]=[arr[p],arr[i]]
+    swap(arr,i,p)
     return i
 }
 
