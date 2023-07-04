@@ -1,19 +1,17 @@
-var partitionString = function(s) {
+const partitionString = (s) =>{
     if(!s.length) return 0
     let counter=1
-    let holder={}
-    let par=""
-    for(let i in s){
-        if(!holder[s[i]]){
-            par+=s[i]
-            holder[s[i]]=1
+    let set=new Set()
+    
+    for(let i=0;i<s.length;i++){
+        if(!set.has(s[i])){
+           set.add(s[i])
         }
         else{
-            holder={}
-            holder[s[i]]=1
+            set.clear()
+            set.add(s[i])
             counter++
-            par=s[i]
-            
+                       
         }
     }
     return counter
