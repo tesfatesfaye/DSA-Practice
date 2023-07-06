@@ -1,4 +1,4 @@
-var rotateRight = function(head, k) {
+const rotateRight = (head, k)=> {
     if(!head) return head
     let values=[]
     let node=head
