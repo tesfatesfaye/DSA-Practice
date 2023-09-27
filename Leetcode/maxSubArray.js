@@ -4,6 +4,7 @@ const maxSubArray=(nums)=>{
     let tempMax=nums[0]
         for(let i=1;i<nums.length;i++){
             tempMax=Math.max(tempMax+nums[i],nums[i])
+            console.log(tempMax)
             overAllMax=Math.max(overAllMax,tempMax)
             
         }
