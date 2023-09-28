@@ -1,4 +1,4 @@
-var maxProductBrute = function (nums) {
+const maxProductBrute =  (nums)=> {
   let maxProduct = -Infinity;
   let tempProduct = -Infinity;
   for (let i = 0; i < nums.length; i++) {
