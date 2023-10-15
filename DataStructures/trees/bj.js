@@ -70,54 +70,52 @@ class BTS {
       if (!root.right) {
         return root.left;
       }
-      root.val = this.Min(root.right);
+      root.val = this.Min(root.right)?.val;
       root.right = this.#deleteNode(root.right, root.val);
     }
     return root;
   }
 
   delete(value) {
-   const removeNode = (node, value) => {
-     if (node === null) {
-       return null;
-     }
-     if (value === node.val) {
-       // Node to be deleted is found
-       // 1. Node has no children
-       if (node.left === null && node.right === null) {
-         return null;
-       }
-       // 2. Node has one child
-       if (node.left === null) {
-         return node.right;
-       }
-       if (node.right === null) {
-         return node.left;
-       }
-       // 3. Node has two children
-       let tempNode = node.right;
-       while (tempNode.left !== null) {
-         tempNode = tempNode.left;
-       }
-       node.val = tempNode.val;
-       node.right = removeNode(node.right, tempNode.val);
-       return node;
-     } else if (value < node.val) {
-       node.left = removeNode(node.left, value);
-       return node;
-     } else {
-       node.right = removeNode(node.right, value);
-       return node;
-     }
-   };
-   this.root = removeNode(this.root, value);
+  //  const removeNode = (node, value) => {
+  //    if (node === null) {
+  //      return null;
+  //    }
+  //    if (value === node.val) {
+  //      // Node to be deleted is found
+  //      // 1. Node has no children
+  //      if (node.left === null && node.right === null) {
+  //        return null;
+  //      }
+  //      // 2. Node has one child
+  //      if (node.left === null) {
+  //        return node.right;
+  //      }
+  //      if (node.right === null) {
+  //        return node.left;
+  //      }
+  //      // 3. Node has two children
+  //      let tempNode = this.Min(node.right);
+  //           node.val = tempNode.val;
+  //      node.right = removeNode(node.right, tempNode.val);
+  //      return node;
+  //    } else if (value < node.val) {
+  //      node.left = removeNode(node.left, value);
+  //      return node;
+  //    } else {
+  //      node.right = removeNode(node.right, value);
+  //      return node;
+  //    }
+  //  };
+   this.root = this.#deleteNode(this.root, value);
   }
   DFS(val = this.root, valueArray = []) {
+    if(!val) return []
     let node = val;
     if (node.left) {
       this.DFS(node.left, valueArray);
     }
-    valueArray.push(node.val);
+    valueArray.push(node?.val);
     if (node.right) {
       this.DFS(node.right, valueArray);
     }
@@ -171,11 +169,11 @@ class BTS {
 let bts = new BTS();
 
 bts.insert(5);
-bts.insert(6);
-bts.insert(7);
-bts.insert(8);
-bts.insert(4);
-bts.insert(3);
+// bts.insert(6);
+// bts.insert(7);
+// bts.insert(8);
+// bts.insert(4);
+// bts.insert(3);
 // console.log(bts.find(4));
 // console.log(bts.root.right);
 // console.log(bts.DFS());
