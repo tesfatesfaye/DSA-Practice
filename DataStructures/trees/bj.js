@@ -77,36 +77,6 @@ class BTS {
   }
 
   delete(value) {
-  //  const removeNode = (node, value) => {
-  //    if (node === null) {
-  //      return null;
-  //    }
-  //    if (value === node.val) {
-  //      // Node to be deleted is found
-  //      // 1. Node has no children
-  //      if (node.left === null && node.right === null) {
-  //        return null;
-  //      }
-  //      // 2. Node has one child
-  //      if (node.left === null) {
-  //        return node.right;
-  //      }
-  //      if (node.right === null) {
-  //        return node.left;
-  //      }
-  //      // 3. Node has two children
-  //      let tempNode = this.Min(node.right);
-  //           node.val = tempNode.val;
-  //      node.right = removeNode(node.right, tempNode.val);
-  //      return node;
-  //    } else if (value < node.val) {
-  //      node.left = removeNode(node.left, value);
-  //      return node;
-  //    } else {
-  //      node.right = removeNode(node.right, value);
-  //      return node;
-  //    }
-  //  };
    this.root = this.#deleteNode(this.root, value);
   }
   DFS(val = this.root, valueArray = []) {
@@ -157,8 +127,8 @@ class BTS {
 
     while (queue.length) {
       let value = queue.shift();
-      if (value.left) queue.push(value["left"]);
-      if (value.right) queue.push(value["right"]);
+      if (value.left) queue.push(value.left);
+      if (value.right) queue.push(value.right);
       data.push(value.val);
     }
 
