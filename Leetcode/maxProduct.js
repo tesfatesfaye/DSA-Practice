@@ -1,4 +1,4 @@
-var maxProduct = function (nums) {
+const maxProduct =  (nums)=> {
   let max = nums[0];
   let min = nums[0];
   let fullMax = nums[0];
