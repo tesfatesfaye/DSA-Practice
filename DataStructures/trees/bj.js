@@ -54,12 +54,14 @@ class BTS {
     return node;
   }
 
-  #deleteNode(root, value) {
+  
+  delete(value) {
+    const deleteNode=(root, value) => {
     if (!root) return root;
     if (value < root.val) {
-      root.left = this.#deleteNode(root.left, value);
+      root.left = deleteNode(root.left, value);
     } else if (value > root.val) {
-      root.right = this.#deleteNode(root.right, value);
+      root.right = deleteNode(root.right, value);
     } else {
       if (!root?.left && !root?.right) {
         return null;
@@ -71,13 +73,11 @@ class BTS {
         return root.left;
       }
       root.val = this.Min(root.right)?.val;
-      root.right = this.#deleteNode(root.right, root.val);
+      root.right =deleteNode(root.right, root.val);
     }
     return root;
   }
-
-  delete(value) {
-   this.root = this.#deleteNode(this.root, value);
+   this.root = deleteNode(this.root, value);
   }
   DFS(val = this.root, valueArray = []) {
     if(!val) return []
