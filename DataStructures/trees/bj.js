@@ -54,33 +54,37 @@ class BTS {
     return node;
   }
 
-  
   delete(value) {
-    const deleteNode=(root, value) => {
-    if (!root) return root;
-    if (value < root.val) {
-      root.left = deleteNode(root.left, value);
-    } else if (value > root.val) {
-      root.right = deleteNode(root.right, value);
-    } else {
-      if (!root?.left && !root?.right) {
-        return null;
+    const deleteHelper = (treeNode, value) => {
+      if (!treeNode) return null;
+
+      if (value > treeNode.val) {
+        treeNode.right = deleteHelper(treeNode.right, value);
+      } else if (value < treeNode.val) {
+        treeNode.left = deleteHelper(treeNode.left, value);
+      } else {
+        if (!treeNode.left && !treeNode.right) {
+          return null;
+        }
+
+        if (treeNode.left && !treeNode.right) {
+          return treeNode.left;
+        }
+        if (treeNode.right && !treeNode.left) {
+          return treeNode.right;
+        }
+
+        treeNode.val = this.Min(treeNode.right).val;
+        treeNode.right = deleteHelper(treeNode.right, treeNode.val);
       }
-      if (!root.left) {
-        return root.right;
-      }
-      if (!root.right) {
-        return root.left;
-      }
-      root.val = this.Min(root.right)?.val;
-      root.right =deleteNode(root.right, root.val);
-    }
-    return root;
-  }
-   this.root = deleteNode(this.root, value);
+
+      return treeNode;
+    };
+
+    this.root = deleteHelper(this.root, value);
   }
   DFS(val = this.root, valueArray = []) {
-    if(!val) return []
+    if (!val) return [];
     let node = val;
     if (node.left) {
       this.DFS(node.left, valueArray);
@@ -94,15 +98,11 @@ class BTS {
   }
 
   Min(root) {
-    // Handle case where root is null
-    if (root === null) {
-      return null;
-    }
-
-    while (root.left !== null) {
+    if (root === null) return null;
+    
+    while (root.left!==null) {
       root = root.left;
     }
-
     return root;
   }
 
@@ -139,17 +139,17 @@ class BTS {
 let bts = new BTS();
 
 bts.insert(5);
-// bts.insert(6);
-// bts.insert(7);
-// bts.insert(8);
-// bts.insert(4);
-// bts.insert(3);
+bts.insert(6);
+bts.insert(7);
+bts.insert(8);
+bts.insert(4);
+bts.insert(3);
 // console.log(bts.find(4));
 // console.log(bts.root.right);
 // console.log(bts.DFS());
 console.log(bts.BFS());
 console.log(bts.delete(5));
-console.log(bts.DFS())
+console.log(bts.DFS());
 // console.log(bts.Min().val);
 // console.log(bts.Max().val);
 // console.log(bts["root"])

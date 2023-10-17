@@ -1,125 +1,155 @@
-class Node {
-    constructor(val) {
-        this.val = val
-        this.left = null
-        this.right = null
-    }
+class node {
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
 }
 
-class BinarySearchTree {
-    constructor() {
-        this.root = null
-    }
+class BTS {
+  constructor() {
+    this.root = null;
+  }
 
-    insert(value) {
-        let newNode = new Node(value)
-        if (this.root === null) {
-            this.root = newNode
+  insert(val) {
+    if (this.root) {
+      let holder = this.root;
+      while (true) {
+        if (holder.val === val) {
+          return undefined;
         }
-        else {
-            let node = this.root
-
-            while (true) {
-                if (node.val > value) {
-                    if (node.left !== null) {
-                        node = node.left
-                    }
-                    else {
-                        node.left = newNode
-                        break;
-                    }
-                }
-
-                else if (node.val < value) {
-                    if (node.right !== null) {
-                        node = node.right
-                    }
-                    else {
-                        node.right = newNode
-                        break;
-                    }
-                }
-                else {
-                    return undefined
-                }
-            }
+        if (holder.val > val) {
+          if (holder.left) {
+            holder = holder.left;
+          } else {
+            holder.left = new node(val);
+            break;
+          }
+        } else {
+          if (holder.right) {
+            holder = holder.right;
+          } else {
+            holder.right = new node(val);
+            break;
+          }
         }
-        return this
-
+      }
+    } else {
+      this.root = new node(val);
     }
-    find(value) {
-        let node = this.root
-            while(node) {
-                if(node.val===value){
-                    return true
-                }
-                else if(node.val < value){
-                    node=node.right
-                }
-                else {
-                    node=node.left
-                }
-            }
-            return false
+  }
+
+  find(val) {
+    let node = this.root;
+    while (node) {
+      if (node.val === val) {
+        return node;
+      } else if (node.val > val) {
+        node = node.left;
+      } else {
+        node = node.right;
+      }
     }
 
+    return node;
+  }
 
+  delete(value) {
+    const deleteHelper = (treeNode, value) => {
+      if (!treeNode) return null;
+
+      if (value > treeNode.val) {
+        treeNode.right = deleteHelper(treeNode.right, value);
+      } else if (value < treeNode.val) {
+        treeNode.left = deleteHelper(treeNode.left, value);
+      } else {
+        if (!treeNode.left && !treeNode.right) {
+          return null;
+        }
+
+        if (treeNode.left && !treeNode.right) {
+          return treeNode.left;
+        }
+        if (treeNode.right && !treeNode.left) {
+          return treeNode.right;
+        }
+
+        treeNode.val = this.Min(treeNode.right).val;
+        treeNode.right = deleteHelper(treeNode.right, treeNode.val);
+      }
+
+      return treeNode;
+    };
+
+    this.root = deleteHelper(this.root, value);
+  }
+  DFS(val = this.root, valueArray = []) {
+    if (!val) return [];
+    let node = val;
+    if (node.left) {
+      this.DFS(node.left, valueArray);
+    }
+    valueArray.push(node?.val);
+    if (node.right) {
+      this.DFS(node.right, valueArray);
+    }
+
+    return valueArray;
+  }
+
+  Min(root) {
+    if (root === null) return null;
+
+    while (root.left !== null) {
+      root = root.left;
+    }
+    return root;
+  }
+
+  Max(root) {
+    // Handle case where root is null
+    if (root === null) {
+      return null;
+    }
+
+    while (root.right !== null) {
+      root = root.right;
+    }
+
+    return root;
+  }
+
+  BFS() {
+    if (!this.root) return [];
+    let node = this.root;
+    const data = [];
+    const queue = [node];
+
+    while (queue.length) {
+      let value = queue.shift();
+      if (value.left) queue.push(value.left);
+      if (value.right) queue.push(value.right);
+      data.push(value.val);
+    }
+
+    return data;
+  }
 }
 
-let tree = new BinarySearchTree();
-tree.insert(10)
-tree.insert(5)
-tree.insert(13)
-tree.insert(2)
-tree.insert(4)
-tree.insert(14)
-tree.insert(16)
-tree.insert(7)
-tree.insert(3)
-// console.log(tree.root.left.left.right.left)
-console.log(tree.find(255))
+let bts = new BTS();
 
-
-// recursive insert works but still has some kinks
-   // insert(value, node) {
-    //     if (node === undefined) {
-    //         if (this.root === null) {
-    //             this.root = new Node(value)
-    //             return this
-    //         }
-    //         node = this.root
-    //     }
-
-    //     if (node.val > value) {
-    //         if (node.left === null) {
-    //             node.left = new Node(value)
-               
-               
-    //         }
-    //         else{
-    //             node = node.left
-    //             this.insert(value, node)
-    //         }
-           
-    //     }
-    //     else if (node.val === value) {
-    //         return undefined
-    //     }
-    //     else {
-    //         if (node.val < value) {
-    //             if (node.right === null) {
-    //                 node.right = new Node(value)
-                    
-               
-    //             }
-    //             else{
-    //                 node = node.right
-    //                 this.insert(value, node)
-    //             }
-             
-    //         }
-    //     }
-
-    //         return this
-
-    // }
+bts.insert(5);
+bts.insert(6);
+bts.insert(7);
+bts.insert(8);
+bts.insert(4);
+bts.insert(3);
+// console.log(bts.find(4));
+// console.log(bts.root.right);
+// console.log(bts.DFS());
+console.log(bts.BFS());
+console.log(bts.delete(5));
+console.log(bts.DFS());
+// console.log(bts.Min().val);
+// console.log(bts.Max().val);
+// console.log(bts["root"])
