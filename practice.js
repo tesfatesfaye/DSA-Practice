@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 // var letterCombinations = function(digits) {
 //     let obj={}
 //     let charIndex=97
@@ -43,26 +50,26 @@
 
 
 
-function findKthPositive(arr, k) {
-  let low = 0, high = arr.length;
+// function findKthPositive(arr, k) {
+//   let low = 0, high = arr.length;
 
-  while (low < high) {
-    let mid = Math.floor((low + high) / 2);
-    let missing = arr[mid] - (mid + 1);
+//   while (low < high) {
+//     let mid = Math.floor((low + high) / 2);
+//     let missing = arr[mid] - (mid + 1);
 
-    if (missing < k) {
-      low = mid + 1;
-    } else {
-      high = mid;
-    }
-  }
+//     if (missing < k) {
+//       low = mid + 1;
+//     } else {
+//       high = mid;
+//     }
+//   }
 
-  // The variable 'low' will contain the index where we could insert
-  // 'k' missing numbers which would also be the first number to make 'missing' >= 'k'
-  // Return kth missing number
-  return low + k;
-}
+//   // The variable 'low' will contain the index where we could insert
+//   // 'k' missing numbers which would also be the first number to make 'missing' >= 'k'
+//   // Return kth missing number
+//   return low + k;
+// }
 
-// Test cases
-console.log(findKthPositive([2, 3, 4, 7, 11], 5));  // Output: 9
-console.log(findKthPositive([1, 2, 4], 1));  
+// // Test cases
+// console.log(findKthPositive([2, 3, 4, 7, 11], 5));  // Output: 9
+// console.log(findKthPositive([1, 2, 4], 1));  
