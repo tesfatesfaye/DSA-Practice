@@ -20,3 +20,4 @@ const maximumScore=(nums,k)=>{
       return currMax
 }
 
+console.log(maximumScore([5, 5, 4, 5, 4, 1, 1, 1], 0));
