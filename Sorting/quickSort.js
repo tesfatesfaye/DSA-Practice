@@ -1,6 +1,7 @@
-const quickSort=(arr,left=0,right=arr.length-1)=>{
+const quickSort=(arr,k,left=0,right=arr.length-1)=>{
   if(left<right){ 
       let pivotIndex=pivot(arr,left,right)
+      if(pivotIndex===arr.length-k){}
       quickSort(arr,left,pivotIndex-1)
       quickSort(arr,pivotIndex+1,right)
   }
@@ -31,6 +32,17 @@ const pivot=(arr,left,right)=>{
   return i
 }
 console.log(quickSort([5,2,3,8,10,11,4,3,19,2,1,4]))
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,11 +1,32 @@
-const swap = (i, j) => {
-  [heap[i], heap[j]] = [heap[j], heap[i]];
+const quickSort = (arr, left = 0, right = arr.length - 1) => {
+  if (left < right) {
+    let pivotIndex = pivot(arr, left, right);
+    quickSort(arr, left, pivotIndex - 1);
+    quickSort(arr, pivotIndex + 1, right);
+  }
+  return arr;
 };
+const pivot = (arr, left, right) => {
+  const swap = (arr, one, two) => {
+    [arr[one], arr[two]] = [arr[two], arr[one]];
+  };
+  let middle = Math.floor((left + right) / 2);
+  swap(arr, middle, right); // swaps the middle and the right for randomization
 
-const helper=(arr,left,right)=>{
-let index=left
+  let p = right; // takes the pivot index
+  let j = left; // takes the first index value
+  let i = left - 1; // the first index that is swapped with
+  while (j < p) {
+    if (arr[j] < arr[p]) {
+      // if the a left most value is lower than the final pivot index, it has its index swapped
+      i++;
+      swap(arr, i, j);
+    }
 
-
-
-
-}
+    j++;
+  }
+  i++;
+  // all the lower values are set prior to the i index, so we swap whatever is on tha index with
+  swap(arr, i, p);
+  return i;
+};

@@ -1,75 +1,68 @@
 
+var findKthLargest = function (nums, k) {
+    let largest=null
+  const heap = [];
+  const swap = (one, two) => {
+    [heap[one], heap[two]] = [heap[two], heap[one]];
+  };
+  const parentIndex = (x) => Math.floor((x - 1) / 2);
+  const maxHeap = (arr) => {
+    for(let value of arr ){
+    heap.push(value);
+    let index = heap.length - 1;
+      while (index) {
+        let parent=parentIndex(index)
+      if (heap[index] > heap[parent]) {
+        swap(index, parent);
+        index = parent;
+      } else {
+        break;
+      }
+    }
+    }
+    return heap;
+  };
+  const findChild = (parent, child = 0) => {
+    let index;
+    if (child === 1) {
+      index = 2 * parent + 2;
+    } else {
+      index = 2 * parent + 1;
+    }
+
+    return heap[index] !== undefined ? index : parent;
+  };
+  const extractMax=()=>{
+     if(!heap.length) return null
+    
+     swap(0,heap.length-1)
+
+      largest=heap.pop()
+        let parentIndex=0
+        while(true){
+        let left=findChild(parentIndex)
+        let right=findChild(parentIndex,1)
+        let largerChild=heap[left]>heap[right] ? left : right
+        if(heap[largerChild]>heap[parentIndex]){
+            swap(parentIndex,largerChild)
+            parentIndex=largerChild
+        }
+        else{
+            break;
+        }
+
+        }
+        
+        return largest
 
 
+  }
+  maxHeap(nums)
+  k= k<=heap.length ? k : heap.length
+  while(k--){
+  extractMax()
+  }
+  return largest
+};
 
-
-
-
-// var letterCombinations = function(digits) {
-//     let obj={}
-//     let charIndex=97
-
-//     for(let i=2;i<10;i++){
-//         obj[i]=[]
-//         for(let j=0;j<(3+(i===7||i===9 ? 1 : 0));j++){
-//           obj[i].push(String.fromCharCode(charIndex))
-//             charIndex++
-//         }
-//     }
-//     if(digits.length<=1){
-//       return ( digits.length===0 ? digits=[''] : digits=obj[digits])
-//     }
-//     let digitsArr=[]
-//     for(let i=0;i<digits.length;i++){
-//         for(let j=0;j<obj[digits[i+1]].length;j++){
-
-//         }
-
-//     }
-
-// };
-
-// var maxProduct = function (nums) {
-//   let max = nums[0];
-//   let min = nums[0];
-//   let fullMax = nums[0];
-//   for (let i = 1; i < nums.length; i++) {
-//     if (nums[i] < 0) {
-//       [max, min] = [min, max];
-//     }
-//     max = Math.max(nums[i], max * nums[i]);
-//     min = Math.min(nums[i], min * nums[i]);
-//     fullMax=Math.max(fullMax,max)
-//   }
-//   return fullMax;
-// };
-
-// console.log(maxProduct([3, 4, -3, 5, 6, -9, -10]));
-// console.log(maxProduct([-3,2,2]));
-
-
-
-
-// function findKthPositive(arr, k) {
-//   let low = 0, high = arr.length;
-
-//   while (low < high) {
-//     let mid = Math.floor((low + high) / 2);
-//     let missing = arr[mid] - (mid + 1);
-
-//     if (missing < k) {
-//       low = mid + 1;
-//     } else {
-//       high = mid;
-//     }
-//   }
-
-//   // The variable 'low' will contain the index where we could insert
-//   // 'k' missing numbers which would also be the first number to make 'missing' >= 'k'
-//   // Return kth missing number
-//   return low + k;
-// }
-
-// // Test cases
-// console.log(findKthPositive([2, 3, 4, 7, 11], 5));  // Output: 9
-// console.log(findKthPositive([1, 2, 4], 1));  
+console.log(findKthLargest([1,2,3,4,5,6,7,8,9],3))
