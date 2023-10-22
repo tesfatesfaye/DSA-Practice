@@ -1,5 +1,5 @@
 var romanToInt = function (s) {
-  let sym = {
+  let ob = {
     I: 1,
     V: 5,
     X:10,
@@ -8,23 +8,15 @@ var romanToInt = function (s) {
     D:500,
     M:1000
   };
-  
   let total=0
-   while(left<s.length){
-
-      if(sym[s[left]]<sym[s[right]]){
-        total=total+(sym[s[right]]-sym[s[left]])
-        left=right+1
-        right+=2
-      }
-      else{
-       total=total+sym[s[left]]
-        left++
-        right++;
-      }
-         
-   }
-
+  for(let i=0;i<s.length;i++){
+    if(ob[s[i]]<ob[s[i+1]]){
+      total-=ob[s[i]]
+    }
+    else{
+      total+=ob[s[i]]
+    }
+  }
    return total
 
 };
