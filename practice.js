@@ -21,5 +21,5 @@ var romanToInt = function (s) {
 
 };
 
-console.log(romanToInt("MCMXCIV"));
+console.log(romanToInt("MCMXX"));
 
