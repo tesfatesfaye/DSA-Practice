@@ -12,28 +12,29 @@ class Trie {
   constructor() {
     this.root = new Node();
   }
-  add(input, node = this.root) {
-    if (!input.length) {
+  add(input, node = this.root,index=0) {
+    if (index>=input.length) {
       node.setEnd();
       return;
     }
 
-    if (!node.children.has(input[0])) {
-      node.children.set(input[0], new Node());
+    if (!node.children.has(input[index])) {
+      node.children.set(input[index], new Node());
     }
-    return this.add(input.substr(1), node.children.get(input[0]));
+    return this.add(input, node.children.get(input[index]),index+1);
   }
   isWord(word) {
     let node = this.root;
-    while (word.length > 1) {
-      if (!node.children.has(word[0])) {
+    let index=0
+    while (index<word.length-1) {
+      if (!node.children.has(word[index])) {
         return false;
       } else {
-        node = node.children.get(word[0]);
-        word = word.substr(1);
+        node = node.children.get(word[index]);
+        index++;
       }
     }
-    return node.children.has(word) && node.children.get(word).end;
+    return node.children.has(word[index]) && node.children.get(word[index]).end;
   }
   print() {
     let words = [];
