@@ -38,9 +38,9 @@ class Trie {
   print() {
     let words = [];
     const search = (node, string) => {
-      if (node.children.size) {
+      if (node.children.size>0) {
         for (let letter of node.children.keys()) {
-          search(node.children.get(letter), string.concat(letter));
+          search(node.children.get(letter), string+letter);
         }
         if (node.end) {
           words.push(string);
@@ -51,7 +51,8 @@ class Trie {
       }
 
     };
-    search(this.root, new String())
+    search(this.root, "")
+    return words
   }
 }
 
@@ -59,6 +60,6 @@ let myTrie = new Trie();
 myTrie.add("ball");
 myTrie.add("balk");
 myTrie.add("alk");
-console.log(myTrie.root.children.get("a").children.get("l"));
+
 console.log(myTrie.isWord("balk"));
-console.log(print())
+console.log(myTrie.print())
