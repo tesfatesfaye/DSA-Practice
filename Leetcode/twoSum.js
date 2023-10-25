@@ -1,6 +1,6 @@
 const twoSum = (nums, target) => {
   // best implementation
-  let obj = {};
+  let obj = {}; // can also be implemented with a map
   for (let i = 0; i < nums.length; i++) {
     let targetVal = target - nums[i];
     if (obj[targetVal] !== undefined) {
@@ -56,30 +56,34 @@ const twoSum = (nums, target) => {
 
 //     };
 
-//     const twoSumMap = (nums, target) =>{
-//         let map=new Map()
-//         for(let i=0;i<nums.length;i++){
-//             if(!map.has(nums[i])){
+// var twoSum = function(nums, target) {
+//     let map= new Map()
+
+//    for(let i=0;i<nums.length;i++){
+
+//         if(map.has(nums[i])){
+//           let val=map.get(nums[i])
+//             val.push(i)
+//             map.set(nums[i],val)
+
+//         }
+//         else {
 //             map.set(nums[i],[i])
-//             }
-//             else{
+//         }
+//     }
 
-//                 map.get(nums[i]).push(i)
-
+//     for(let i=0;i<nums.length;i++){
+//         let val=target-nums[i]
+//         if(val===nums[i]){
+//             if(map.get(nums[i]).length>1){
+//                 return [i,map.get(nums[i])[1]]
 //             }
 //         }
-//             console.log(map)
-//         for(let i of map){
-//             let key=i[0]
+//         else if(map.has(val)){
 
-//             let item=target-key
-//                     if(item===key&& map.get(key).length>1){
-
-//                 return[map.get(key)[0],map.get(key)[1]]
-//             }
-//             if(map.has(item) && item!==key){
-//                 return[map.get(item)[0],map.get(key)[0]]
-//             }
+//             return [i,map.get(val)[0]]
 //         }
 
-//     };
+//     }
+
+// };

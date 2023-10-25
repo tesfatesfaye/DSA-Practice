@@ -1,44 +1,31 @@
-const twoSum = (nums, target) => {
-  let obj = {};
-  for (let i = 0; i < nums.length; i++) {
-    let targetVal = target - nums[i];
-    if (obj[targetVal] !== undefined) {
-      return [obj[targetVal], i];
+const twoSum = (nums, target, left = 0) => {
+  let right = nums.length - 1;
+  while (left < right) {
+    let value = nums[left] + nums[right];
+    if (value === target) {
+      return [left, right];
     }
-    obj[nums[i]] = i;
+    if (value < target) {
+      left++;
+    } else {
+      right--;
+    }
   }
+
+  return [];
 };
 
-// var twoSum = function(nums, target) {
-//     let map= new Map()
+const threeSum = (nums) => {
+  nums.sort((a, b) => a - b);
+  const answerArray=[]
+  for (let i = 0; i < nums.length-2; i++) {
+    if(nums[i]===nums[i-1]) continue
+    let returnVal=twoSum(nums,0-nums[i],i+1)
+    if(returnVal.length) answerArray.push(returnVal)
+  }
 
-//    for(let i=0;i<nums.length;i++){
+  return answerArray
 
-//         if(map.has(nums[i])){
-//           let val=map.get(nums[i])
-//             val.push(i)
-//             map.set(nums[i],val)
 
-//         }
-//         else {
-//             map.set(nums[i],[i])
-//         }
-//     }
+};
 
-//     for(let i=0;i<nums.length;i++){
-//         let val=target-nums[i]
-//         if(val===nums[i]){
-//             if(map.get(nums[i]).length>1){
-//                 return [i,map.get(nums[i])[1]]
-//             }
-//         }
-//         else if(map.has(val)){
-
-//             return [i,map.get(val)[0]]
-//         }
-
-//     }
-
-// };
-
-console.log(twoSum([2, 7, 11, 15], 9));
