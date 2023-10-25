@@ -150,6 +150,7 @@ bts.insert(3);
 console.log(bts.BFS());
 console.log(bts.delete(5));
 console.log(bts.DFS());
+console.log(JSON.stringify(bts.root))
 // console.log(bts.Min().val);
 // console.log(bts.Max().val);
 // console.log(bts["root"])
