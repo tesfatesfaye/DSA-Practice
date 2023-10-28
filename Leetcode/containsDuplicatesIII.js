@@ -1,34 +1,18 @@
-var containsNearbyAlmostDuplicate = function (nums, indexDiff, valueDiff) {
-  if (nums.length < indexDiff) return false;
-
-  let holder = {};
-  const checker = (i, ind, val) => {
-    let counter = 1;
-    while (counter <= i && counter <= ind) {
-      if (Math.abs(holder[i - counter] - holder[i]) <= val) {
-        return true;
-      }
-      counter++;
-    }
-    return false;
-  };
-  let length = 0;
-  for (let i in nums) {
-    holder[i] = nums[i];
-    length = Object.keys(holder).length;
-    if (length > 1) {
-      // if((holder[nums[i]!==holder[nums[i-indexDiff]]])){
-      console.log(
-        Math.abs(holder[nums[i]] - holder[nums[i - indexDiff]]) <= valueDiff
-      );
-      if (checker(i, indexDiff, valueDiff)) {
-        return true;
-        // }
-      }
-    }
-    if (i >= indexDiff) {
-      delete holder[i - indexDiff];
+var containsNearbyAlmostDuplicateBruteForce = function (nums, indexDiff, valueDiff) {
+  for (let i = 0; i < nums.length; i++) {
+    let l = i - indexDiff;
+    let r = indexDiff + i;
+    if (l < 0) l = 0;
+    if (r >= nums.length) r = nums.length - 1;
+    while (l < i || r > i) {
+      if (i < l && Math.abs(nums[i] - nums[l]) <= valueDiff) return true;
+      if (r > i && Math.abs(nums[i] - nums[r]) <= valueDiff) return true;
+      if (l !== i) l++;
+      if (r !== i) r--;
     }
   }
   return false;
 };
+
+console.log(containsNearbyAlmostDuplicateBruteForce([1, 2, 3, 1], 3, 0));
+console.log(containsNearbyAlmostDuplicateBruteForce([1, 5, 9, 1, 5, 9], 2, 3));

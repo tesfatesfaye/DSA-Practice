@@ -1,81 +1,20 @@
-// const kSum = (nums, target) => {
-//   nums.sort((a,b)=>a-b);
-//   let res = [],
-//   quad = [];
-//   let k=4
-//   const kSum = (k, start, target) => {
-//     if (k !== 2) {
-//       for (let i = start; i < nums.length - k + 1; i++) {
-//         if (i > start && nums[i] === nums[i - 1]) continue;
-//         quad.push(nums[i]);
-//        kSum(k - 1, i + 1, target - nums[i]);
-   
-//         quad.pop();
-//       }
-//     } 
-//     else {
-//           let l = start,
-//         r = nums.length - 1;
-//       while (l < r) {
-//         let sum = nums[l] + nums[r];
-//         if (sum < target) {
-//           l++;
-//         } else if (sum > target) {
-//           r--;
-//         } else {
-//           res.push([...quad, nums[l], nums[r]]);
-//           l++;
-//            while (l < r && nums[l] === nums[l - 1]) l++; // avoid duplicates
-//            while (l < r && nums[r] === nums[r + 1]) r--;
-//         }
-//       }
-//     }
-//   };
-//     kSum(4,0,target);
-//   return res
+var containsNearbyAlmostDuplicate = function (nums, indexDiff, valueDiff) {
+  let map = new Map();
+  let bucketSize=valueDiff+1
+  for (let i = 0; i < nums.length; i++) {
+    const mapKey = Math.floor(nums[i] / bucketSize);
+    if (map.has(mapKey)) return true;    
+    if (map.has(mapKey - 1) && nums[i]-map.get(mapKey - 1) < bucketSize) return true;
+    if (map.has(mapKey + 1) && map.get(mapKey + 1)-nums[i] < bucketSize) return true;
+    map.set(mapKey, nums[i]);
 
-// };
-var fourSum = function (nums, target) {
-  let res = [],
-    quad = [];
-  nums.sort((a, b) => a - b);
-  const kSum = (k, start, target) => {
-    if (k !== 2) {
-      for (let i = start; i < nums.length - k + 1; i++) {
-        if (i > start && nums[i] === nums[i - 1]) continue;
-        quad.push(nums[i]);
-        kSum(k - 1, i+1, target - nums[i]);
-        quad.pop();
-      }
-    } else {
-      let l = start,
-        r = nums.length - 1;
-      while (l < r) {
-        let sum = nums[l] + nums[r];
-        if (sum < target) {
-          l++;
-        } else if (sum > target) {
-          r--;
-        } else {
-          res.push([...quad, nums[l], nums[r]]);
-          l++;
-          while (nums[l] === nums[l - 1]) l++;
-          while (nums[r] === nums[r + 1]) r--;
-        }
-      }
+    if (i >= indexDiff) {
+      const oldMapKey = Math.floor(nums[i - indexDiff] / bucketSize);
+      map.delete(oldMapKey);
     }
-  };
-  kSum(4, 0, target);
-  return res;
+  }
 
+  return false
+};
 
-}
-
-
-
-
-
-
-console.log(fourSum([1, 0, -1, 0, -2, 2],0));
-
-
+console.log(containsNearbyAlmostDuplicate([1, 2, 3, 1], 3, 0));
