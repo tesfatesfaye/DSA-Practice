@@ -14,6 +14,7 @@ class BTS {
   insert(val) {
     if (this.root) {
       let holder = this.root;
+      let conditon= true;
       while (true) {
         if (holder.val === val) {
           return undefined;
