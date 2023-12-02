@@ -4,24 +4,32 @@ class NestedIterator {
     this.nestedList = this.flatten(nestedList);
     this.index = 0;
   }
-
-flatten = (inputArray) => {
-  let flat=[]
-    for (let i of inputArray) {
-    if (i.isInteger()===null) {
-      flat.push(...flat,i.getList())
-    } else {
-      flat.push(i.getInteger())
-    }
+  getList() {
+    let value = this.nestedList[this.index];
+    this.index++;
+    return value;
   }
-  return flat;
-}
+  getInteger(item) {
+    return this.isInteger(item) ? item : null;
+  }
+  isInteger(value) {
+    return typeof value === "number";
+  }
+  flatten = (inputArray, flat = []) => {
+    for (let i of inputArray) {
+      if (i.isInteger() === false) {
+        this.flatten(i.getList(), flat);
+      } else {
+        flat.push(i.getInteger());
+      }
+    }
+    return flat;
+  };
 
   hasNext() {
     if (this.index < this.nestedList.length) return true;
     return false;
   }
-
 
   next() {
     if (this.hasNext) {
@@ -32,7 +40,7 @@ flatten = (inputArray) => {
   }
 }
 
-const nestedList = [[1, 1], 2, [1, 1]];
-var i = new NestedIterator(nestedList), a = [];
- while (i.hasNext()) a.push(i.next());
- console.log(a)
+const nestedList = [new NestedIterator([1, 1]), new NestedIterator([2]), new NestedIterator([1, 1])];
+// var i = new NestedIterator(nestedList), a = [];
+//  while (i.hasNext()) a.push(i.next());
+ console.log(nestedList)
