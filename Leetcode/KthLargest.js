@@ -83,7 +83,9 @@ const pivot = (arr, left = 0, right = arr.length - 1) => {
 };
 
 
-
+  const dis = (nums) => {
+    return Math.sqrt(Math.pow(nums[0], 2) + Math.pow(nums[1], 2));
+  };
 
 
 const KthLargestQuickSelect = (arr, k, left = 0, right = arr.length - 1) => {
