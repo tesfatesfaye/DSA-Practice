@@ -1,21 +1,19 @@
 const pivotFunction = (nums, left = 0, right = nums.length - 1) => {
   const swapper = (nums, left, right) =>
     ([nums[left], nums[right]] = [nums[right], nums[left]]);
-    let pivotIndex = Math.floor(Math.random() * (right - left) + left);
-    swapper(nums, pivotIndex, right);
-  const dis = (nums) => {
-    return Math.sqrt(Math.pow(nums[0], 2) + Math.pow(nums[1], 2));
-  };
+  let pivotIndex = Math.floor(Math.random() * (right - left) + left);
+  swapper(nums, pivotIndex, right);
+
   let l = left;
 
   while (left <= right) {
-    if (dis(nums[left]) < dis(nums[right])) {
+    if (nums[left] > nums[right]) {
       swapper(nums, left, l);
       l++;
     }
     left++;
   }
-  swapper(nums, l, right);
+  swapper(nums, l, right); 
   return l;
 };
 
@@ -30,10 +28,5 @@ const kClosest = (nums, k, left = 0, right = nums.length - 1) => {
   }
 };
 
-const array = [
-  [3, 3],
-  [1, 1],
-  [0, 0],
-  [29, 53]
-];
+const array = [3, 1, 19, 27, 2, 17];
 console.log(kClosest(array, 3));
