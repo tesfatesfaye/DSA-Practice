@@ -64,49 +64,35 @@ var findKthLargestHeap = function (nums, k) {
 
 
 
-const swap = (arr, one, two) => {
-  [arr[one], arr[two]] = [arr[two], arr[one]];
-};
+const pivotFunction = (nums, left = 0, right = nums.length - 1) => {
+  const swapper = (nums, left, right) =>
+    ([nums[left], nums[right]] = [nums[right], nums[left]]);
+  let pivotIndex = Math.floor(Math.random() * (right - left) + left);
+  swapper(nums, pivotIndex, right);
 
-const pivot = (arr, left = 0, right = arr.length - 1) => {
-  let start = left;
+  let l = left;
 
-  while (left < right) {
-    if (arr[left] < arr[right]) {
-      swap(arr, left, start);
-      start++;
+  while (left <= right) {
+    if (nums[left] > nums[right]) {
+      swapper(nums, left, l);
+      l++;
     }
     left++;
   }
-  swap(arr, start, right);
-  return start;
+  swapper(nums, l, right);
+  return l;
 };
 
-
-  const dis = (nums) => {
-    return Math.sqrt(Math.pow(nums[0], 2) + Math.pow(nums[1], 2));
-  };
-
-
-const KthLargestQuickSelect = (arr, k, left = 0, right = arr.length - 1) => {
-  let kval = arr.length - k;
-  if (left === right) return arr[left];
-
-  let piv = pivot(arr, left, right);
-
-  if (piv === kval) {
-    return arr[piv];
-  } else if (kval < piv) {
-    return KthLargestQuickSelect(arr, k, left, piv - 1);
+const kthLargest = (nums, k, left = 0, right = nums.length - 1) => { // quick select function
+  if (right == k - 1 || left < 0) return nums.slice(0, k);
+  const pivot = pivotFunction(nums, left, right);
+  if (k - 1 === pivot) return nums.slice(0, k);
+  if (pivot > k - 1) {
+    return kthLargest(nums, k, 0, pivot - 1);
   } else {
-    return KthLargestQuickSelect(arr, k, piv + 1, right);
+    return kthLargest(nums, k, pivot + 1, right);
   }
 };
 
-const array = [
-  13, 5, 28, 8, 4, 30, 10, 25, 17, 2, 12, 9, 19, 1, 23, 16, 29, 20, 21, 6, 3, 7,
-  27, 24, 26, 11, 14, 15, 18, 22,
-];
-
-console.log(KthLargestQuickSelect(array, 2));
-console.log(array);
+const array = [3, 1, 19, 27, 2, 17];
+console.log(kthLargest(array, 3));
