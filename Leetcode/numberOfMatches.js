@@ -1,4 +1,4 @@
-var numberOfMatches = function (n) {
+const numberOfMatches =  (n)=> {
   let matchCount = 0;
   while (n > 1) {
     if (n % 2 !== 0) {
