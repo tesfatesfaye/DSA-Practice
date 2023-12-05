@@ -17,16 +17,16 @@ const pivotFunction = (nums, left = 0, right = nums.length - 1) => {
   return l;
 };
 
-const kClosest = (nums, k, left = 0, right = nums.length - 1) => {
+const kthLargest = (nums, k, left = 0, right = nums.length - 1) => {
   if (right == k - 1 || left < 0) return nums.slice(0, k);
   const pivot = pivotFunction(nums, left, right);
   if (k - 1 === pivot) return nums.slice(0, k);
   if (pivot > k - 1) {
-    return kClosest(nums, k, 0, pivot - 1);
+    return kthLargest(nums, k, 0, pivot - 1);
   } else {
-    return kClosest(nums, k, pivot + 1, right);
+    return kthLargest(nums, k, pivot + 1, right);
   }
 };
 
 const array = [3, 1, 19, 27, 2, 17];
-console.log(kClosest(array, 3));
+console.log(kthLargest(array, 3));
