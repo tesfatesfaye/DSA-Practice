@@ -1,16 +1,18 @@
-var numberOfMatches = function (n) {
-  let matchCount = 0;
-  while (n > 1) {
-    if (n % 2 !== 0) {
-      matchCount += (n - 1) / 2;
-      n = Math.floor(n / 2) + 1;
-    } else {
-      matchCount += n / 2;
-      n = n / 2;
-    }
+const checkAlmostEquivalentIII = (word1, word2) => {
+  const frequencies=new Map()
+  for(let i of word1){
+    frequencies.has(i) ? frequencies.set(i,frequencies.get(i)+1) : frequencies.set(i,1)
+  }
+  for(let i of word2){
+    frequencies.has(i)
+      ? frequencies.set(i, frequencies.get(i) -1)
+      : frequencies.set(i, -1);
   }
 
-  return matchCount;
-};
+  for( let i of frequencies){
+    if(Math.abs(frequencies.get(i[0]))>3)return false
+  }
+  return true
+}
 
-console.log(numberOfMatches(14));
+console.log(checkAlmostEquivalentIII("abaaacccc", "abcdeef"));
