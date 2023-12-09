@@ -1,75 +1,36 @@
-
-class ListNode {
-    constructor(val, next){
-     this.val = (val===undefined ? 0 : val)
-     this.next = (next===undefined ? null : next)
- }
+class SinglyLinkedList {
+  constructor(val) {
+    this.val = val;
+    this.next = null;
+  }
 }
 
-let head=new ListNode(1, new ListNode(2, new ListNode(3,new ListNode(4, new ListNode(5)))))
-let headT=new ListNode(1, new ListNode(2))
-let headtT=new ListNode(1)
+let node1 = new SinglyLinkedList(3);
+let node2 = new SinglyLinkedList(2);
+let node3 = new SinglyLinkedList(0);
+let node4 = new SinglyLinkedList(-4);
 
+node1.next = node2;
+node2.next = node3;
+node3.next = node4;
 
-var removeNthFromEnd = function(head, n) {
-let length=0
-if(n===0){
-    head.next=null
-    return head
-}
-let node;
-let removedNode=head
-while(removedNode){
-removedNode=removedNode.next
-length ++
+// node1 is the head of the linked list
+console.log(node1);
 
-}
-console.log(length)
-length=length-n
-if(length<0) return null
-if(length===0){
-    node=head.next
-    head.next=null
-    return node
-}
-removedNode=head
-while(length>0){
-    node=removedNode
-    removedNode=removedNode.next
-    length--
+const removeNthFromEnd = (head, n) => {
+  if (!head) return null;
+  const dummyNode = new SinglyLinkedList(0);
+  dummyNode.next = head;
+  let slow = head,
+    fast = head;
+  for (let i = 0; i <= n; i++) {
+    fast = fast.next;
+  }
 
-}
-node.next=removedNode.next
-removedNode.next=null
-
-return head
-
-
-
+  while (fast) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+  slow.next = slow.next.next;
+  return dummyNode.next;
 };
-
-
-
-
-
-const removeNthFromEndMemo= (head, n) => {
-    let length=0
-    let removedNode=head
-    let memo={}
-    while(removedNode){
-        memo[length]=removedNode
-        removedNode=removedNode.next
-       length ++
-          
-    }
-        length=length-n
-        if(length===0){
-            return head.next
-        }
-            memo[length-1].next=memo[length].next
-            return head
-       
-
-    
-    
-    };
