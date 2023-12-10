@@ -51,4 +51,4 @@ var isSymmetric = function (root) {
   return isMirror(root.left, root.right);
 };
 
-console.log(isSymmetric(node))
+console.log(isSymmetric(node1))
