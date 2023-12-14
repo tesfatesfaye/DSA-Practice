@@ -19,8 +19,6 @@ let node10 = new TreeNode(2);
 let node11 = new TreeNode(3);
 let node12 = new TreeNode(3);
 
-
-
 node1.left = node2;
 node1.right = node3;
 node2.left = node4;
@@ -34,8 +32,6 @@ node9.right = node11;
 node10.right = node12;
 
 // node1 is the root of the tree
-
-
 
 var isSymmetric = function (root) {
   const isMirror = (left, right) => {
@@ -51,4 +47,4 @@ var isSymmetric = function (root) {
   return isMirror(root.left, root.right);
 };
 
-console.log(isSymmetric(node1))
+console.log(isSymmetric(node1));
