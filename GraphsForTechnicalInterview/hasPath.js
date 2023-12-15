@@ -1,6 +1,24 @@
 const graph = { f: ["g", "i"], g: ["h"], h: [], i: ["g", "k"], j: ["i"],k:[] };
 
-const DFS = (graph, src, dst) => {
+const hasPath=(graph,src,dst,set=new Set())=>{
+    if(src===dst) return true
+    for(let neighbor of graph[src]){
+        if(!set.has(neighbor)){
+            set.add(neighbor)
+            if(hasPath(graph,neighbor,dst,set)===true) return true
+        }
+    }
+    return false
+}
+
+
+
+
+
+
+
+
+const hasPathTwo = (graph, src, dst) => {
  
   const passed = new Set();
 
@@ -22,4 +40,4 @@ const DFS = (graph, src, dst) => {
   return helper(src)
 };
 
-console.log(DFS(graph, "j", "f"));
+console.log(hasPath(graph, "j", "f"));
