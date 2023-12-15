@@ -33,7 +33,7 @@ node10.right = node12;
 
 // node1 is the root of the tree
 
-var isSymmetric = function (root) {
+const isSymmetric =  (root) =>{
   const isMirror = (left, right) => {
     if (!left && !right) return true;
     if (!left || !right) return false;
