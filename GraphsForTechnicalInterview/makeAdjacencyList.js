@@ -16,3 +16,4 @@ const converter = (arr) => {
 const edges=[['i','j'],['k','i'],['m','k'],['k','l'],['o','n']]
 const list=converter(edges)
 console.log(list)
+
