@@ -13,7 +13,7 @@ const converter = (arr) => {
   return graph;
 };
 
-const edges=[['i','j'],['k','i'],['m','k'],['k','l'],['o','n']]
+const edges=[['i','j'],['k','i'],['m','k'],['k','l'],['o','n'],['k','j']]
 const list=converter(edges)
 console.log(list)
 
