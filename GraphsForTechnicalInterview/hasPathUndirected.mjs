@@ -6,13 +6,13 @@ const edges = [
   ["o", "n"],
 ];
 
-const hasPath = (graph, src, dst, set = new Set([src])) => {
+const hasPath = (graph, src, dst, visited = new Set([src])) => {
   if (Array.isArray(graph)) graph = buildGraph(graph);
   if (src === dst) return true;
   for (let node of graph[src]) {
-    if (!set.has(node)) {
-      set.add(node);
-      if (hasPath(graph, node, dst, set) === true) return true;
+    if (!visited.has(node)) {
+      visited.add(node);
+      if (hasPath(graph, node, dst, visited) === true) return true;
     }
   }
   return false;
