@@ -17,11 +17,3 @@ export const buildGraph = (arr) => {
   return graph;
 };
 
-const edges = [
-  ["i", "j", "k"],
-  ["m", "k"],
-  ["k", "l"],
-  ["o", "n"],
-];
-const list = buildGraph(edges);
-console.log(list);
