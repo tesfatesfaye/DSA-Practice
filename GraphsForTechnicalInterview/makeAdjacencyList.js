@@ -4,16 +4,17 @@ const converter = (arr) => {
     for (let j of i) {
       let values = i.filter((x) => x !== j);
       if (graph[j]!==undefined) {
-        graph[j] = [...graph[j], ...values];
+        graph[j] = [...new Set([...values, ...graph[j]]).values()];
       } else {
-        graph[j] = values;
+
+        graph[j] = [...new Set(values).values()];
       }
     }
   }
   return graph;
 };
 
-const edges=[['i','j'],['k','i'],['m','k'],['k','l'],['o','n'],['k','j']]
+const edges=[['i','j','k'],['k','i'],['m','k'],['k','l'],['o','n']]
 const list=converter(edges)
 console.log(list)
 
