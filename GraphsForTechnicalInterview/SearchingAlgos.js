@@ -10,10 +10,10 @@ const al = {
 const dft = (key, graph) => {
   // recursive
   if (graph[key] === undefined) return [];
-  const values = new Set();
+  const visited = new Set();
   const helper = (key) => {
-    if (!values.has(key)) {
-      values.add(key);
+    if (!visited.has(key)) {
+      visited.add(key);
       for (let i of graph[key]) {
         helper(i);
       }
@@ -21,40 +21,40 @@ const dft = (key, graph) => {
   };
   helper(key);
 
-  return [...values.values()];
+  return [...visited.visited()];
 };
 console.log(dft("a", al));
 
 const dftIterative = (graph, source) => {
   // iterative depth first
   const stack = [source];
-  const values = new Set([source]);
+  const visited = new Set([source]);
   while (stack.length > 0) {
     const current = stack.pop();
 
     for (let i of graph[current]) {
-      values.add(i);
+      visited.add(i);
       stack.push(i);
     }
   }
 
-  return [...values.values()];
+  return [...visited.visited()];
 };
 
 console.log(dftIterative(al, "a"));
 
 const bfs = (key, graph) => { // breadth first search
   const queue = [key];
-  const values = new Set([key]);
+  const visited = new Set([key]);
   while (queue.length) {
     let currentNode = queue.shift();
     for (let i of graph[currentNode]) {
-      values.add(i)
+      visited.add(i)
       queue.push(i)
 
     }
   }
-  return [...values.keys()]
+  return [...visited.keys()]
 };
 
 console.log(bfs("a",al))
