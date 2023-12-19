@@ -1,4 +1,4 @@
-const converter = (arr) => {
+export const buildGraph = (arr) => {
   const graph = {};
   for (let edge of arr) {
     for (let node of edge) {
@@ -23,5 +23,5 @@ const edges = [
   ["k", "l"],
   ["o", "n"],
 ];
-const list = converter(edges);
+const list = buildGraph(edges);
 console.log(list);
