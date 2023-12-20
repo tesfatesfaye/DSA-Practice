@@ -15,7 +15,7 @@ const connectedCount = (graph) => {
       visited.add(node[0]);
       helper(node[0], graph, visited);
       count++;
-      console.log(visited.values())
+      
     }
   }
 

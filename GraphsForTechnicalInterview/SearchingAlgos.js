@@ -21,7 +21,7 @@ const dft = (key, graph) => {
   };
   helper(key);
 
-  return [...visited.visited()];
+  return Array.from(visited);
 };
 console.log(dft("a", al));
 
@@ -38,7 +38,7 @@ const dftIterative = (graph, source) => {
     }
   }
 
-  return [...visited.visited()];
+  return Array.from(visited);
 };
 
 console.log(dftIterative(al, "a"));
@@ -54,7 +54,7 @@ const bfs = (key, graph) => { // breadth first search
 
     }
   }
-  return [...visited.keys()]
+  return Array.from(visited)
 };
 
 console.log(bfs("a",al))
