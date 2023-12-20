@@ -1,34 +1,34 @@
 //work in progress
 const graph = {
-  0: ['4','7'],
-  1: [],
-  2: [],
-  3: ['6'],
-  4: ['0'],
-  6: ['3'],
-  7: ['0'],
-  8: []};
-
-const largestComponent = (graph) => {
-  let max = 0;
-  const visited = new Set();
-  const explore = (current, currentMax) => {
-    currentMax++;
-    visited.add(String(current));
-
-    for (let node of graph[current]) {
-      if (!visited.has(String(node))) {
-        currentMax = explore(node, currentMax);
-      }
-    }
-    return currentMax;
-  };
-  for (let i in graph) {
-    if (!visited.has(i)) {
-      max = Math.max(max, explore(i, 0));
-    }
-  }
-  return max;
+  0: ["8", "1", "5"],
+  1: ["0"],
+  5: ["0", "8"],
+  8: ["0", "5"],
+  2: ["3", "4"],
+  3: ["2", "4"],
+  4: ["3", "2"],
 };
 
-console.log(largestComponent(graph));
+const largestComponentHelper=(graph)=>{
+    let largestComponentSize=0
+    const visited=new Set()
+    const helper=(current,currentMax)=>{
+        if(!visited.has(current)){
+            visited.add(current)
+            currentMax++
+            for(let node of graph[current]){
+                currentMax=helper(node,currentMax)
+            }
+        }
+        return currentMax
+
+    }
+
+    for(let node in graph){
+        largestComponentSize=Math.max(largestComponentSize,helper(node,0))
+    }
+
+    return largestComponentSize
+}
+
+console.log(largestComponentHelper(graph));
