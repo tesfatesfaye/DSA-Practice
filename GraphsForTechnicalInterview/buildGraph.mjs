@@ -16,4 +16,3 @@ export const buildGraph = (arr) => {
 
   return graph;
 };
-

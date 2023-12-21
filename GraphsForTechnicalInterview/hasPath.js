@@ -7,13 +7,12 @@ const graph = {
   k: [],
 };
 
-const hasPath = (graph, src, dst, set = new Set()) => {
-  // recursive
+const hasPath = (graph, src, dst, visited = new Set()) => {
   if (src === dst) return true;
   for (let neighbor of graph[src]) {
-    if (!set.has(neighbor)) {
-      set.add(neighbor);
-      if (hasPath(graph, neighbor, dst, set) === true) return true;
+    if (!visited.has(neighbor)) {
+      visited.add(neighbor);
+      if (hasPath(graph, neighbor, dst, visited) === true) return true;
     }
   }
   return false;
@@ -21,30 +20,19 @@ const hasPath = (graph, src, dst, set = new Set()) => {
 
 const hasPathBfs = (graph, src, dst) => {
   const queue = [src];
-  const values = new Set(src);
+  const visited = new Set(src);
   while (queue.length) {
     const current = queue.shift();
     if (current === dst) return true;
     for (let neighbor of graph[current]) {
-      if (!values.has(neighbor)) {
+      if (!visited.has(neighbor)) {
         queue.push(neighbor);
-        values.add(neighbor);
+        visited.add(neighbor);
       }
     }
   }
   return false;
 };
 
-const hasPathTwo = (graph, src, dst, set = new Set([src])) => {
-  if (src === dst) return true;
-  for (let neighbor of graph[src]) {
-    if (!set.has(neighbor)) {
-      set.add(neighbor)
-      if (hasPathTwo(graph, neighbor, dst, set)===true) return true;
-    }
-  }
-  return false
-};
-
 console.log(hasPathBfs(graph, "f", "k"));
-console.log(hasPathTwo(graph, "f", "j"));
+console.log(hasPath(graph, "f", "j"));

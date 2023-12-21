@@ -1,5 +1,5 @@
 import { buildGraph } from "./buildGraph.mjs";
-const graph =buildGraph( [
+const graph = buildGraph([
   ["w", "x"],
   ["x", "y"],
   ["z", "y"],
